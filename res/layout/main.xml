@@ -25,19 +25,33 @@
 			android:layout_marginLeft="8dp"
 			android:orientation="vertical">
 
-			<TextView android:id="@+id/name_nick"
-				style="@style/Text.Vcard.Nick"
+			<FrameLayout android:id="@+id/name_frame"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left" >
+
+				<TextView android:id="@+id/name_nick"
+					style="@style/Text.Vcard.Nick"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="left|center_vertical"
+					android:text="@string/vcard_name_nick" />
+
+				<TextView android:id="@+id/name_real"
+					style="@style/Text.Vcard.Name"
+					android:visibility="invisible"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="left|center_vertical"
+					android:text="@string/vcard_name_real" />
+			</FrameLayout>
+
+			<TextView android:id="@+id/name_position"
+				style="@style/Text.Vcard.Position"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:gravity="left"
-				android:text="@string/vcard_name_nick" />
-
-			<TextView android:id="@+id/name_real"
-				style="@style/Text.Vcard.Name"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:gravity="right"
-				android:text="@string/vcard_name_real" />
+				android:text="@string/vcard_position" />
 		</LinearLayout>
 	</RelativeLayout>
 
@@ -61,12 +75,4 @@
 			android:scaleType="centerCrop"
 			android:contentDescription="@string/desc_location"/>
 	</FrameLayout>
-
-	<com.viewpagerindicator.TitlePageIndicator android:id="@+id/indicator"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"  />
-
-	<android.support.v4.view.ViewPager android:id="@+id/pager"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent" />
 </LinearLayout>

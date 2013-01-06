@@ -1,15 +1,12 @@
 package carnero.me.activity;
 
 import android.app.Activity;
-import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
 import carnero.me.Constants;
 import carnero.me.R;
@@ -20,10 +17,16 @@ public class Main extends Activity {
 
 	private int mLatitude;
 	private int mLongitude;
+	private boolean mNickDisplayed = true;
+	private boolean mAnimating = false;
 	// views
-	private ViewPager mPager;
+	private TextView mNick;
+	private TextView mName;
 	private ImageView mMap;
 	private View mLocation;
+	// animations
+	private Animation mSlideTop;
+	private Animation mSlideBottom;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,28 @@ public class Main extends Activity {
 
 		setContentView(R.layout.main);
 
-		mPager = (ViewPager) findViewById(R.id.pager);
+		mNick = (TextView) findViewById(R.id.name_nick);
+		mName = (TextView) findViewById(R.id.name_real);
 		mMap = (ImageView) findViewById(R.id.location_map);
 		mLocation = findViewById(R.id.location_current);
+
+		mSlideTop = AnimationUtils.loadAnimation(this, R.anim.slide_top);
+		mSlideBottom = AnimationUtils.loadAnimation(this, R.anim.slide_bottom);
+
+		findViewById(R.id.name_frame).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (mAnimating) {
+					return;
+				}
+
+				if (mNickDisplayed) {
+					animateToName();
+				} else {
+					animateToNick();
+				}
+			}
+		});
 	}
 
 	@Override
@@ -48,6 +70,62 @@ public class Main extends Activity {
 		final LocationThread thread = new LocationThread(handler);
 
 		thread.start();
+	}
+
+	public void animateToName() {
+		mSlideTop.setAnimationListener(new Animation.AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {
+				mAnimating = true;
+				mName.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				mNick.setVisibility(View.INVISIBLE);
+				mNickDisplayed = false;
+				mAnimating = false;
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// nothing
+			}
+		});
+
+		mNick.clearAnimation();
+		mName.clearAnimation();
+
+		mNick.startAnimation(mSlideTop);
+		mName.startAnimation(mSlideBottom);
+	}
+
+	public void animateToNick() {
+		mSlideTop.setAnimationListener(new Animation.AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {
+				mAnimating = true;
+				mNick.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				mName.setVisibility(View.INVISIBLE);
+				mNickDisplayed = true;
+				mAnimating = false;
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// nothing
+			}
+		});
+
+		mName.clearAnimation();
+		mNick.clearAnimation();
+
+		mName.startAnimation(mSlideTop);
+		mNick.startAnimation(mSlideBottom);
 	}
 
 	// classes
