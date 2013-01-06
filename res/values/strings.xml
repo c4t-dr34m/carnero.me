@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">carnero</string>
+	<!-- vcard -->
+	<string name="vcard_name_nick">carnero</string>
+	<string name="vcard_name_real">Radovan Paška</string>
+	<!-- descriptions -->
+	<string name="desc_logo">carnero</string>
 </resources>

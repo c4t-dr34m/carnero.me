@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Text">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="Text.Vcard">
+		<item name="android:padding">4dp</item>
+	</style>
+
+	<style name="Text.Vcard.Nick">
+		<item name="android:textSize">30dp</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="Text.Vcard.Name">
+		<item name="android:textSize">18dp</item>
+		<item name="android:textStyle">normal</item>
+	</style>
+</resources>
