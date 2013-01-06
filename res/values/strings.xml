@@ -12,15 +12,10 @@
 	<string name="contact_email_value">carnero@carnero.cc</string>
 	<string name="contact_gtalk_label">gtalk:</string>
 	<string name="contact_gtalk_value">carnero@carnero.cc</string>
-	<string name="contact_networks_label">networks:</string>
 	<!-- descriptions -->
 	<string name="desc_logo">carnero</string>
 	<string name="desc_map">world map</string>
 	<string name="desc_location">carnero\'s current location</string>
-	<string name="desc_google_plus">carnero</string>
-	<string name="desc_linkedin">carnero</string>
-	<string name="desc_twitter">carnero</string>
-	<string name="desc_facebook">carnero</string>
 	<!-- errors -->
 	<string name="error_no_phone">There is no application for calling.</string>
 	<string name="error_no_mail">There is no application for composing email.</string>
