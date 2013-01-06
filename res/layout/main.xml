@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
 
 	<RelativeLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentLeft="true"
 		android:layout_margin="32dp" >
 
 		<ImageView android:id="@+id/logo"
@@ -42,10 +41,32 @@
 		</LinearLayout>
 	</RelativeLayout>
 
-	<TextView android:id="@+id/debug"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:gravity="center" />
-</RelativeLayout>
+	<FrameLayout
+		android:layout_width="360dp"
+		android:layout_height="189dp"
+		android:layout_gravity="center_horizontal" >
 
+		<ImageView android:id="@+id/location_map"
+			android:layout_width="360dp"
+			android:layout_height="189dp"
+			android:src="@drawable/bcg_map"
+			android:scaleType="centerCrop"
+			android:contentDescription="@string/desc_map"/>
+
+		<ImageView android:id="@+id/location_current"
+			android:visibility="gone"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_location"
+			android:scaleType="centerCrop"
+			android:contentDescription="@string/desc_location"/>
+	</FrameLayout>
+
+	<com.viewpagerindicator.TitlePageIndicator android:id="@+id/indicator"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"  />
+
+	<android.support.v4.view.ViewPager android:id="@+id/pager"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" />
+</LinearLayout>

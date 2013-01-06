@@ -6,4 +6,6 @@
 	<string name="vcard_name_real">Radovan Paška</string>
 	<!-- descriptions -->
 	<string name="desc_logo">carnero</string>
+	<string name="desc_map">world map</string>
+	<string name="desc_location">carnero\'s current location</string>
 </resources>
