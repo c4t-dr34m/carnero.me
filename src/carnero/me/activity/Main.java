@@ -20,8 +20,8 @@ public class Main extends Activity {
 	private boolean mNickDisplayed = true;
 	private boolean mAnimating = false;
 	// views
-	private TextView mNick;
-	private TextView mName;
+	private View mNickFrame;
+	private View mName;
 	private ImageView mMap;
 	private View mLocation;
 	// animations
@@ -34,8 +34,8 @@ public class Main extends Activity {
 
 		setContentView(R.layout.main);
 
-		mNick = (TextView) findViewById(R.id.name_nick);
-		mName = (TextView) findViewById(R.id.name_real);
+		mNickFrame = findViewById(R.id.name_nick_frame);
+		mName = findViewById(R.id.name_real);
 		mMap = (ImageView) findViewById(R.id.location_map);
 		mLocation = findViewById(R.id.location_current);
 
@@ -82,7 +82,7 @@ public class Main extends Activity {
 
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				mNick.setVisibility(View.INVISIBLE);
+				mNickFrame.setVisibility(View.INVISIBLE);
 				mNickDisplayed = false;
 				mAnimating = false;
 			}
@@ -93,10 +93,10 @@ public class Main extends Activity {
 			}
 		});
 
-		mNick.clearAnimation();
+		mNickFrame.clearAnimation();
 		mName.clearAnimation();
 
-		mNick.startAnimation(mSlideTop);
+		mNickFrame.startAnimation(mSlideTop);
 		mName.startAnimation(mSlideBottom);
 	}
 
@@ -105,7 +105,7 @@ public class Main extends Activity {
 			@Override
 			public void onAnimationStart(Animation animation) {
 				mAnimating = true;
-				mNick.setVisibility(View.VISIBLE);
+				mNickFrame.setVisibility(View.VISIBLE);
 			}
 
 			@Override
@@ -122,10 +122,10 @@ public class Main extends Activity {
 		});
 
 		mName.clearAnimation();
-		mNick.clearAnimation();
+		mNickFrame.clearAnimation();
 
 		mName.startAnimation(mSlideTop);
-		mNick.startAnimation(mSlideBottom);
+		mNickFrame.startAnimation(mSlideBottom);
 	}
 
 	// classes

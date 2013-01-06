@@ -7,7 +7,7 @@
 	<RelativeLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="32dp" >
+		android:layout_margin="32dp">
 
 		<ImageView android:id="@+id/logo"
 			android:layout_width="wrap_content"
@@ -17,55 +17,56 @@
 			android:src="@drawable/logo"
 			android:contentDescription="@string/desc_logo" />
 
-		<LinearLayout android:id="@+id/name_layout"
-			android:layout_width="fill_parent"
+		<FrameLayout android:id="@+id/name_frame"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_centerVertical="true"
 			android:layout_toRightOf="@id/logo"
 			android:layout_marginLeft="8dp"
-			android:orientation="vertical">
+			android:gravity="left">
 
-			<FrameLayout android:id="@+id/name_frame"
+			<LinearLayout android:id="@+id/name_nick_frame"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:gravity="left" >
+				android:orientation="vertical">
 
-				<TextView android:id="@+id/name_nick"
+				<carnero.me.TextViewThin  android:id="@+id/name_nick"
 					style="@style/Text.Vcard.Nick"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_gravity="left|center_vertical"
 					android:text="@string/vcard_name_nick" />
 
-				<TextView android:id="@+id/name_real"
-					style="@style/Text.Vcard.Name"
-					android:visibility="invisible"
-					android:layout_width="wrap_content"
+				<TextView android:id="@+id/name_position"
+					style="@style/Text.Vcard.Position"
+					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:layout_gravity="left|center_vertical"
-					android:text="@string/vcard_name_real" />
-			</FrameLayout>
+					android:gravity="left"
+					android:text="@string/vcard_position" />
+			</LinearLayout>
 
-			<TextView android:id="@+id/name_position"
-				style="@style/Text.Vcard.Position"
-				android:layout_width="fill_parent"
+			<carnero.me.TextViewThin android:id="@+id/name_real"
+				style="@style/Text.Vcard.Name"
+				android:visibility="invisible"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:gravity="left"
-				android:text="@string/vcard_position" />
-		</LinearLayout>
+				android:layout_gravity="left|center_vertical"
+				android:text="@string/vcard_name_real" />
+		</FrameLayout>
+
 	</RelativeLayout>
 
 	<FrameLayout
 		android:layout_width="360dp"
 		android:layout_height="189dp"
-		android:layout_gravity="center_horizontal" >
+		android:layout_gravity="center_horizontal">
 
 		<ImageView android:id="@+id/location_map"
 			android:layout_width="360dp"
 			android:layout_height="189dp"
 			android:src="@drawable/bcg_map"
 			android:scaleType="centerCrop"
-			android:contentDescription="@string/desc_map"/>
+			android:contentDescription="@string/desc_map" />
 
 		<ImageView android:id="@+id/location_current"
 			android:visibility="gone"
@@ -73,6 +74,6 @@
 			android:layout_height="wrap_content"
 			android:src="@drawable/ic_location"
 			android:scaleType="centerCrop"
-			android:contentDescription="@string/desc_location"/>
+			android:contentDescription="@string/desc_location" />
 	</FrameLayout>
 </LinearLayout>
