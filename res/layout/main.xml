@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent" >
+	android:layout_height="fill_parent">
 
 	<!-- vcard -->
 	<RelativeLayout android:id="@+id/layout_vcard"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="32dp" >
+		android:layout_margin="32dp">
 
 		<ImageView android:id="@+id/logo"
 			android:layout_width="wrap_content"
@@ -62,7 +62,10 @@
 	<LinearLayout android:id="@+id/layout_contact"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="32dp"
+		android:layout_marginTop="32dp"
+		android:layout_marginRight="32dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginLeft="32dp"
 		android:layout_alignParentBottom="true"
 		android:orientation="vertical">
 
@@ -103,7 +106,7 @@
 				android:text="@string/contact_email_value" />
 		</LinearLayout>
 
-		<LinearLayout  android:id="@+id/contact_gtalk"
+		<LinearLayout android:id="@+id/contact_gtalk"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="4dp"
@@ -125,7 +128,7 @@
 		<LinearLayout
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="32dp"
+			android:layout_marginTop="4dp"
 			android:orientation="horizontal">
 
 			<carnero.me.TextViewThin
@@ -134,18 +137,21 @@
 				android:layout_height="wrap_content"
 				android:text="@string/contact_networks_label" />
 
-			<!-- TODO add networks -->
+			<android.support.v4.view.ViewPager android:id="@+id/networks_pager"
+				style="@style/Text.Contact.Value"
+				android:layout_width="wrap_content"
+				android:layout_height="20dp" />
 		</LinearLayout>
 	</LinearLayout>
 
 	<!-- map -->
 	<!-- map won't be displayed on non-widescreen devices -->
-	<FrameLayout  android:id="@+id/layout_map"
+	<FrameLayout android:id="@+id/layout_map"
 		android:layout_width="360dp"
 		android:layout_height="189dp"
 		android:layout_centerHorizontal="true"
 		android:layout_below="@id/layout_vcard"
-		android:layout_above="@id/layout_contact" >
+		android:layout_above="@id/layout_contact">
 
 		<ImageView android:id="@+id/location_map"
 			android:layout_width="360dp"

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -27,6 +28,7 @@ public class Main extends Activity {
 	private View mName;
 	private ImageView mMap;
 	private View mLocation;
+	private ViewPager mNetworksPager;
 	// animations
 	private Animation mSlideTop;
 	private Animation mSlideBottom;
@@ -41,6 +43,7 @@ public class Main extends Activity {
 		mName = findViewById(R.id.name_real);
 		mMap = (ImageView) findViewById(R.id.location_map);
 		mLocation = findViewById(R.id.location_current);
+		mNetworksPager = (ViewPager) findViewById(R.id.networks_pager);
 
 		mSlideTop = AnimationUtils.loadAnimation(this, R.anim.slide_top);
 		mSlideBottom = AnimationUtils.loadAnimation(this, R.anim.slide_bottom);
