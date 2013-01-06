@@ -5,6 +5,13 @@
 	<string name="vcard_name_nick">carnero</string>
 	<string name="vcard_name_real">Radovan\nPaška</string>
 	<string name="vcard_position">android developer</string>
+	<!-- contact -->
+	<string name="contact_phone_label">phone:</string>
+	<string name="contact_phone_value">+420 777 209 671</string>
+	<string name="contact_email_label">email:</string>
+	<string name="contact_email_value">carnero@carnero.cc</string>
+	<string name="contact_gtalk_label">gtalk:</string>
+	<string name="contact_gtalk_value">carnero@carnero.cc</string>
 	<!-- descriptions -->
 	<string name="desc_logo">carnero</string>
 	<string name="desc_map">world map</string>

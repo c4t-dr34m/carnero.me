@@ -4,10 +4,13 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
+	<!-- log & name -->
 	<RelativeLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="32dp">
+		android:layout_marginTop="32dp"
+		android:layout_marginLeft="32dp"
+		android:layout_marginRight="32dp">
 
 		<ImageView android:id="@+id/logo"
 			android:layout_width="wrap_content"
@@ -28,9 +31,10 @@
 			<LinearLayout android:id="@+id/name_nick_frame"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_marginLeft="8dp"
 				android:orientation="vertical">
 
-				<carnero.me.TextViewThin  android:id="@+id/name_nick"
+				<carnero.me.TextViewThin android:id="@+id/name_nick"
 					style="@style/Text.Vcard.Nick"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
@@ -51,11 +55,14 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="left|center_vertical"
+				android:layout_marginLeft="8dp"
 				android:text="@string/vcard_name_real" />
 		</FrameLayout>
 
 	</RelativeLayout>
 
+	<!-- map -->
+	<!-- map won't be displayed on non-widescreen devices -->
 	<FrameLayout
 		android:layout_width="360dp"
 		android:layout_height="189dp"
@@ -76,4 +83,68 @@
 			android:scaleType="centerCrop"
 			android:contentDescription="@string/desc_location" />
 	</FrameLayout>
+
+	<!-- contact -->
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="32dp"
+		android:layout_marginBottom="32dp"
+		android:layout_marginRight="32dp"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<carnero.me.TextViewThin
+				style="@style/Text.Contact.Label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contact_phone_label" />
+
+			<TextView
+				style="@style/Text.Contact.Value"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contact_phone_value" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<carnero.me.TextViewThin
+				style="@style/Text.Contact.Label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contact_email_label" />
+
+			<TextView
+				style="@style/Text.Contact.Value"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contact_email_value" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<carnero.me.TextViewThin
+				style="@style/Text.Contact.Label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contact_gtalk_label" />
+
+			<TextView
+				style="@style/Text.Contact.Value"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contact_gtalk_value" />
+		</LinearLayout>
+	</LinearLayout>
 </LinearLayout>
