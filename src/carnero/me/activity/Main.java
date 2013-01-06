@@ -1,6 +1,9 @@
 package carnero.me.activity;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,8 +18,8 @@ import com.google.android.maps.GeoPoint;
 
 public class Main extends Activity {
 
-	private int mLatitude;
-	private int mLongitude;
+	private int mLatitude = Integer.MIN_VALUE;
+	private int mLongitude = Integer.MIN_VALUE;
 	private boolean mNickDisplayed = true;
 	private boolean mAnimating = false;
 	// views
@@ -54,6 +57,39 @@ public class Main extends Activity {
 				} else {
 					animateToNick();
 				}
+			}
+		});
+
+		// contact actions
+		findViewById(R.id.contact_phone).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				try {
+					final Intent call = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+42077209671"));
+					startActivity(call);
+				} catch (ActivityNotFoundException e) {
+					Toast.makeText(Main.this, getString(R.string.error_no_phone), Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+		findViewById(R.id.contact_email).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				final Intent mail = new Intent(Intent.ACTION_SEND);
+				mail.setType("message/rfc822");
+				mail.putExtra(Intent.EXTRA_EMAIL, new String[] {"carnero@carnero.cc"});
+
+				try {
+					startActivity(Intent.createChooser(mail, "Send mail..."));
+				} catch (ActivityNotFoundException e) {
+					Toast.makeText(Main.this, getString(R.string.error_no_mail), Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+		findViewById(R.id.contact_gtalk).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO: gtalk
 			}
 		});
 	}
@@ -150,6 +186,10 @@ public class Main extends Activity {
 	private class LocationHandler extends Handler {
 
 		public void handleMessage(Message message) {
+			if (mLatitude == Integer.MIN_VALUE || mLongitude == Integer.MIN_VALUE) {
+				return;
+			}
+
 			// whole map
 			final int mapWidth = mMap.getWidth();
 			final int mapHeight = mMap.getHeight();
