@@ -40,11 +40,11 @@ public class NetworksFragment extends Fragment {
 		resort(mContent.findViewById(R.id.linkedin_layout), "com.linkedin.android").setOnClickListener(new Launcher(getActivity(), "http://www.linkedin.com/in/carnerocc/"));
 		resort(mContent.findViewById(R.id.google_plus_layout), "com.google.android.apps.plus").setOnClickListener(new Launcher(getActivity(), "http://plus.google.com/116645889171150251778/posts"));
 		resort(mContent.findViewById(R.id.twitter_layout), "com.twitter.android").setOnClickListener(new Launcher(getActivity(), "https://twitter.com/carnero_cc"));
-		resort(mContent.findViewById(R.id.instagram_layout), "com.instagram.android").setOnClickListener(new Launcher(getActivity(), "http://instagram.com/_carnero/"));
+		resort(mContent.findViewById(R.id.instagram_layout), "com.instagram.android").setOnClickListener(new Launcher(getActivity(), "http://instagram.com/_carnero"));
 		resort(mContent.findViewById(R.id.flickr_layout), "com.yahoo.mobile.client.android.flickr").setOnClickListener(new Launcher(getActivity(), "http://www.flickr.com/photos/carnero/"));
-		resort(mContent.findViewById(R.id.fivehundred_layout), "com.fivehundredpx.viewer").setOnClickListener(new Launcher(getActivity(), "http://500px.com/carnero/photos"));
+		resort(mContent.findViewById(R.id.fivehundred_layout), "com.fivehundredpx.viewer").setOnClickListener(new Launcher(getActivity(), "http://500px.com/carnero"));
 		resort(mContent.findViewById(R.id.pinterest_layout), "com.pinterest").setOnClickListener(new Launcher(getActivity(), "http://pinterest.com/carnero/"));
-		resort(mContent.findViewById(R.id.foursquare_layout), "com.joelapenna.foursquared").setOnClickListener(new Launcher(getActivity(), "http://foursquare.com/carnero_cc"));
+		resort(mContent.findViewById(R.id.foursquare_layout), "com.joelapenna.foursquared").setOnClickListener(new Launcher(getActivity(), "https://foursquare.com/carnero_cc"));
 
 		if (mNetworkActive > 0 && mNetworkInactive > 0) {
 			final View separator = mContent.findViewById(R.id.separator);

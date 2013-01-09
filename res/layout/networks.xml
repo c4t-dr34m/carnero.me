@@ -2,7 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:padding="8dp"
+	android:paddingTop="8dp"
+	android:paddingBottom="8dp"
+	android:paddingLeft="8dp"
 	android:background="@color/bcg_sides">
 
 	<LinearLayout android:id="@+id/networks_layout"
@@ -14,7 +16,9 @@
 		<!-- Github -->
 		<RelativeLayout android:id="@+id/github_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/github_icon"
 				android:layout_width="48dp"
@@ -48,7 +52,9 @@
 		<!-- LinkedIn -->
 		<RelativeLayout android:id="@+id/linkedin_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/linkedin_icon"
 				android:layout_width="48dp"
@@ -82,7 +88,9 @@
 		<!-- Google+ -->
 		<RelativeLayout android:id="@+id/google_plus_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/google_plus_icon"
 				android:layout_width="48dp"
@@ -116,7 +124,9 @@
 		<!-- Twitter -->
 		<RelativeLayout android:id="@+id/twitter_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/twitter_icon"
 				android:layout_width="48dp"
@@ -150,7 +160,9 @@
 		<!-- Instagram -->
 		<RelativeLayout android:id="@+id/instagram_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/instagram_icon"
 				android:layout_width="48dp"
@@ -184,7 +196,9 @@
 		<!-- Flickr -->
 		<RelativeLayout android:id="@+id/flickr_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/flickr_icon"
 				android:layout_width="48dp"
@@ -218,7 +232,9 @@
 		<!-- 500px -->
 		<RelativeLayout android:id="@+id/fivehundred_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/fivehundred_icon"
 				android:layout_width="48dp"
@@ -252,7 +268,9 @@
 		<!-- Pinterest -->
 		<RelativeLayout android:id="@+id/pinterest_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/pinterest_icon"
 				android:layout_width="48dp"
@@ -286,7 +304,9 @@
 		<!-- Foursquare -->
 		<RelativeLayout android:id="@+id/foursquare_layout"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:paddingRight="8dp"
+			android:background="@drawable/btn_button">
 
 			<View android:id="@+id/foursquare_icon"
 				android:layout_width="48dp"

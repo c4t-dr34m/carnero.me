@@ -3,5 +3,6 @@
 	<!-- other -->
 	<color name="bcg_center">#FF131313</color>
 	<color name="bcg_sides">#FF000000</color>
+	<color name="bcg_button_selected">#13FFFFFF</color>
 	<color name="separator">#22FFFFFF</color>
 </resources>
