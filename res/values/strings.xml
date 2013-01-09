@@ -13,6 +13,8 @@
 	<string name="contact_gtalk_label">gtalk:</string>
 	<string name="contact_gtalk_value">carnero@carnero.cc</string>
 	<!-- networks -->
+	<string name="network_github">Github</string>
+	<string name="network_github_desc">real stuff</string>
 	<string name="network_linkedin">LinkedIn</string>
 	<string name="network_linkedin_desc">professional profile</string>
 	<string name="network_google_plus">Google+</string>

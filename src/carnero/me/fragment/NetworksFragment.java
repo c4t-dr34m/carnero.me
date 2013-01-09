@@ -36,6 +36,7 @@ public class NetworksFragment extends Fragment {
 		super.onActivityCreated(savedState);
 
 		mNetworkActive = 0;
+		resort(mContent.findViewById(R.id.github_layout), "com.github.mobile").setOnClickListener(new Launcher(getActivity(), "https://github.com/carnero/"));
 		resort(mContent.findViewById(R.id.linkedin_layout), "com.linkedin.android").setOnClickListener(new Launcher(getActivity(), "http://www.linkedin.com/in/carnerocc/"));
 		resort(mContent.findViewById(R.id.google_plus_layout), "com.google.android.apps.plus").setOnClickListener(new Launcher(getActivity(), "http://plus.google.com/116645889171150251778/posts"));
 		resort(mContent.findViewById(R.id.twitter_layout), "com.twitter.android").setOnClickListener(new Launcher(getActivity(), "https://twitter.com/carnero_cc"));

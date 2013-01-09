@@ -70,7 +70,7 @@
 		android:layout_alignParentBottom="true"
 		android:orientation="vertical">
 
-		<LinearLayout android:id="@+id/contact_phone"
+		<LinearLayout android:id="@+id/contact_gtalk"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:orientation="horizontal">
@@ -79,13 +79,13 @@
 				style="@style/Text.Contact.Label"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_phone_label" />
+				android:text="@string/contact_gtalk_label" />
 
 			<TextView
 				style="@style/Text.Contact.Value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_phone_value" />
+				android:text="@string/contact_gtalk_value" />
 		</LinearLayout>
 
 		<LinearLayout android:id="@+id/contact_email"
@@ -107,7 +107,7 @@
 				android:text="@string/contact_email_value" />
 		</LinearLayout>
 
-		<LinearLayout android:id="@+id/contact_gtalk"
+		<LinearLayout android:id="@+id/contact_phone"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="4dp"
@@ -117,13 +117,13 @@
 				style="@style/Text.Contact.Label"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_gtalk_label" />
+				android:text="@string/contact_phone_label" />
 
 			<TextView
 				style="@style/Text.Contact.Value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_gtalk_value" />
+				android:text="@string/contact_phone_value" />
 		</LinearLayout>
 	</LinearLayout>
 

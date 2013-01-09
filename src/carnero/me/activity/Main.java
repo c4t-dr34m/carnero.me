@@ -19,6 +19,7 @@ public class Main extends SlidingFragmentActivity {
 		final SlidingMenu menu = getSlidingMenu();
 		menu.setMode(SlidingMenu.LEFT_RIGHT);
 		menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		menu.setFadeDegree(0.8f);
 		menu.setBehindOffset((int) getResources().getDimension(R.dimen.sliding_menu_offset));
 		menu.setShadowDrawable(com.slidingmenu.lib.R.drawable.defaultshadow);
 		menu.setSecondaryShadowDrawable(com.slidingmenu.lib.R.drawable.defaultshadowright);
