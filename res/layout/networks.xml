@@ -11,6 +11,40 @@
 		android:layout_gravity="center_vertical"
 		android:orientation="vertical">
 
+		<!-- LinkedIn -->
+		<RelativeLayout android:id="@+id/linkedin_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/linkedin_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/linkedin_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView android:id="@+id/linkedin_label"
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_linkedin" />
+
+				<TextView android:id="@+id/linkedin_description"
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_linkedin_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
 		<!-- Google+ -->
 		<RelativeLayout android:id="@+id/google_plus_layout"
 			android:layout_width="fill_parent"
@@ -215,40 +249,6 @@
 			</LinearLayout>
 		</RelativeLayout>
 		
-		<!-- LinkedIn -->
-		<RelativeLayout android:id="@+id/linkedin_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
-
-			<View android:id="@+id/linkedin_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/linkedin_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
-
-				<TextView android:id="@+id/linkedin_label"
-					style="@style/Text.Network.Label"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_linkedin" />
-
-				<TextView android:id="@+id/linkedin_description"
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_linkedin_desc" />
-			</LinearLayout>
-		</RelativeLayout>
-
 		<!-- Foursquare -->
 		<RelativeLayout android:id="@+id/foursquare_layout"
 			android:layout_width="fill_parent"
