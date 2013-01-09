@@ -282,5 +282,13 @@
 					android:text="@string/network_foursquare_desc" />
 			</LinearLayout>
 		</RelativeLayout>
+
+		<!-- separator -->
+		<View android:id="@+id/separator"
+			android:visibility="gone"
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:layout_margin="8dp"
+			android:background="@color/separator"/>
 	</LinearLayout>
 </ScrollView>

@@ -1,7 +1,6 @@
 package carnero.me.fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -19,7 +18,8 @@ public class NetworksFragment extends Fragment {
 
 	private View mContent;
 	private LinearLayout mLayout;
-	private int mOrdered = 0;
+	private int mNetworkActive = 0;
+	private int mNetworkInactive = 0;
 	private PackageManager mPM;
 
 	@Override
@@ -35,7 +35,7 @@ public class NetworksFragment extends Fragment {
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
 
-		mOrdered = 0;
+		mNetworkActive = 0;
 		resort(mContent.findViewById(R.id.linkedin_layout), "com.linkedin.android").setOnClickListener(new Launcher(getActivity(), "http://www.linkedin.com/in/carnerocc/"));
 		resort(mContent.findViewById(R.id.google_plus_layout), "com.google.android.apps.plus").setOnClickListener(new Launcher(getActivity(), "http://plus.google.com/116645889171150251778/posts"));
 		resort(mContent.findViewById(R.id.twitter_layout), "com.twitter.android").setOnClickListener(new Launcher(getActivity(), "https://twitter.com/carnero_cc"));
@@ -44,15 +44,28 @@ public class NetworksFragment extends Fragment {
 		resort(mContent.findViewById(R.id.fivehundred_layout), "com.fivehundredpx.viewer").setOnClickListener(new Launcher(getActivity(), "http://500px.com/carnero/photos"));
 		resort(mContent.findViewById(R.id.pinterest_layout), "com.pinterest").setOnClickListener(new Launcher(getActivity(), "http://pinterest.com/carnero/"));
 		resort(mContent.findViewById(R.id.foursquare_layout), "com.joelapenna.foursquared").setOnClickListener(new Launcher(getActivity(), "http://foursquare.com/carnero_cc"));
+
+		if (mNetworkActive > 0 && mNetworkInactive > 0) {
+			final View separator = mContent.findViewById(R.id.separator);
+
+			mLayout.removeView(separator);
+			mLayout.addView(separator, mNetworkActive);
+
+			separator.setVisibility(View.VISIBLE);
+		}
 	}
 
 	private View resort(View view, String packageName) {
 		if (isPackageInstalled(packageName)) {
 			mLayout.removeView(view);
-			mLayout.addView(view, mOrdered);
+			mLayout.addView(view, mNetworkActive);
 
-			mOrdered ++;
+			mNetworkActive++;
+
+			view.setAlpha(1.0f);
 		} else {
+			mNetworkInactive++;
+
 			view.setAlpha(0.6f);
 		}
 
