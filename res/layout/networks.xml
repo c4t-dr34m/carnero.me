@@ -5,7 +5,7 @@
 	android:padding="8dp"
 	android:background="@color/bcg_sides">
 
-	<LinearLayout
+	<LinearLayout android:id="@+id/networks_layout"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_vertical"
