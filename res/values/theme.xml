@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<style name="Theme.Black" parent="Theme.Sherlock.NoActionBar">
-		<item name="android:windowBackground">@color/bcg_grey</item>
+		<!-- empty -->
 	</style>
 </resources>

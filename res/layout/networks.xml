@@ -1,8 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="#330000FF">
+	android:padding="8dp"
+	android:background="@color/bcg_sides">
 
-	<!-- TODO: network links -->
-</RelativeLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
+		android:orientation="vertical">
+
+		<!-- Google+ -->
+		<RelativeLayout android:id="@+id/google_plus_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/google_plus_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/google_plus_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_google_plus" />
+
+				<TextView
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_google_plus_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
+		<!-- Twitter -->
+		<RelativeLayout android:id="@+id/twitter_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/twitter_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/twitter_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_twitter" />
+
+				<TextView
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_twitter_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
+		<!-- Instagram -->
+		<RelativeLayout android:id="@+id/instagram_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/instagram_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/instagram_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_instagram" />
+
+				<TextView
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_instagram_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
+		<!-- Flickr -->
+		<RelativeLayout android:id="@+id/flickr_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/flickr_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/flickr_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_flickr" />
+
+				<TextView
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_flickr_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
+		<!-- 500px -->
+		<RelativeLayout android:id="@+id/fivehundred_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/fivehundred_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/fivehundred_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_fivehundred" />
+
+				<TextView
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_fivehundred_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
+		<!-- Pinterest -->
+		<RelativeLayout android:id="@+id/pinterest_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/pinterest_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/pinterest_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_pinterest" />
+
+				<TextView
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_pinterest_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+		
+		<!-- LinkedIn -->
+		<RelativeLayout android:id="@+id/linkedin_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/linkedin_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/linkedin_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView android:id="@+id/linkedin_label"
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_linkedin" />
+
+				<TextView android:id="@+id/linkedin_description"
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_linkedin_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+
+		<!-- Foursquare -->
+		<RelativeLayout android:id="@+id/foursquare_layout"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/foursquare_icon"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentLeft="true"
+				android:layout_centerVertical="true"
+				android:layout_margin="8dp"
+				android:background="#FF333333" />
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/foursquare_icon"
+				android:layout_centerVertical="true"
+				android:orientation="vertical">
+
+				<TextView android:id="@+id/foursquare_label"
+					style="@style/Text.Network.Label"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_foursquare" />
+
+				<TextView android:id="@+id/foursquare_description"
+					style="@style/Text.Network.Description"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="@string/network_foursquare_desc" />
+			</LinearLayout>
+		</RelativeLayout>
+	</LinearLayout>
+</ScrollView>

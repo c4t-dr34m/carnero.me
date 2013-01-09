@@ -34,4 +34,19 @@
 	<style name="Text.Contact.Value">
 		<item name="android:layout_marginLeft">8dp</item>
 	</style>
+
+	<style name="Text.Network">
+		<!-- empty parent -->
+	</style>
+
+	<style name="Text.Network.Label">
+		<item name="android:textSize">18dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+	<style name="Text.Network.Description">
+		<item name="android:textSize">14dp</item>
+		<item name="android:textStyle">normal</item>
+		<item name="android:textColor">#FF999999</item>
+	</style>
 </resources>

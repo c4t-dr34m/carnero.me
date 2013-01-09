@@ -12,6 +12,23 @@
 	<string name="contact_email_value">carnero@carnero.cc</string>
 	<string name="contact_gtalk_label">gtalk:</string>
 	<string name="contact_gtalk_value">carnero@carnero.cc</string>
+	<!-- networks -->
+	<string name="network_google_plus">Google+</string>
+	<string name="network_google_plus_desc">universal social network</string>
+	<string name="network_twitter">Twitter</string>
+	<string name="network_twitter_desc">short &amp; related to nothing</string>
+	<string name="network_instagram">Instagram</string>
+	<string name="network_instagram_desc">pictures of this and that</string>
+	<string name="network_flickr">Flickr</string>
+	<string name="network_flickr_desc">photos from life</string>
+	<string name="network_fivehundred">500px</string>
+	<string name="network_fivehundred_desc">best of photos</string>
+	<string name="network_pinterest">Pinterest</string>
+	<string name="network_pinterest_desc">interesting pictures from web</string>
+	<string name="network_linkedin">LinkedIn</string>
+	<string name="network_linkedin_desc">professional profile</string>
+	<string name="network_foursquare">Foursquare</string>
+	<string name="network_foursquare_desc">visited places</string>
 	<!-- descriptions -->
 	<string name="desc_logo">carnero</string>
 	<string name="desc_map">world map</string>
