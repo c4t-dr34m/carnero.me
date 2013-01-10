@@ -5,344 +5,361 @@
 	android:paddingTop="8dp"
 	android:paddingBottom="8dp"
 	android:paddingLeft="8dp"
+	android:fillViewport="true"
 	android:background="@color/bcg_sides">
 
-	<LinearLayout android:id="@+id/networks_layout"
+	<LinearLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
 		android:orientation="vertical">
 
-		<!-- Github -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/github_layout"
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1" />
+
+		<LinearLayout android:id="@+id/networks_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+			android:layout_gravity="center"
+			android:orientation="vertical">
 
-			<View android:id="@+id/github_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Github -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/github_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/github_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView android:id="@+id/github_label"
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/github_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_github" />
+					android:layout_toRightOf="@id/github_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView android:id="@+id/github_description"
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_github_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView android:id="@+id/github_label"
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_github" />
 
-		<!-- LinkedIn -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/linkedin_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView android:id="@+id/github_description"
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_github_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/linkedin_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- LinkedIn -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/linkedin_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/linkedin_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView android:id="@+id/linkedin_label"
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/linkedin_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_linkedin" />
+					android:layout_toRightOf="@id/linkedin_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView android:id="@+id/linkedin_description"
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_linkedin_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView android:id="@+id/linkedin_label"
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_linkedin" />
 
-		<!-- Google+ -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/google_plus_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView android:id="@+id/linkedin_description"
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_linkedin_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/google_plus_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Google+ -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/google_plus_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/google_plus_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/google_plus_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_google_plus" />
+					android:layout_toRightOf="@id/google_plus_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_google_plus_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_google_plus" />
 
-		<!-- Twitter -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/twitter_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_google_plus_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/twitter_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Twitter -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/twitter_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/twitter_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/twitter_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_twitter" />
+					android:layout_toRightOf="@id/twitter_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_twitter_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_twitter" />
 
-		<!-- Instagram -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/instagram_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_twitter_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/instagram_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Instagram -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/instagram_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/instagram_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/instagram_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_instagram" />
+					android:layout_toRightOf="@id/instagram_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_instagram_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_instagram" />
 
-		<!-- Flickr -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/flickr_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_instagram_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/flickr_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Flickr -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/flickr_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/flickr_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/flickr_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_flickr" />
+					android:layout_toRightOf="@id/flickr_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_flickr_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_flickr" />
 
-		<!-- 500px -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/fivehundred_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_flickr_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/fivehundred_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- 500px -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/fivehundred_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/fivehundred_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/fivehundred_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_fivehundred" />
+					android:layout_toRightOf="@id/fivehundred_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_fivehundred_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_fivehundred" />
 
-		<!-- Pinterest -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/pinterest_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_fivehundred_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/pinterest_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Pinterest -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/pinterest_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/pinterest_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/pinterest_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_pinterest" />
+					android:layout_toRightOf="@id/pinterest_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_pinterest_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_pinterest" />
 
-		<!-- Foursquare -->
-		<carnero.me.view.AnimateRelativeLayout android:id="@+id/foursquare_layout"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="8dp"
-			android:background="@drawable/btn_button">
+					<TextView
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_pinterest_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
 
-			<View android:id="@+id/foursquare_icon"
-				android:layout_width="48dp"
-				android:layout_height="48dp"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:layout_margin="8dp"
-				android:background="#FF333333" />
-
-			<LinearLayout
+			<!-- Foursquare -->
+			<carnero.me.view.AnimateRelativeLayout android:id="@+id/foursquare_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/foursquare_icon"
-				android:layout_centerVertical="true"
-				android:orientation="vertical">
+				android:paddingRight="8dp"
+				android:background="@drawable/btn_button">
 
-				<TextView android:id="@+id/foursquare_label"
-					style="@style/Text.Network.Label"
+				<View android:id="@+id/foursquare_icon"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:layout_margin="8dp"
+					android:background="#FF333333" />
+
+				<LinearLayout
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
-					android:text="@string/network_foursquare" />
+					android:layout_toRightOf="@id/foursquare_icon"
+					android:layout_centerVertical="true"
+					android:orientation="vertical">
 
-				<TextView android:id="@+id/foursquare_description"
-					style="@style/Text.Network.Description"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:text="@string/network_foursquare_desc" />
-			</LinearLayout>
-		</carnero.me.view.AnimateRelativeLayout>
+					<TextView android:id="@+id/foursquare_label"
+						style="@style/Text.Network.Label"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_foursquare" />
 
-		<!-- separator -->
-		<View android:id="@+id/separator"
-			android:visibility="gone"
+					<TextView android:id="@+id/foursquare_description"
+						style="@style/Text.Network.Description"
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/network_foursquare_desc" />
+				</LinearLayout>
+			</carnero.me.view.AnimateRelativeLayout>
+
+			<!-- separator -->
+			<View android:id="@+id/separator"
+				android:visibility="gone"
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:layout_margin="8dp"
+				android:background="@color/separator" />
+		</LinearLayout>
+
+		<View
 			android:layout_width="fill_parent"
-			android:layout_height="1dp"
-			android:layout_margin="8dp"
-			android:background="@color/separator" />
+			android:layout_height="0dp"
+			android:layout_weight="1" />
 	</LinearLayout>
 </ScrollView>

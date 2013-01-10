@@ -6,11 +6,11 @@
 	<string name="vcard_name_real">Radovan\nPaška</string>
 	<string name="vcard_position">android developer</string>
 	<!-- contact -->
-	<string name="contact_phone_label">phone:</string>
-	<string name="contact_phone_value">+420 777 209 671</string>
-	<string name="contact_email_label">email:</string>
+	<string name="contact_phone_label">phone</string>
+	<string name="contact_phone_value">+420&#x00A0;777&#x00A0;209&#x00A0;671</string>
+	<string name="contact_email_label">email</string>
 	<string name="contact_email_value">carnero@carnero.cc</string>
-	<string name="contact_gtalk_label">gtalk:</string>
+	<string name="contact_gtalk_label">gtalk</string>
 	<string name="contact_gtalk_value">carnero@carnero.cc</string>
 	<!-- networks -->
 	<string name="network_github">Github</string>
@@ -38,4 +38,5 @@
 	<!-- errors -->
 	<string name="error_no_phone">There is no application for calling.</string>
 	<string name="error_no_mail">There is no application for composing email.</string>
+	<string name="error_no_gtalk">There is no application for sending instant message.</string>
 </resources>

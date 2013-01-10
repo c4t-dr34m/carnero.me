@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import carnero.me.Constants;
 import carnero.me.R;
@@ -41,7 +44,7 @@ public class VcardFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
-		mContent  = inflater.inflate(R.layout.vcard, container, false);
+		mContent = inflater.inflate(R.layout.vcard, container, false);
 
 		// views
 		mNickFrame = mContent.findViewById(R.id.name_nick_frame);
@@ -57,6 +60,8 @@ public class VcardFragment extends Fragment {
 		super.onActivityCreated(savedState);
 
 		mContext = getActivity().getBaseContext();
+
+		setPhoneNumber();
 
 		mSlideTop = AnimationUtils.loadAnimation(mContext, R.anim.slide_top);
 		mSlideBottom = AnimationUtils.loadAnimation(mContext, R.anim.slide_bottom);
@@ -81,7 +86,7 @@ public class VcardFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				try {
-					final Intent call = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+42077209671"));
+					final Intent call = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+420777209671"));
 					startActivity(call);
 				} catch (ActivityNotFoundException e) {
 					Toast.makeText(mContext, getString(R.string.error_no_phone), Toast.LENGTH_SHORT).show();
@@ -96,7 +101,7 @@ public class VcardFragment extends Fragment {
 				mail.putExtra(Intent.EXTRA_EMAIL, new String[]{"carnero@carnero.cc"});
 
 				try {
-					startActivity(Intent.createChooser(mail, "Send mail..."));
+					startActivity(Intent.createChooser(mail, "Send email..."));
 				} catch (ActivityNotFoundException e) {
 					Toast.makeText(mContext, getString(R.string.error_no_mail), Toast.LENGTH_SHORT).show();
 				}
@@ -105,7 +110,14 @@ public class VcardFragment extends Fragment {
 		mContent.findViewById(R.id.contact_gtalk).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO: gtalk
+				final Uri uri = new Uri.Builder().scheme("imto").authority("gtalk").appendPath("carnero@carnero.cc").build();
+				final Intent gtalk = new Intent(Intent.ACTION_SENDTO, uri);
+
+				try {
+					startActivity(Intent.createChooser(gtalk, "Send instant message..."));
+				} catch (ActivityNotFoundException e) {
+					Toast.makeText(mContext, getString(R.string.error_no_gtalk), Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 	}
@@ -115,6 +127,25 @@ public class VcardFragment extends Fragment {
 		super.onResume();
 
 		getLocation();
+	}
+
+	private void setPhoneNumber() {
+		boolean full = true;
+
+		final TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+		if (tm != null) {
+			final String operator = tm.getNetworkCountryIso();
+
+			if (!TextUtils.isEmpty(operator) && operator.equalsIgnoreCase("cz")) {
+				full = false;
+			}
+		}
+
+		if (full) {
+			((TextView) mContent.findViewById(R.id.contact_phone_value)).setText("+420 777 209 671");
+		} else {
+			((TextView) mContent.findViewById(R.id.contact_phone_value)).setText("777 209 671");
+		}
 	}
 
 	private void getLocation() {
