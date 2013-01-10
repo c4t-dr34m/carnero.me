@@ -1,10 +1,11 @@
-package carnero.me;
+package carnero.me.view;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+@SuppressWarnings("unused")
 public class TextViewThin extends TextView {
 
 	public TextViewThin(Context context) {

@@ -14,7 +14,7 @@
 		android:orientation="vertical">
 
 		<!-- Github -->
-		<RelativeLayout android:id="@+id/github_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/github_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -47,10 +47,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_github_desc" />
 			</LinearLayout>
-		</RelativeLayout>
-		
+		</carnero.me.view.AnimateRelativeLayout>
+
 		<!-- LinkedIn -->
-		<RelativeLayout android:id="@+id/linkedin_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/linkedin_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -83,10 +83,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_linkedin_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- Google+ -->
-		<RelativeLayout android:id="@+id/google_plus_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/google_plus_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -119,10 +119,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_google_plus_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- Twitter -->
-		<RelativeLayout android:id="@+id/twitter_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/twitter_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -155,10 +155,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_twitter_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- Instagram -->
-		<RelativeLayout android:id="@+id/instagram_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/instagram_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -191,10 +191,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_instagram_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- Flickr -->
-		<RelativeLayout android:id="@+id/flickr_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/flickr_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -227,10 +227,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_flickr_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- 500px -->
-		<RelativeLayout android:id="@+id/fivehundred_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/fivehundred_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -263,10 +263,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_fivehundred_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- Pinterest -->
-		<RelativeLayout android:id="@+id/pinterest_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/pinterest_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -299,10 +299,10 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_pinterest_desc" />
 			</LinearLayout>
-		</RelativeLayout>
-		
+		</carnero.me.view.AnimateRelativeLayout>
+
 		<!-- Foursquare -->
-		<RelativeLayout android:id="@+id/foursquare_layout"
+		<carnero.me.view.AnimateRelativeLayout android:id="@+id/foursquare_layout"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:paddingRight="8dp"
@@ -335,7 +335,7 @@
 					android:layout_height="wrap_content"
 					android:text="@string/network_foursquare_desc" />
 			</LinearLayout>
-		</RelativeLayout>
+		</carnero.me.view.AnimateRelativeLayout>
 
 		<!-- separator -->
 		<View android:id="@+id/separator"
@@ -343,6 +343,6 @@
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
 			android:layout_margin="8dp"
-			android:background="@color/separator"/>
+			android:background="@color/separator" />
 	</LinearLayout>
 </ScrollView>
