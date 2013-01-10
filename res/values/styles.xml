@@ -53,4 +53,19 @@
 		<item name="android:textStyle">normal</item>
 		<item name="android:textColor">#FF999999</item>
 	</style>
+
+	<style name="Icon">
+		<!-- empty parent -->
+	</style>
+
+	<style name="Icon.Network">
+		<item name="android:layout_width">48dp</item>
+		<item name="android:layout_height">48dp</item>
+		<item name="android:layout_alignParentLeft">true</item>
+		<item name="android:layout_centerVertical">true</item>
+		<item name="android:layout_marginTop">8dp</item>
+		<item name="android:layout_marginRight">16dp</item>
+		<item name="android:layout_marginBottom">8dp</item>
+		<item name="android:layout_marginLeft">8dp</item>
+	</style>
 </resources>
