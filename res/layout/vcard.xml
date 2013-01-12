@@ -150,19 +150,9 @@
 		android:layout_marginBottom="16dp"
 		android:layout_above="@id/layout_contact">
 
-		<ImageView android:id="@+id/location_map"
+		<carnero.me.view.SquareMapView android:id="@+id/location_map"
 			android:layout_width="360dp"
 			android:layout_height="189dp"
-			android:src="@drawable/bcg_map"
-			android:scaleType="centerCrop"
 			android:contentDescription="@string/desc_map" />
-
-		<ImageView android:id="@+id/location_current"
-			android:visibility="gone"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/ic_location"
-			android:scaleType="centerCrop"
-			android:contentDescription="@string/desc_location" />
 	</FrameLayout>
 </RelativeLayout>

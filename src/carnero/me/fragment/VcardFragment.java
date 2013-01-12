@@ -15,13 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import carnero.me.Constants;
 import carnero.me.R;
 import carnero.me.network.Latitude;
+import carnero.me.view.SquareMapView;
 import com.google.android.maps.GeoPoint;
 
 public class VcardFragment extends Fragment {
@@ -29,15 +27,13 @@ public class VcardFragment extends Fragment {
 	private Context mContext;
 	private View mContent;
 	//
-	private int mLatitude = Integer.MIN_VALUE;
-	private int mLongitude = Integer.MIN_VALUE;
+	private GeoPoint mLocation;
 	private boolean mNickDisplayed = true;
 	private boolean mAnimating = false;
 	// views
 	private View mNickFrame;
 	private View mName;
-	private ImageView mMap;
-	private View mLocation;
+	private SquareMapView mMap;
 	// animations
 	private Animation mSlideTop;
 	private Animation mSlideBottom;
@@ -49,8 +45,7 @@ public class VcardFragment extends Fragment {
 		// views
 		mNickFrame = mContent.findViewById(R.id.name_nick_frame);
 		mName = mContent.findViewById(R.id.name_real);
-		mMap = (ImageView) mContent.findViewById(R.id.location_map);
-		mLocation = mContent.findViewById(R.id.location_current);
+		mMap = (SquareMapView) mContent.findViewById(R.id.location_map);
 
 		return mContent;
 	}
@@ -252,9 +247,7 @@ public class VcardFragment extends Fragment {
 
 		@Override
 		public void run() {
-			final GeoPoint gp = new Latitude().getCoordinates();
-			mLatitude = gp.getLatitudeE6();
-			mLongitude = gp.getLongitudeE6();
+			mLocation = new Latitude().getCoordinates();
 
 			mHandler.sendEmptyMessage(1);
 		}
@@ -263,10 +256,13 @@ public class VcardFragment extends Fragment {
 	private class LocationHandler extends Handler {
 
 		public void handleMessage(Message message) {
-			if (mLatitude == Integer.MIN_VALUE || mLongitude == Integer.MIN_VALUE) {
+			if (mLocation == null) {
 				return;
 			}
 
+			mMap.setCurrentLocation(mLocation);
+
+			/*
 			// whole map
 			final int mapWidth = mMap.getWidth();
 			final int mapHeight = mMap.getHeight();
@@ -303,6 +299,7 @@ public class VcardFragment extends Fragment {
 
 			mLocation.setLayoutParams(params);
 			mLocation.setVisibility(View.VISIBLE);
+			*/
 		}
 	}
 }
