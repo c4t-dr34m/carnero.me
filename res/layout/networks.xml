@@ -6,7 +6,7 @@
 	android:paddingBottom="8dp"
 	android:paddingLeft="8dp"
 	android:fillViewport="true"
-	android:background="@color/bcg_sides">
+	android:background="@drawable/bcg_side">
 
 	<LinearLayout
 		android:layout_width="fill_parent"

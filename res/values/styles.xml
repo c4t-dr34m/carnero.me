@@ -33,6 +33,7 @@
 
 	<style name="Text.Contact.Value">
 		<item name="android:textSize">10dp</item>
+		<item name="android:textColor">@color/grey</item>
 	</style>
 
 	<style name="Text.Contact.Label">
