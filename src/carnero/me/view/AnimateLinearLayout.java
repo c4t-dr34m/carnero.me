@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
 @SuppressWarnings("unused")
-public class AnimateLinearLayout extends LinearLayout {
+public class AnimateLinearLayout extends LinearLayout implements IAnimateView {
 
 	private AnimateTouchProcessor mProcessor;
 
@@ -34,5 +34,9 @@ public class AnimateLinearLayout extends LinearLayout {
 
 	private void init(Context context) {
 		mProcessor = new AnimateTouchProcessor(context);
+	}
+
+	public void resetAnimation() {
+		mProcessor.reset(this);
 	}
 }

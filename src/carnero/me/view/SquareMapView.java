@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import carnero.me.Map;
 import carnero.me.R;
-import carnero.me.VisitedPlaces;
 import com.google.android.maps.GeoPoint;
 
 @SuppressWarnings("unused")
 public class SquareMapView extends View {
 
 	private Context mContext;
+	private boolean mRenderMap = true;
 	// dimensions
 	private int mWidth = 0;
 	private int mHeight = 0;
@@ -94,6 +94,10 @@ public class SquareMapView extends View {
 	public void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
+		if (!mRenderMap) {
+			return;
+		}
+
 		canvas.setDrawFilter(mSetFilter);
 
 		// map
@@ -114,10 +118,12 @@ public class SquareMapView extends View {
 		}
 
 		// visited places
+		/*
 		for (int[] place : VisitedPlaces.VISITED_PLACES_E6) {
 			final int[] square = getSquareFromLocation(place[0], place[1]);
 			canvas.drawRect(square[0], square[1], square[0] + mSquareSize, square[1] + mSquareSize, mSquareHighlightPaint);
 		}
+		*/
 
 		// current location
 		if (mLatitude != null && mLongitude != null) {
@@ -185,6 +191,8 @@ public class SquareMapView extends View {
 		mSquareLon = (Map.MAP_LONGITUDE_MAX_E6 - Map.MAP_LONGITUDE_MIN_E6) / Map.MAP_HEIGHT;
 		mMarginLat = (int) Math.abs((-180 * 1e6) - Map.MAP_LATITUDE_MIN_E6);
 		mMarginLon = (int) Math.abs((90 * 1e6) - Map.MAP_LONGITUDE_MAX_E6);
+
+		mRenderMap = mSquareSize >= 2;
 	}
 
 	private int[] getSquareFromLocation(int latitudeE6, int longitudeE6) {

@@ -24,7 +24,7 @@ public class NetworksFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
-		mContent  = inflater.inflate(R.layout.networks, container, false);
+		mContent = inflater.inflate(R.layout.networks, container, false);
 
 		mLayout = (LinearLayout) mContent.findViewById(R.id.networks_layout);
 

@@ -261,45 +261,6 @@ public class VcardFragment extends Fragment {
 			}
 
 			mMap.setCurrentLocation(mLocation);
-
-			/*
-			// whole map
-			final int mapWidth = mMap.getWidth();
-			final int mapHeight = mMap.getHeight();
-			// pixel square
-			final int squareSize = Math.round(((mapWidth / 80) + (mapHeight / 42)) / 2);
-			final int squareBorder = squareSize / 8;
-			// map square
-			final int mapSquareLat = (Constants.MAP_LATITUDE_MAX_E6 - Constants.MAP_LATITUDE_MIN_E6) / Constants.MAP_SQUARE_WIDTH;
-			final int mapSquareLon = (Constants.MAP_LONGITUDE_MAX_E6 - Constants.MAP_LONGITUDE_MIN_E6) / Constants.MAP_SQUARE_HEIGHT;
-			// map border
-			final int mapLatitudeMargin = (int) Math.abs((-180 * 1e6) - Constants.MAP_LATITUDE_MIN_E6);
-			final int mapLongitudeMargin = (int) Math.abs((90 * 1e6) - Constants.MAP_LONGITUDE_MAX_E6);
-
-			// map bounds
-			if (mLatitude < Constants.MAP_LATITUDE_MIN_E6) {
-				mLatitude = Constants.MAP_LATITUDE_MIN_E6;
-			} else if (mLatitude > Constants.MAP_LATITUDE_MAX_E6) {
-				mLatitude = Constants.MAP_LATITUDE_MAX_E6;
-			}
-			if (mLongitude < Constants.MAP_LONGITUDE_MIN_E6) {
-				mLongitude = Constants.MAP_LONGITUDE_MIN_E6;
-			} else if (mLongitude > Constants.MAP_LONGITUDE_MAX_E6) {
-				mLongitude = Constants.MAP_LONGITUDE_MAX_E6;
-			}
-
-			// location pixel margin
-			final int leftPos = (mLatitude - mapLatitudeMargin) - Constants.MAP_LATITUDE_MIN_E6;
-			final int topPos = Constants.MAP_LONGITUDE_MAX_E6 - (mLongitude - mapLongitudeMargin);
-			final int left = (leftPos / mapSquareLat) * squareSize - squareBorder;
-			final int top = (topPos / mapSquareLon) * squareSize - squareBorder;
-
-			FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-			params.setMargins(left, top, 0, 0);
-
-			mLocation.setLayoutParams(params);
-			mLocation.setVisibility(View.VISIBLE);
-			*/
 		}
 	}
 }

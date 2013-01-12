@@ -7,8 +7,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import carnero.me.R;
 
-import java.lang.Math;
-
 public class AnimateTouchProcessor {
 
 	private boolean mIsDown = false;
@@ -62,6 +60,15 @@ public class AnimateTouchProcessor {
 				}
 
 				break;
+		}
+	}
+
+	public void reset(View view) {
+		if (mIsDown) {
+			view.clearAnimation();
+			view.startAnimation(sAnimationUp);
+
+			mIsDown = false;
 		}
 	}
 }

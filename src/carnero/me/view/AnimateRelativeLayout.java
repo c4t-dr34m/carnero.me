@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
 @SuppressWarnings("unused")
-public class AnimateRelativeLayout extends RelativeLayout {
+public class AnimateRelativeLayout extends RelativeLayout implements IAnimateView {
 
 	private AnimateTouchProcessor mProcessor;
 
@@ -34,5 +34,9 @@ public class AnimateRelativeLayout extends RelativeLayout {
 
 	private void init(Context context) {
 		mProcessor = new AnimateTouchProcessor(context);
+	}
+
+	public void resetAnimation() {
+		mProcessor.reset(this);
 	}
 }
