@@ -6,5 +6,6 @@
 	<color name="separator">#22FFFFFF</color>
 	<!-- map -->
 	<color name="map_square_grey">#FF323232</color>
-	<color name="map_square_blue">#FF3F9EE7</color>
+	<color name="map_square_highlight">#FF42484F</color>
+	<color name="map_square_blue">#FF0083FF</color>
 </resources>

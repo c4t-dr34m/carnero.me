@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import carnero.me.Map;
 import carnero.me.R;
+import carnero.me.VisitedPlaces;
 import com.google.android.maps.GeoPoint;
 
 @SuppressWarnings("unused")
@@ -32,7 +34,9 @@ public class SquareMapView extends View {
 	private PaintFlagsDrawFilter mSetFilter;
 	private PaintFlagsDrawFilter mRemFilter;
 	private Paint mSquareGreyPaint;
+	private Paint mSquareHighlightPaint;
 	private Paint mSquareBluePaint;
+	private int[] mLocationGlow = new int[]{10, 20, 30, 100};
 
 	public SquareMapView(Context context) {
 		super(context);
@@ -62,6 +66,12 @@ public class SquareMapView extends View {
 
 			mSquareGreyPaint = new Paint();
 			mSquareGreyPaint.setColor(color);
+		}
+		if (mSquareHighlightPaint == null) {
+			final int color = mContext.getResources().getColor(R.color.map_square_highlight);
+
+			mSquareHighlightPaint = new Paint();
+			mSquareHighlightPaint.setColor(color);
 		}
 		if (mSquareBluePaint == null) {
 			final int color = mContext.getResources().getColor(R.color.map_square_blue);
@@ -103,17 +113,26 @@ public class SquareMapView extends View {
 			}
 		}
 
+		// visited places
+		for (int[] place : VisitedPlaces.VISITED_PLACES_E6) {
+			final int[] square = getSquareFromLocation(place[0], place[1]);
+			canvas.drawRect(square[0], square[1], square[0] + mSquareSize, square[1] + mSquareSize, mSquareHighlightPaint);
+		}
+
 		// current location
 		if (mLatitude != null && mLongitude != null) {
-			final long leftPos = (mLatitude - mMarginLat) - Map.MAP_LATITUDE_MIN_E6;
-			final long topPos = Map.MAP_LONGITUDE_MAX_E6 - (mLongitude - mMarginLon);
-			x = (int) (leftPos / mSquareLat);
-			y = (int) (topPos / mSquareLon);
+			final int[] square = getSquareFromLocation(mLatitude, mLongitude);
 
-			posX = (x * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingLeft;
-			posY = (y * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingTop;
+			int cnt = mLocationGlow.length;
+			RectF rect;
+			for (int g : mLocationGlow) {
+				rect = new RectF(square[0] - cnt, square[1] - cnt, square[0] + cnt + mSquareSize, square[1] + cnt + mSquareSize);
 
-			canvas.drawRect(posX, posY, posX + mSquareSize, posY + mSquareSize, mSquareBluePaint);
+				mSquareBluePaint.setAlpha(g);
+				canvas.drawRoundRect(rect, cnt, cnt, mSquareBluePaint);
+
+				cnt = cnt - 1;
+			}
 		}
 
 		canvas.setDrawFilter(mRemFilter);
@@ -166,5 +185,19 @@ public class SquareMapView extends View {
 		mSquareLon = (Map.MAP_LONGITUDE_MAX_E6 - Map.MAP_LONGITUDE_MIN_E6) / Map.MAP_HEIGHT;
 		mMarginLat = (int) Math.abs((-180 * 1e6) - Map.MAP_LATITUDE_MIN_E6);
 		mMarginLon = (int) Math.abs((90 * 1e6) - Map.MAP_LONGITUDE_MAX_E6);
+	}
+
+	private int[] getSquareFromLocation(int latitudeE6, int longitudeE6) {
+		final int[] square = new int[]{0, 0};
+
+		final long leftPos = (latitudeE6 - mMarginLat) - Map.MAP_LATITUDE_MIN_E6;
+		final long topPos = Map.MAP_LONGITUDE_MAX_E6 - (longitudeE6 - mMarginLon);
+		final int x = (int) (leftPos / mSquareLat);
+		final int y = (int) (topPos / mSquareLon);
+
+		square[0] = (x * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingLeft;
+		square[1] = (y * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingTop;
+
+		return square;
 	}
 }

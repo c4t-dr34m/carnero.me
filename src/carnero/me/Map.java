@@ -4,8 +4,8 @@ public class Map {
 
 	public static final int MAP_WIDTH; // squares
 	public static final int MAP_HEIGHT; // squares
-	public static final int MAP_LATITUDE_MIN_E6 = (int) (-164 * 1e6); // left
-	public static final int MAP_LATITUDE_MAX_E6 = (int) (+164 * 1e6); // right
+	public static final int MAP_LATITUDE_MIN_E6 = (int) (-170 * 1e6); // left
+	public static final int MAP_LATITUDE_MAX_E6 = (int) (+170 * 1e6); // right
 	public static final int MAP_LONGITUDE_MIN_E6 = (int) (-56 * 1e6); // bottom
 	public static final int MAP_LONGITUDE_MAX_E6 = (int) (+80 * 1e6); // top
 
