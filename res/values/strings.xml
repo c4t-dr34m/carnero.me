@@ -4,7 +4,7 @@
 	<!-- vcard -->
 	<string name="vcard_name_nick">carnero</string>
 	<string name="vcard_name_real">Radovan\nPaška</string>
-	<string name="vcard_position">senior android developer based in prague, cz</string>
+	<string name="vcard_position">android developer</string>
 	<!-- contact -->
 	<string name="contact_phone_label">phone</string>
 	<string name="contact_phone_value">+420&#x00A0;777&#x00A0;209&#x00A0;671</string>

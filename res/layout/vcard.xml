@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="@drawable/bcg_main">
+	android:background="@color/bcg_center">
 
 	<!-- vcard -->
 	<RelativeLayout android:id="@+id/layout_vcard"
@@ -24,18 +24,33 @@
 
 		<FrameLayout android:id="@+id/name_frame"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_height="fill_parent"
 			android:layout_centerVertical="true"
 			android:layout_toRightOf="@id/logo"
+			android:layout_alignTop="@id/logo"
+			android:layout_alignBottom="@id/logo"
 			android:layout_marginLeft="16dp"
 			android:gravity="left">
 
-			<carnero.me.view.TextViewThin android:id="@+id/name_nick"
-				style="@style/Text.Vcard.Nick"
+			<LinearLayout android:id="@+id/name_nick"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="left|center_vertical"
-				android:text="@string/vcard_name_nick" />
+				android:orientation="vertical">
+
+				<carnero.me.view.TextViewThin
+					style="@style/Text.Vcard.Nick"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/vcard_name_nick" />
+
+				<TextView android:id="@+id/job"
+					style="@style/Text.Vcard.Position"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="left"
+					android:text="@string/vcard_position" />
+			</LinearLayout>
 
 			<carnero.me.view.TextViewThin android:id="@+id/name_real"
 				style="@style/Text.Vcard.Name"
@@ -46,18 +61,6 @@
 				android:text="@string/vcard_name_real" />
 		</FrameLayout>
 	</RelativeLayout>
-
-	<!-- job -->
-	<TextView android:id="@+id/layout_job"
-		style="@style/Text.Vcard.Position"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/layout_vcard"
-		android:layout_marginLeft="8dp"
-		android:layout_marginBottom="16dp"
-		android:layout_marginRight="8dp"
-		android:gravity="center"
-		android:text="@string/vcard_position" />
 
 	<!-- contact -->
 	<LinearLayout android:id="@+id/layout_contact"
@@ -144,7 +147,7 @@
 	<carnero.me.view.SquareMapView android:id="@+id/location_map"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-		android:layout_below="@id/layout_job"
+		android:layout_below="@id/layout_vcard"
 		android:layout_above="@id/layout_contact"
 		android:contentDescription="@string/desc_map" />
 </RelativeLayout>

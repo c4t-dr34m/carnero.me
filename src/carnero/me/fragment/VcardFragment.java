@@ -9,10 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +33,6 @@ public class VcardFragment extends Fragment {
 	// views
 	private View mNickFrame;
 	private View mName;
-	private TextView mJob;
 	private SquareMapView mMap;
 	// animations
 	private Animation mSlideTop;
@@ -49,7 +45,6 @@ public class VcardFragment extends Fragment {
 		// views
 		mNickFrame = mContent.findViewById(R.id.name_nick);
 		mName = mContent.findViewById(R.id.name_real);
-		mJob = (TextView) mContent.findViewById(R.id.layout_job);
 		mMap = (SquareMapView) mContent.findViewById(R.id.location_map);
 
 		return mContent;
@@ -62,7 +57,6 @@ public class VcardFragment extends Fragment {
 		mContext = getActivity().getBaseContext();
 
 		setPhoneNumber();
-		formatJob();
 
 		mSlideTop = AnimationUtils.loadAnimation(mContext, R.anim.slide_top);
 		mSlideBottom = AnimationUtils.loadAnimation(mContext, R.anim.slide_bottom);
@@ -177,15 +171,6 @@ public class VcardFragment extends Fragment {
 		} else {
 			((TextView) mContent.findViewById(R.id.contact_phone_value)).setText("777 209 671");
 		}
-	}
-
-	public void formatJob() {
-		final int color = getResources().getColor(android.R.color.white);
-		final SpannableString text = new SpannableString(getResources().getText(R.string.vcard_position));
-
-		text.setSpan(new ForegroundColorSpan(color), 7, 24, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-		mJob.setText(text);
 	}
 
 	private void getLocation() {
