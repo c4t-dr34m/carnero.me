@@ -22,6 +22,7 @@
 	<style name="Text.Vcard.Position">
 		<item name="android:textSize">14dp</item>
 		<item name="android:textStyle">normal</item>
+		<item name="android:textColor">@color/grey</item>
 	</style>
 
 	<style name="Text.Contact">
@@ -35,7 +36,7 @@
 	</style>
 
 	<style name="Text.Contact.Label">
-		<item name="android:textSize">32dp</item>
+		<item name="android:textSize">34dp</item>
 	</style>
 
 	<style name="Text.Network">

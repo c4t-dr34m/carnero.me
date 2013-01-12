@@ -4,6 +4,7 @@
 	<color name="bcg_sides">#FF000000</color>
 	<color name="bcg_button_selected">#13FFFFFF</color>
 	<color name="separator">#22FFFFFF</color>
+	<color name="grey">#FF888888</color>
 	<!-- map -->
 	<color name="map_square_grey">#FF323232</color>
 	<color name="map_square_highlight">#FF42484F</color>

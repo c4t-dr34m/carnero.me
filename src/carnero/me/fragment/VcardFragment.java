@@ -43,7 +43,7 @@ public class VcardFragment extends Fragment {
 		mContent = inflater.inflate(R.layout.vcard, container, false);
 
 		// views
-		mNickFrame = mContent.findViewById(R.id.name_nick_frame);
+		mNickFrame = mContent.findViewById(R.id.name_nick);
 		mName = mContent.findViewById(R.id.name_real);
 		mMap = (SquareMapView) mContent.findViewById(R.id.location_map);
 
