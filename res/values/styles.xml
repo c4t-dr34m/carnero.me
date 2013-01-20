@@ -66,8 +66,38 @@
 		<item name="android:layout_alignParentLeft">true</item>
 		<item name="android:layout_centerVertical">true</item>
 		<item name="android:layout_marginTop">8dp</item>
-		<item name="android:layout_marginRight">16dp</item>
+		<item name="android:layout_marginRight">16`dp</item>
 		<item name="android:layout_marginBottom">8dp</item>
 		<item name="android:layout_marginLeft">8dp</item>
+	</style>
+
+	<style name="Timeline">
+		<!-- empty parent -->
+	</style>
+
+	<style name="Timeline.Event">
+		<!-- empty parent -->
+	</style>
+
+	<style name="Timeline.Event.Date">
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">14dp</item>
+		<item name="android:textColor">@color/timeline_event_date</item>
+	</style>
+
+	<style name="Timeline.Event.Title">
+		<item name="android:textSize">22sp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@android:color/black</item>
+	</style>
+
+	<style name="Timeline.Event.Description">
+		<item name="android:textSize">14sp</item>
+		<item name="android:textColor">@android:color/black</item>
+	</style>
+
+	<style name="Timeline.Event.Client">
+		<item name="android:textSize">14sp</item>
+		<item name="android:textColor">@color/grey</item>
 	</style>
 </resources>

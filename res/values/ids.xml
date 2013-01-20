@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<item name="event" type="id" />
+	<item name="event_line" type="id" />
+	<item name="year" type="id" />
+	<item name="month" type="id" />
+	<item name="detail" type="id" />
+	<item name="title" type="id" />
+	<item name="stars" type="id" />
+	<item name="description" type="id" />
+	<item name="client" type="id" />
+	<item name="screenshot" type="id" />
+</resources>
