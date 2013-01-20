@@ -9,4 +9,6 @@
 	<color name="map_square_grey">#FF323232</color>
 	<color name="map_square_highlight">#FF42484F</color>
 	<color name="map_square_blue">#FF0083FF</color>
+	<!-- timeline -->
+	<color name="timeline_event_line">#26FFFFFF</color>
 </resources>

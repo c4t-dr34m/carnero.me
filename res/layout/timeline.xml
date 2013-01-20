@@ -2,16 +2,203 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:paddingTop="8dp"
-	android:paddingRight="8dp"
-	android:paddingBottom="8dp"
-	android:background="@drawable/bcg_side">
+	android:padding="8dp"
+	android:background="@drawable/bcg_side"
+	android:fillViewport="true">
 
-	<LinearLayout
+	<FrameLayout
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:layout_height="wrap_content">
 
-		<!-- TODO: timeline -->
-	</LinearLayout>
+		<View android:id="@+id/rails"
+			android:layout_width="5dp"
+			android:layout_height="fill_parent"
+			android:layout_marginLeft="80dp"
+			android:background="@drawable/bcg_rails" />
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<!-- rb (Mobilni eKonto) -->
+			<RelativeLayout android:id="@+id/rb"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="8dp">
+
+				<View android:id="@+id/rb_event"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginLeft="72.5dp"
+					android:background="@drawable/ic_event" />
+
+				<View android:id="@+id/rb_event_line"
+					android:layout_width="fill_parent"
+					android:layout_height="2dp"
+					android:layout_marginTop="17dp"
+					android:layout_marginRight="19dp"
+					android:layout_alignRight="@id/rb_event"
+					android:background="@color/timeline_event_line" />
+
+				<TextView android:id="@+id/rb_month"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="4dp"
+					android:layout_marginLeft="4dp"
+					android:layout_above="@id/rb_event_line"
+					android:text="October" />
+
+				<TextView android:id="@+id/rb_year"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="4dp"
+					android:layout_marginLeft="4dp"
+					android:layout_below="@id/rb_event_line"
+					android:text="2012" />
+
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="100dp"
+					android:background="@drawable/bcg_detail">
+
+					<TextView android:id="@+id/rb_title"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="8dp"
+						android:text="eKonto" />
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_toRightOf="@id/rb_title"
+						android:layout_alignTop="@id/rb_title"
+						android:orientation="horizontal">
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+					</LinearLayout>
+				</RelativeLayout>
+			</RelativeLayout>
+
+			<!-- cg (c:geo) -->
+			<RelativeLayout android:id="@+id/cg"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="8dp">
+
+				<View android:id="@+id/cg_event"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginLeft="72.5dp"
+					android:background="@drawable/ic_event" />
+
+				<View android:id="@+id/cg_event_line"
+					android:layout_width="fill_parent"
+					android:layout_height="2dp"
+					android:layout_marginTop="17dp"
+					android:layout_marginRight="19dp"
+					android:layout_alignRight="@id/cg_event"
+					android:background="@color/timeline_event_line" />
+
+				<TextView android:id="@+id/cg_month"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="4dp"
+					android:layout_marginLeft="4dp"
+					android:text="May" />
+
+				<TextView android:id="@+id/cg_year"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="4dp"
+					android:layout_marginLeft="4dp"
+					android:layout_below="@id/cg_event_line"
+					android:text="2010" />
+
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="100dp"
+					android:background="@drawable/bcg_detail">
+
+					<TextView android:id="@+id/cg_title"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="8dp"
+						android:text="c:geo" />
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_toRightOf="@id/cg_title"
+						android:layout_alignTop="@id/cg_title"
+						android:orientation="horizontal">
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star" />
+
+						<View
+							android:layout_width="8dp"
+							android:layout_height="8dp"
+							android:padding="4dp"
+							android:background="@drawable/ic_star_half" />
+					</LinearLayout>
+				</RelativeLayout>
+			</RelativeLayout>
+		</LinearLayout>
+	</FrameLayout>
 </ScrollView>
