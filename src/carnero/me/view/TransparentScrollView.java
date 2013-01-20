@@ -3,9 +3,8 @@ package carnero.me.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 import android.widget.ScrollView;
-import carnero.me.R;
 
 import java.util.ArrayList;
 
@@ -42,15 +41,20 @@ public class TransparentScrollView extends ScrollView {
 	}
 
 	public void init() {
-		final LinearLayout networksLayout = (LinearLayout) findViewById(R.id.networks_layout);
-		final int networksCnt = networksLayout.getChildCount();
-		View networkView;
+		findAnimateViews(this);
+	}
+
+	public void findAnimateViews(ViewGroup group) {
+		final int networksCnt = group.getChildCount();
+		View view;
 
 		for (int i = 0; i < networksCnt; i++) {
-			networkView = networksLayout.getChildAt(i);
+			view = group.getChildAt(i);
 
-			if (networkView instanceof IAnimateView) {
-				mNetworks.add((IAnimateView) networkView);
+			if (view instanceof IAnimateView) {
+				mNetworks.add((IAnimateView) view);
+			} else if (view instanceof ViewGroup) {
+				findAnimateViews((ViewGroup) view);
 			}
 		}
 	}

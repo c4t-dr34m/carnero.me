@@ -13,15 +13,24 @@ public class AnimateTouchProcessor {
 	private float mDownX;
 	private float mDownY;
 	// animation
-	private static Animation sAnimationDown;
-	private static Animation sAnimationUp;
+	private Animation mAnimationDown;
+	private Animation mAnimationUp;
 
 	public AnimateTouchProcessor(Context context) {
-		if (sAnimationDown == null) {
-			sAnimationDown = AnimationUtils.loadAnimation(context, R.anim.btn_down);
+		if (mAnimationDown == null) {
+			mAnimationDown = AnimationUtils.loadAnimation(context, R.anim.btn_down);
 		}
-		if (sAnimationUp == null) {
-			sAnimationUp = AnimationUtils.loadAnimation(context, R.anim.btn_up);
+		if (mAnimationUp == null) {
+			mAnimationUp = AnimationUtils.loadAnimation(context, R.anim.btn_up);
+		}
+	}
+
+	public AnimateTouchProcessor(Context context, int down, int up) {
+		if (mAnimationDown == null) {
+			mAnimationDown = AnimationUtils.loadAnimation(context, down);
+		}
+		if (mAnimationUp == null) {
+			mAnimationUp = AnimationUtils.loadAnimation(context, up);
 		}
 	}
 
@@ -35,13 +44,13 @@ public class AnimateTouchProcessor {
 				mDownY = event.getY();
 
 				view.clearAnimation();
-				view.startAnimation(sAnimationDown);
+				view.startAnimation(mAnimationDown);
 
 				break;
 			case MotionEvent.ACTION_UP:
 				if (mIsDown) {
 					view.clearAnimation();
-					view.startAnimation(sAnimationUp);
+					view.startAnimation(mAnimationUp);
 
 					mIsDown = false;
 				}
@@ -54,7 +63,7 @@ public class AnimateTouchProcessor {
 
 				if (mIsDown && dst > 25) {
 					view.clearAnimation();
-					view.startAnimation(sAnimationUp);
+					view.startAnimation(mAnimationUp);
 
 					mIsDown = false;
 				}
@@ -66,7 +75,7 @@ public class AnimateTouchProcessor {
 	public void reset(View view) {
 		if (mIsDown) {
 			view.clearAnimation();
-			view.startAnimation(sAnimationUp);
+			view.startAnimation(mAnimationUp);
 
 			mIsDown = false;
 		}
