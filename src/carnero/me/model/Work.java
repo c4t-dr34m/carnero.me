@@ -2,10 +2,12 @@ package carnero.me.model;
 
 import android.content.Intent;
 
-public class Work extends Entry {
+@SuppressWarnings("UnusedDeclaration")
+public abstract class Work extends Entry {
 
 	public String description;
 	public String client;
 	public int screenshotResource;
+	public float rating;
 	public Intent tapAction;
 }

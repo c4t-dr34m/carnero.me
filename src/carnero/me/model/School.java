@@ -2,7 +2,8 @@ package carnero.me.model;
 
 import android.content.Intent;
 
-public class School extends Entry {
+@SuppressWarnings("UnusedDeclaration")
+public abstract class School extends Entry {
 
 	public String description;
 	public String yearFrom;

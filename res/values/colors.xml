@@ -3,13 +3,13 @@
 	<color name="bcg_center">#FF131313</color>
 	<color name="bcg_sides">#FF000000</color>
 	<color name="bcg_button_selected">#13FFFFFF</color>
-	<color name="separator">#22FFFFFF</color>
+	<color name="separator">#22000000</color>
 	<color name="grey">#FF888888</color>
 	<!-- map -->
 	<color name="map_square_grey">#FF323232</color>
 	<color name="map_square_highlight">#FF42484F</color>
 	<color name="map_square_blue">#FF0083FF</color>
 	<!-- timeline -->
-	<color name="timeline_event_line">#26FFFFFF</color>
-	<color name="timeline_event_date">#FF666666</color>
+	<color name="timeline_event_line">#FF9B9B9B</color>
+	<color name="timeline_event_date">#FF444444</color>
 </resources>

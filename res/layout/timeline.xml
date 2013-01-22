@@ -2,23 +2,39 @@
 <carnero.me.view.TransparentScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:padding="8dp"
+	android:paddingRight="8dp"
+	android:paddingLeft="8dp"
 	android:background="@drawable/bcg_side"
+	android:scrollbars="none"
 	android:fillViewport="true">
 
-	<FrameLayout
+	<LinearLayout
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
+		android:layout_height="fill_parent"
+		android:orientation="vertical">
 
-		<View android:id="@+id/rails"
-			android:layout_width="5dp"
-			android:layout_height="fill_parent"
-			android:layout_marginLeft="60dp"
-			android:background="@drawable/bcg_rails" />
-
-		<LinearLayout android:id="@+id/entries"
+		<View
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical" />
-	</FrameLayout>
+			android:layout_height="8dp" />
+
+		<FrameLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<View android:id="@+id/rails"
+				android:layout_width="5dp"
+				android:layout_height="fill_parent"
+				android:layout_marginLeft="60dp"
+				android:background="@drawable/bcg_rails" />
+
+			<LinearLayout android:id="@+id/entries"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical" />
+		</FrameLayout>
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="8dp" />
+	</LinearLayout>
 </carnero.me.view.TransparentScrollView>

@@ -47,13 +47,13 @@
 	<style name="Text.Network.Label">
 		<item name="android:textSize">18sp</item>
 		<item name="android:textStyle">bold</item>
-		<item name="android:textColor">@android:color/white</item>
+		<item name="android:textColor">@android:color/black</item>
 	</style>
 
 	<style name="Text.Network.Description">
 		<item name="android:textSize">14sp</item>
 		<item name="android:textStyle">normal</item>
-		<item name="android:textColor">#FF999999</item>
+		<item name="android:textColor">#FF444444</item>
 	</style>
 
 	<style name="Icon">
@@ -66,7 +66,7 @@
 		<item name="android:layout_alignParentLeft">true</item>
 		<item name="android:layout_centerVertical">true</item>
 		<item name="android:layout_marginTop">8dp</item>
-		<item name="android:layout_marginRight">16`dp</item>
+		<item name="android:layout_marginRight">16dp</item>
 		<item name="android:layout_marginBottom">8dp</item>
 		<item name="android:layout_marginLeft">8dp</item>
 	</style>

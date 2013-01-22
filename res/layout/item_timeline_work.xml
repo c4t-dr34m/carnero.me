@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:paddingTop="8dp"
@@ -16,27 +16,30 @@
 		android:layout_width="fill_parent"
 		android:layout_height="2dp"
 		android:layout_marginTop="25dp"
-		android:layout_marginRight="20dp"
+		android:layout_marginRight="19dp"
 		android:layout_alignRight="@id/event"
 		android:background="@color/timeline_event_line" />
 
 	<TextView android:id="@id/year"
+		style="@style/Timeline.Event.Date"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginRight="24dp"
 		android:layout_marginLeft="4dp"
 		android:layout_alignRight="@id/event"
-		android:layout_below="@id/event_line" />
+		android:layout_below="@id/event_line"
+		android:gravity="center" />
 
 	<TextView android:id="@id/month"
 		style="@style/Timeline.Event.Date"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginRight="24dp"
-		android:layout_marginBottom="2dp"
+		android:layout_marginBottom="4dp"
 		android:layout_marginLeft="4dp"
 		android:layout_alignRight="@id/event"
-		android:layout_above="@id/year" />
+		android:layout_above="@id/year"
+		android:gravity="center" />
 
 	<carnero.me.view.AnimateCardLayout android:id="@id/detail"
 		android:layout_width="fill_parent"
@@ -86,4 +89,4 @@
 			android:background="@null" />
 
 	</carnero.me.view.AnimateCardLayout>
-</merge>
+</RelativeLayout>

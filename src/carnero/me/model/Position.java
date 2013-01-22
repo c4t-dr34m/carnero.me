@@ -1,6 +1,7 @@
 package carnero.me.model;
 
-public class Position extends Entry {
+@SuppressWarnings("UnusedDeclaration")
+public abstract class Position extends Entry {
 
 	// empty class
 }
