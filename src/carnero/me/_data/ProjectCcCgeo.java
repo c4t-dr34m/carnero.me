@@ -14,7 +14,7 @@ public class ProjectCcCgeo extends Work {
 		description = "World's best geocaching client";
 		client = "carnero";
 		rating = 4.6f;
-		screenshotResource = R.drawable.scr_rb_aligned;
+		screenshotResource = R.drawable.scr_rb;
 		tapAction = EntryIntent.getStoreIntent("cgeo.geocaching");
 	}
 }

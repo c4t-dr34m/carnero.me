@@ -81,12 +81,14 @@
 			android:layout_marginRight="8dp"
 			android:layout_marginLeft="8dp" />
 
-		<View android:id="@id/screenshot"
+		<ImageView android:id="@id/screenshot"
 			android:layout_width="fill_parent"
 			android:layout_height="120dp"
 			android:layout_marginTop="8dp"
 			android:layout_marginBottom="4dp"
-			android:background="@null" />
+			android:adjustViewBounds="true"
+			android:scaleType="centerCrop"
+			android:contentDescription="@string/desc_screenshot" />
 
 	</carnero.me.view.AnimateCardLayout>
 </RelativeLayout>

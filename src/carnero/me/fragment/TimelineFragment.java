@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import carnero.me.R;
@@ -69,7 +70,11 @@ public class TimelineFragment extends Fragment {
 		((TextView) layout.findViewById(R.id.description)).setText(entry.description);
 		((TextView) layout.findViewById(R.id.client)).setText(entry.client);
 		// screenshot
-		layout.findViewById(R.id.screenshot).setBackgroundResource(entry.screenshotResource);
+		if (entry.screenshotResource == 0) {
+			layout.findViewById(R.id.screenshot).setVisibility(View.GONE);
+		} else {
+			((ImageView) layout.findViewById(R.id.screenshot)).setImageResource(entry.screenshotResource);
+		}
 		// stars
 		final LinearLayout stars = (LinearLayout) layout.findViewById(R.id.stars);
 		final int full = (int) Math.floor(entry.rating);

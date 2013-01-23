@@ -14,7 +14,7 @@ public class ProjectCcTimeline extends Work {
 		description = "Gallery that shows your shots ordered by date - in timeline or in calendar";
 		client = "carnero";
 		rating = 4.5f;
-		screenshotResource = R.drawable.scr_rb_aligned;
+		screenshotResource = R.drawable.scr_rb;
 		tapAction = EntryIntent.getStoreIntent("carnero.timeline");
 	}
 }

@@ -16,6 +16,7 @@ public class List {
 		ENTRIES.add(new ProjectLagEvropa2());
 		ENTRIES.add(new ProjectLagPigy());
 		ENTRIES.add(new ProjectLagRadioTycoon());
+		ENTRIES.add(new ProjectLagYouRadio());
 		ENTRIES.add(new ProjectRbEkonto());
 		ENTRIES.add(new ProjectSkoMeet());
 		ENTRIES.add(new ProjectTmoME());

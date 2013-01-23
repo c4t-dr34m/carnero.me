@@ -14,7 +14,7 @@ public class ProjectLagEvropa2 extends Work {
 		description = "Player for one of most prominent czech radio stations";
 		client = "Lagardère Active ČR";
 		rating = 4.3f;
-		screenshotResource = R.drawable.scr_rb_aligned;
+		screenshotResource = R.drawable.scr_rb;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.lag.radio.evropa2");
 	}
 }
