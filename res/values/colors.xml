@@ -11,5 +11,4 @@
 	<color name="map_square_blue">#FF0083FF</color>
 	<!-- timeline -->
 	<color name="timeline_event_line">#FF9B9B9B</color>
-	<color name="timeline_event_date">#FF444444</color>
 </resources>

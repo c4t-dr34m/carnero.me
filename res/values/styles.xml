@@ -48,12 +48,20 @@
 		<item name="android:textSize">18sp</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@android:color/black</item>
+		<item name="android:shadowColor">@android:color/white</item>
+		<item name="android:shadowRadius">2.0</item>
+		<item name="android:shadowDx">0.0</item>
+		<item name="android:shadowDy">2.0</item>
 	</style>
 
 	<style name="Text.Network.Description">
 		<item name="android:textSize">14sp</item>
 		<item name="android:textStyle">normal</item>
 		<item name="android:textColor">#FF444444</item>
+		<item name="android:shadowColor">#AAFFFFFF</item>
+		<item name="android:shadowRadius">1.0</item>
+		<item name="android:shadowDx">0.0</item>
+		<item name="android:shadowDy">2.0</item>
 	</style>
 
 	<style name="Icon">
@@ -82,7 +90,11 @@
 	<style name="Timeline.Event.Date">
 		<item name="android:gravity">center</item>
 		<item name="android:textSize">14dp</item>
-		<item name="android:textColor">@color/timeline_event_date</item>
+		<item name="android:textColor">#FF444444</item>
+		<item name="android:shadowColor">#AAFFFFFF</item>
+		<item name="android:shadowRadius">1.0</item>
+		<item name="android:shadowDx">0.0</item>
+		<item name="android:shadowDy">2.0</item>
 	</style>
 
 	<style name="Timeline.Event.Title">

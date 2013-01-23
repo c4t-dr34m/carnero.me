@@ -2,16 +2,19 @@
 <carnero.me.view.TransparentScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:paddingTop="8dp"
-	android:paddingBottom="8dp"
 	android:paddingLeft="8dp"
 	android:fillViewport="true"
+	android:scrollbars="none"
 	android:background="@drawable/bcg_side">
 
 	<LinearLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="8dp" />
 
 		<View
 			android:layout_width="fill_parent"
@@ -334,5 +337,9 @@
 			android:layout_width="fill_parent"
 			android:layout_height="0dp"
 			android:layout_weight="1" />
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="8dp" />
 	</LinearLayout>
 </carnero.me.view.TransparentScrollView>
