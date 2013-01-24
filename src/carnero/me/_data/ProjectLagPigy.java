@@ -14,7 +14,7 @@ public class ProjectLagPigy extends Work {
 		description = "Radio player for children";
 		client = "Lagardère Active ČR";
 		rating = 4.0f;
-		screenshotResource = R.drawable.scr_rb;
+		iconResource = R.drawable.ic_project_pigy;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.lag.pigy.player");
 	}
 }

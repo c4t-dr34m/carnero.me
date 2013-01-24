@@ -62,18 +62,18 @@ public class TimelineFragment extends Fragment {
 		final View layout = mInflater.inflate(R.layout.item_timeline_work, null);
 
 		String month = mMonths[entry.month - 1];
+		// title & icon
+		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
+		if (entry.iconResource != 0) {
+			((ImageView) layout.findViewById(R.id.icon)).setImageResource(entry.iconResource);
+		} else {
+			layout.findViewById(R.id.icon).setVisibility(View.GONE);
+		}
 		// texts
 		((TextView) layout.findViewById(R.id.month)).setText(month);
 		((TextView) layout.findViewById(R.id.year)).setText(String.valueOf(entry.year));
-		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
 		((TextView) layout.findViewById(R.id.description)).setText(entry.description);
 		((TextView) layout.findViewById(R.id.client)).setText(entry.client);
-		// screenshot
-		if (entry.screenshotResource == 0) {
-			layout.findViewById(R.id.screenshot).setVisibility(View.GONE);
-		} else {
-			((ImageView) layout.findViewById(R.id.screenshot)).setImageResource(entry.screenshotResource);
-		}
 		// stars
 		final LinearLayout stars = (LinearLayout) layout.findViewById(R.id.stars);
 		final int full = (int) Math.floor(entry.rating);

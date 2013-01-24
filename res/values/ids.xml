@@ -9,5 +9,5 @@
 	<item name="stars" type="id" />
 	<item name="description" type="id" />
 	<item name="client" type="id" />
-	<item name="screenshot" type="id" />
+	<item name="icon" type="id" />
 </resources>

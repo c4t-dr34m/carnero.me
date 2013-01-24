@@ -14,7 +14,7 @@ public class ProjectLagRadioTycoon extends Work {
 		description = "Real-time game allowing everyone to be owner of radio station";
 		client = "Lagardère Active ČR";
 		rating = 3.5f;
-		screenshotResource = R.drawable.scr_rb;
+		iconResource = R.drawable.ic_project_tycoon;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.lag.radiotyc.android");
 	}
 }

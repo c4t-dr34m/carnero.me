@@ -7,7 +7,7 @@ public abstract class Work extends Entry {
 
 	public String description;
 	public String client;
-	public int screenshotResource;
+	public int iconResource;
 	public float rating;
 	public Intent tapAction;
 }

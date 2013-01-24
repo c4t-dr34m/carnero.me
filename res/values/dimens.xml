@@ -2,4 +2,5 @@
 <resources>
 	<dimen name="sliding_menu_offset">32dp</dimen>
 	<dimen name="sliding_menu_shadow">8dp</dimen>
+	<dimen name="icon_padding">8dp</dimen>
 </resources>

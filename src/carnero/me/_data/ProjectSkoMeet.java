@@ -10,11 +10,11 @@ public class ProjectSkoMeet extends Work {
 	public ProjectSkoMeet() {
 		year = 2012;
 		month = 7;
-		name = "ŠKODA Meet App";
+		name = "Meet App";
 		description = "Social application making in-person meetings easier";
 		client = "ŠKODA AUTO";
 		rating = 3.8f;
-		screenshotResource = R.drawable.scr_rb;
+		iconResource = R.drawable.ic_project_meet;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.skoda.meet");
 	}
 }

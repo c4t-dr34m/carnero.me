@@ -14,7 +14,7 @@ public class ProjectTmoME extends Work {
 		description = "Live UEFA's EURO 2012 coverage ";
 		client = "T-Mobile Czech Republic";
 		rating = 4.2f;
-		screenshotResource = R.drawable.scr_rb;
+		iconResource = R.drawable.ic_project_me2012;
 		tapAction = EntryIntent.getStoreIntent("cz.t_mobile.me2012");
 	}
 }
