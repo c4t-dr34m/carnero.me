@@ -23,6 +23,7 @@ public class TimelineFragment extends Fragment {
 	private LayoutInflater mInflater;
 	private View mContent;
 	private LinearLayout mLayout;
+	private String[] mMonths;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
@@ -39,6 +40,7 @@ public class TimelineFragment extends Fragment {
 		super.onActivityCreated(savedState);
 
 		mContext = getActivity().getBaseContext();
+		mMonths = getResources().getStringArray(R.array.months);
 
 		View view = null;
 		for (Entry entry : List.ENTRIES) {
@@ -59,10 +61,7 @@ public class TimelineFragment extends Fragment {
 	private View fillLayoutWork(Work entry) {
 		final View layout = mInflater.inflate(R.layout.item_timeline_work, null);
 
-		String month = String.valueOf(entry.month);
-		if (month.length() < 2) {
-			month = "0" + month;
-		}
+		String month = mMonths[entry.month - 1];
 		// texts
 		((TextView) layout.findViewById(R.id.month)).setText(month);
 		((TextView) layout.findViewById(R.id.year)).setText(String.valueOf(entry.year));
