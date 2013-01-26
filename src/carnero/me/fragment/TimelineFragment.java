@@ -62,12 +62,12 @@ public class TimelineFragment extends Fragment {
 		final View layout = mInflater.inflate(R.layout.item_timeline_work, null);
 
 		String month = mMonths[entry.month - 1];
-		// title & icon
+		// title
 		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
 		if (entry.iconResource != 0) {
 			((ImageView) layout.findViewById(R.id.icon)).setImageResource(entry.iconResource);
 		} else {
-			layout.findViewById(R.id.icon).setVisibility(View.INVISIBLE);
+			layout.findViewById(R.id.icon).setVisibility(View.GONE);
 		}
 		// texts
 		((TextView) layout.findViewById(R.id.month)).setText(month);

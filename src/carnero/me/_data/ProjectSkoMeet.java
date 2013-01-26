@@ -14,7 +14,7 @@ public class ProjectSkoMeet extends Work {
 		description = "Social application making in-person meetings easier";
 		client = "ŠKODA AUTO";
 		rating = 3.8f;
-		iconResource = R.drawable.ic_project_meet;
+		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.skoda.meet");
 	}
 }

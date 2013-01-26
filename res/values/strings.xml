@@ -35,7 +35,7 @@
 	<string name="desc_logo">carnero</string>
 	<string name="desc_map">world map</string>
 	<string name="desc_location">carnero\'s current location</string>
-	<string name="desc_icon">project\'s icon</string>
+	<string name="desc_icon">project type</string>
 	<!-- errors -->
 	<string name="error_no_phone">There is no application for calling.</string>
 	<string name="error_no_mail">There is no application for composing email.</string>
