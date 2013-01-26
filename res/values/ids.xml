@@ -10,4 +10,5 @@
 	<item name="description" type="id" />
 	<item name="client" type="id" />
 	<item name="icon" type="id" />
+	<item name="clue" type="id" />
 </resources>

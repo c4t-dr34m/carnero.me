@@ -67,7 +67,7 @@ public class TimelineFragment extends Fragment {
 		if (entry.iconResource != 0) {
 			((ImageView) layout.findViewById(R.id.icon)).setImageResource(entry.iconResource);
 		} else {
-			layout.findViewById(R.id.icon).setVisibility(View.GONE);
+			layout.findViewById(R.id.icon).setVisibility(View.INVISIBLE);
 		}
 		// texts
 		((TextView) layout.findViewById(R.id.month)).setText(month);
@@ -89,7 +89,9 @@ public class TimelineFragment extends Fragment {
 			stars.addView(mInflater.inflate(R.layout.item_star_half, stars, false));
 		}
 		// action
-		layout.setOnClickListener(new EntryAction(entry.tapAction));
+		if (entry.tapAction != null) {
+			layout.setOnClickListener(new EntryAction(entry.tapAction));
+		}
 
 		return layout;
 	}

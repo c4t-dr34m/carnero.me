@@ -1,7 +1,6 @@
 package carnero.me._data;
 
 import carnero.me.R;
-import carnero.me.model.EntryIntent;
 import carnero.me.model.Work;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -15,6 +14,6 @@ public class ProjectCcTimeline extends Work {
 		client = "carnero";
 		rating = 4.5f;
 		iconResource = R.drawable.ic_project_timeline;
-		tapAction = EntryIntent.getStoreIntent("carnero.timeline");
+		tapAction = null;
 	}
 }
