@@ -24,6 +24,8 @@ public class List {
 		ENTRIES.add(new ProjectVdfFotografik());
 		// jobs
 		ENTRIES.add(new WorkInmite());
+		ENTRIES.add(new WorkCyberfox());
+		ENTRIES.add(new WorkCentrum());
 
 		Collections.sort(ENTRIES);
 	}
