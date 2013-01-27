@@ -35,7 +35,7 @@
 	<carnero.me.view.AnimateCardLayout android:id="@id/detail"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="8dp"
+		android:layout_marginTop="6dp"
 		android:layout_marginLeft="86dp"
 		android:padding="8dp"
 		android:orientation="vertical">
@@ -49,8 +49,7 @@
 				style="@style/Timeline.Event.Title"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_gravity="center_vertical"
-				android:layout_toRightOf="@id/icon" />
+				android:layout_gravity="center_vertical" />
 
 			<ImageView android:id="@id/icon"
 				android:layout_width="16dp"
