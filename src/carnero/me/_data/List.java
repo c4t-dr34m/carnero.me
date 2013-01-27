@@ -10,6 +10,7 @@ public class List {
 	public static final ArrayList<Entry> ENTRIES = new ArrayList<Entry>();
 
 	static {
+		// projects
 		ENTRIES.add(new ProjectCcCgeo());
 		ENTRIES.add(new ProjectCcTimeline());
 		ENTRIES.add(new ProjectImtTicket());
@@ -21,6 +22,8 @@ public class List {
 		ENTRIES.add(new ProjectSkoMeet());
 		ENTRIES.add(new ProjectTmoME());
 		ENTRIES.add(new ProjectVdfFotografik());
+		// jobs
+		ENTRIES.add(new WorkInmite());
 
 		Collections.sort(ENTRIES);
 	}

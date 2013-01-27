@@ -1,7 +1,9 @@
 package carnero.me.model;
 
+import android.content.Intent;
+
 @SuppressWarnings("UnusedDeclaration")
 public abstract class Position extends Entry {
 
-	// empty class
+	public Intent tapAction;
 }

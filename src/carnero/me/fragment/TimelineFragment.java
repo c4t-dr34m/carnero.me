@@ -45,11 +45,11 @@ public class TimelineFragment extends Fragment {
 		View view = null;
 		for (Entry entry : List.ENTRIES) {
 			if (entry instanceof Work) {
-				view = fillLayoutWork((Work) entry);
+				view = fillLayout((Work) entry);
 			} else if (entry instanceof Position) {
-				// view = fillLayoutPosition(Position entry);
+				view = fillLayout((Position) entry);
 			} else if (entry instanceof School) {
-				// view = fillLayoutSchool(School entry);
+				// view = fillLayout((School) entry);
 			}
 
 			if (view != null) {
@@ -58,7 +58,7 @@ public class TimelineFragment extends Fragment {
 		}
 	}
 
-	private View fillLayoutWork(Work entry) {
+	private View fillLayout(Work entry) {
 		final View layout = mInflater.inflate(R.layout.item_timeline_work, null);
 
 		String month = mMonths[entry.month - 1];
@@ -88,6 +88,23 @@ public class TimelineFragment extends Fragment {
 		} else if (part >= 3) {
 			stars.addView(mInflater.inflate(R.layout.item_star_half, stars, false));
 		}
+		// action
+		if (entry.tapAction != null) {
+			layout.setOnClickListener(new EntryAction(entry.tapAction));
+		}
+
+		return layout;
+	}
+
+	private View fillLayout(Position entry) {
+		final View layout = mInflater.inflate(R.layout.item_timeline_position, null);
+
+		String month = mMonths[entry.month - 1];
+		// title
+		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
+		// texts
+		((TextView) layout.findViewById(R.id.month)).setText(month);
+		((TextView) layout.findViewById(R.id.year)).setText(String.valueOf(entry.year));
 		// action
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction));

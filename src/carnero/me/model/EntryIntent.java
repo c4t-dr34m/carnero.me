@@ -11,4 +11,10 @@ public class EntryIntent {
 
 		return new Intent(Intent.ACTION_VIEW, uri);
 	}
+
+	public static Intent getWebIntent(String url) {
+		final Uri uri = Uri.parse(url);
+
+		return new Intent(Intent.ACTION_VIEW, uri);
+	}
 }
