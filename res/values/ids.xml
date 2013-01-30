@@ -8,6 +8,7 @@
 	<item name="title" type="id" />
 	<item name="stars" type="id" />
 	<item name="description" type="id" />
+	<item name="position" type="id" />
 	<item name="client" type="id" />
 	<item name="icon" type="id" />
 	<item name="clue" type="id" />

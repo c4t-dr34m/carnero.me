@@ -105,6 +105,7 @@ public class TimelineFragment extends Fragment {
 		// texts
 		((TextView) layout.findViewById(R.id.month)).setText(month);
 		((TextView) layout.findViewById(R.id.year)).setText(String.valueOf(entry.year));
+		((TextView) layout.findViewById(R.id.position)).setText(entry.position);
 		// action
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction));

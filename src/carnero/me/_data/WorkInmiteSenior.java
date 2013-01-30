@@ -4,13 +4,13 @@ import carnero.me.model.EntryIntent;
 import carnero.me.model.Position;
 
 @SuppressWarnings("UnusedDeclaration")
-public class WorkInmite extends Position {
+public class WorkInmiteSenior extends Position {
 
-	public WorkInmite() {
-		year = 2011;
-		month = 5;
+	public WorkInmiteSenior() {
+		year = 2012;
+		month = 11;
 		name = "Inmite";
-		position = "android developer";
+		position = "senior android developer";
 		tapAction = EntryIntent.getWebIntent("http://www.inmite.eu");
 	}
 }

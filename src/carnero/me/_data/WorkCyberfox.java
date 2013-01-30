@@ -10,6 +10,7 @@ public class WorkCyberfox extends Position {
 		year = 2010;
 		month = 5;
 		name = "Cyber Fox";
+		position = "php developer";
 		tapAction = EntryIntent.getWebIntent("http://www.cyberfox.cz/en/");
 	}
 }

@@ -10,6 +10,7 @@ public class WorkCentrum extends Position {
 		year = 2006;
 		month = 8;
 		name = "centrum holdings";
+		position = "php developer";
 		tapAction = EntryIntent.getWebIntent("http://www.centrumholdings.com/en/about-us/");
 	}
 }
