@@ -5,7 +5,7 @@
 	android:paddingLeft="8dp"
 	android:fillViewport="true"
 	android:scrollbars="none"
-	android:background="@drawable/bcg_side">
+	android:background="@drawable/bcg_main">
 
 	<LinearLayout
 		android:layout_width="fill_parent"
