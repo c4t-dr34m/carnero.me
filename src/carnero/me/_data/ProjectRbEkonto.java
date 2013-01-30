@@ -13,7 +13,8 @@ public class ProjectRbEkonto extends Work {
 		name = "Mobile eKonto";
 		description = "Full-featured smartphone banking";
 		client = "Raiffeisenbank";
-		rating = 4.8f;
+		downloads = 10000;
+		months = 0;
 		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("cz.rb.app.smartphonebanking");
 	}

@@ -13,7 +13,8 @@ public class ProjectLagEvropa2 extends Work {
 		name = "Evropa 2";
 		description = "Player for one of most prominent czech radio stations";
 		client = "Lagardère Active ČR";
-		rating = 4.3f;
+		downloads = 50000;
+		months = 0;
 		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.lag.radio.evropa2");
 	}

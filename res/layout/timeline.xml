@@ -15,21 +15,10 @@
 			android:layout_width="fill_parent"
 			android:layout_height="8dp" />
 
-		<FrameLayout
+		<LinearLayout android:id="@+id/entries"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
-
-			<View android:id="@+id/rails"
-				android:layout_width="14dp"
-				android:layout_height="fill_parent"
-				android:layout_marginLeft="71dp"
-				android:background="@drawable/bcg_rails" />
-
-			<LinearLayout android:id="@+id/entries"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical" />
-		</FrameLayout>
+			android:layout_height="wrap_content"
+			android:orientation="vertical" />
 
 		<View
 			android:layout_width="fill_parent"

@@ -8,6 +8,7 @@ public abstract class Work extends Entry {
 	public String description;
 	public String client;
 	public int iconResource;
-	public float rating;
+	public int downloads;
+	public int months;
 	public Intent tapAction;
 }

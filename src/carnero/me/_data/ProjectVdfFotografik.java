@@ -13,7 +13,8 @@ public class ProjectVdfFotografik extends Work {
 		name = "Fotografik";
 		description = "Simple photo editor";
 		client = "Vodafone Czech Republic";
-		rating = 3.8f;
+		downloads = 10000;
+		months = 0;
 		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.android.vodafone.mms");
 	}
