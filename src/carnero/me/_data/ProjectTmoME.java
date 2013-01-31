@@ -16,6 +16,7 @@ public class ProjectTmoME extends Work {
 		downloads = 10000;
 		months = 1;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_me2012_aligned;
 		tapAction = EntryIntent.getStoreIntent("cz.t_mobile.me2012");
 	}
 }

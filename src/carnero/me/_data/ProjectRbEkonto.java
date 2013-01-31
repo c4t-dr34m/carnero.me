@@ -16,6 +16,7 @@ public class ProjectRbEkonto extends Work {
 		downloads = 10000;
 		months = 5;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_ekonto_aligned;
 		tapAction = EntryIntent.getStoreIntent("cz.rb.app.smartphonebanking");
 	}
 }

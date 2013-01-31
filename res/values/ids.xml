@@ -5,6 +5,7 @@
 	<item name="year" type="id" />
 	<item name="month" type="id" />
 	<item name="detail" type="id" />
+	<item name="background" type="id" />
 	<item name="title" type="id" />
 	<item name="stars" type="id" />
 	<item name="description" type="id" />

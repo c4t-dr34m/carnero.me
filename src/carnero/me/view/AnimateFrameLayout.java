@@ -3,25 +3,25 @@ package carnero.me.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import carnero.me.R;
 
 @SuppressWarnings("unused")
-public class AnimateCardLayout extends LinearLayout implements IAnimateView {
+public class AnimateFrameLayout extends FrameLayout implements IAnimateView {
 
 	private AnimateTouchProcessor mProcessor;
 
-	public AnimateCardLayout(Context context) {
+	public AnimateFrameLayout(Context context) {
 		super(context);
 		init(context);
 	}
 
-	public AnimateCardLayout(Context context, AttributeSet attrs) {
+	public AnimateFrameLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public AnimateCardLayout(Context context, AttributeSet attrs, int style) {
+	public AnimateFrameLayout(Context context, AttributeSet attrs, int style) {
 		super(context, attrs, style);
 		init(context);
 	}

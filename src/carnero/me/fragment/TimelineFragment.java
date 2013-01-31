@@ -83,6 +83,10 @@ public class TimelineFragment extends Fragment {
 		((TextView) layout.findViewById(R.id.experience)).setText(eSp);
 		((TextView) layout.findViewById(R.id.description)).setText(entry.description);
 		((TextView) layout.findViewById(R.id.client)).setText(entry.client);
+		// background
+		if (entry.background != 0) {
+			layout.findViewById(R.id.background).setBackgroundResource(entry.background);
+		}
 		// action
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction));

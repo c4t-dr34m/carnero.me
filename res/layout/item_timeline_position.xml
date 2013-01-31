@@ -6,7 +6,7 @@
 	android:paddingBottom="8dp"
 	android:paddingLeft="8dp">
 
-	<carnero.me.view.AnimateCardLayout android:id="@id/detail"
+	<carnero.me.view.AnimateFrameLayout android:id="@id/detail"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:padding="8dp"
@@ -33,5 +33,5 @@
 				android:layout_marginLeft="8dp"
 				android:maxLines="2" />
 		</LinearLayout>
-	</carnero.me.view.AnimateCardLayout>
+	</carnero.me.view.AnimateFrameLayout>
 </RelativeLayout>

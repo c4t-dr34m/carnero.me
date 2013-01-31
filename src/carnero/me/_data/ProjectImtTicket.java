@@ -16,6 +16,7 @@ public class ProjectImtTicket extends Work {
 		downloads = 50000;
 		months = 1;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_ticket_aligned;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.apps.smsjizdenka");
 	}
 }

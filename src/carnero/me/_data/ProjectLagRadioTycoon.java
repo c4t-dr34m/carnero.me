@@ -16,6 +16,7 @@ public class ProjectLagRadioTycoon extends Work {
 		downloads = 10000;
 		months = 3;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_radiotycoon_aligned;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.lag.radiotyc.android");
 	}
 }

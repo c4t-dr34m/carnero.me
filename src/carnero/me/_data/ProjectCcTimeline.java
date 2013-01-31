@@ -15,6 +15,7 @@ public class ProjectCcTimeline extends Work {
 		downloads = 20000;
 		months = 3;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_timeline_aligned;
 		tapAction = null;
 	}
 }

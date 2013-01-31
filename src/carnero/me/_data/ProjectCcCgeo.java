@@ -16,6 +16,7 @@ public class ProjectCcCgeo extends Work {
 		downloads = 1000000;
 		months = 21;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_cgeo_aligned;
 		tapAction = EntryIntent.getStoreIntent("cgeo.geocaching");
 	}
 }

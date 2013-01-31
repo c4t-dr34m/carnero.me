@@ -16,6 +16,7 @@ public class ProjectSkoMeet extends Work {
 		downloads = 1000;
 		months = 3;
 		iconResource = R.drawable.ic_android;
+		background = R.drawable.bcg_project_meet_aligned;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.skoda.meet");
 	}
 }
