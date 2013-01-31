@@ -31,6 +31,9 @@
 	<string name="network_pinterest_desc">interesting pictures from web</string>
 	<string name="network_foursquare">Foursquare</string>
 	<string name="network_foursquare_desc">visited places</string>
+	<!-- cv -->
+	<string name="cv_downloads">%1$s+ installs</string>
+	<string name="cv_experience">of experience</string>
 	<!-- descriptions -->
 	<string name="desc_logo">carnero</string>
 	<string name="desc_map">world map</string>

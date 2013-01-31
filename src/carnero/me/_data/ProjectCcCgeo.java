@@ -14,7 +14,7 @@ public class ProjectCcCgeo extends Work {
 		description = "World's best geocaching client";
 		client = "carnero";
 		downloads = 1000000;
-		months = 0;
+		months = 21;
 		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("cgeo.geocaching");
 	}

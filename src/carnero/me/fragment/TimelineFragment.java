@@ -2,8 +2,12 @@ package carnero.me.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.TextAppearanceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +27,10 @@ import java.util.Locale;
 public class TimelineFragment extends Fragment {
 
 	private Context mContext;
+	private Resources mResources;
 	private LayoutInflater mInflater;
 	private View mContent;
 	private LinearLayout mLayout;
-	private String[] mMonths;
 	private NumberFormat mDecimalFormat = DecimalFormat.getInstance(Locale.getDefault());
 
 	@Override
@@ -44,7 +48,7 @@ public class TimelineFragment extends Fragment {
 		super.onActivityCreated(savedState);
 
 		mContext = getActivity().getBaseContext();
-		mMonths = getResources().getStringArray(R.array.months);
+		mResources = mContext.getResources();
 
 		View view = null;
 		for (Entry entry : List.ENTRIES) {
@@ -65,10 +69,18 @@ public class TimelineFragment extends Fragment {
 	private View fillLayout(Work entry) {
 		final View layout = mInflater.inflate(R.layout.item_timeline_work, null);
 
+		final String dSt = mDecimalFormat.format(entry.downloads);
+		final SpannableString dSp = new SpannableString(mResources.getString(R.string.cv_downloads, dSt));
+		dSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, dSt.length() + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+		final String eSt = mResources.getQuantityString(R.plurals.cv_experience, entry.months, entry.months);
+		final SpannableString eSp = new SpannableString(eSt + " " + mResources.getString(R.string.cv_experience));
+		eSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, eSt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
 		// texts
 		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
-		((TextView) layout.findViewById(R.id.experience)).setText(mDecimalFormat.format(entry.downloads));
-		((TextView) layout.findViewById(R.id.downloads)).setText(mDecimalFormat.format(entry.months));
+		((TextView) layout.findViewById(R.id.downloads)).setText(dSp);
+		((TextView) layout.findViewById(R.id.experience)).setText(eSp);
 		((TextView) layout.findViewById(R.id.description)).setText(entry.description);
 		((TextView) layout.findViewById(R.id.client)).setText(entry.client);
 		// action

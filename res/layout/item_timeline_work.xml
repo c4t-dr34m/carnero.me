@@ -7,37 +7,58 @@
 	<carnero.me.view.AnimateLinearLayout android:id="@id/detail"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:orientation="vertical"
+		android:background="@drawable/bcg_detail">
 
 		<carnero.me.view.TextViewCondensed android:id="@id/title"
-			style="@style/Timeline.Event.Title"
+			style="@style/Timeline.Card.Title"
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:background="@drawable/bcg_detail_top" />
+			android:layout_height="wrap_content" />
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="2dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="8dp"
+			android:background="@drawable/separator_detail" />
 
 		<LinearLayout
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:background="@drawable/bcg_detail_bottom">
+			android:orientation="vertical">
 
-			<TextView android:id="@id/experience"
-				style="@style/Timeline.Event.Description"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="16dp"
+				android:orientation="horizontal">
 
-			<TextView android:id="@id/downloads"
-				style="@style/Timeline.Event.Description"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
+				<carnero.me.view.TextViewCondensed android:id="@id/experience"
+					style="@style/Timeline.Card.Description.Lesser"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="3"
+					android:gravity="left"
+					android:singleLine="true"
+					android:ellipsize="marquee" />
+
+				<carnero.me.view.TextViewCondensed android:id="@id/downloads"
+					style="@style/Timeline.Card.Description.Lesser"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="2"
+					android:gravity="right"
+					android:singleLine="true"
+					android:ellipsize="marquee" />
+			</LinearLayout>
 
 			<TextView android:id="@id/description"
-				style="@style/Timeline.Event.Description"
+				style="@style/Timeline.Card.Description"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content" />
 
 			<TextView android:id="@id/client"
-				style="@style/Timeline.Event.Client"
+				style="@style/Timeline.Card.Client"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content" />
 		</LinearLayout>

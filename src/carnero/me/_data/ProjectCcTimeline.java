@@ -13,7 +13,7 @@ public class ProjectCcTimeline extends Work {
 		description = "Gallery that shows your shots ordered by date - in timeline or in calendar";
 		client = "carnero";
 		downloads = 20000;
-		months = 0;
+		months = 3;
 		iconResource = R.drawable.ic_android;
 		tapAction = null;
 	}

@@ -14,7 +14,7 @@ public class ProjectLagYouRadio extends Work {
 		description = "Czech on-line radio player following user's taste";
 		client = "Lagardère Active ČR";
 		downloads = 10000;
-		months = 0;
+		months = 1;
 		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.lag.youradio");
 	}

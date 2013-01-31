@@ -14,7 +14,7 @@ public class ProjectImtTicket extends Work {
 		description = "User friendly way to order ticket in Czech republic";
 		client = "Inmite";
 		downloads = 50000;
-		months = 0;
+		months = 1;
 		iconResource = R.drawable.ic_android;
 		tapAction = EntryIntent.getStoreIntent("eu.inmite.apps.smsjizdenka");
 	}

@@ -82,28 +82,11 @@
 		<!-- empty parent -->
 	</style>
 
-	<style name="Timeline.Event">
+	<style name="Timeline.Card">
 		<!-- empty parent -->
 	</style>
 
-	<style name="Timeline.Event.Date">
-		<item name="android:gravity">center</item>
-		<item name="android:textColor">#FF444444</item>
-		<item name="android:shadowColor">#AA888888</item>
-		<item name="android:shadowRadius">1.0</item>
-		<item name="android:shadowDx">0.0</item>
-		<item name="android:shadowDy">1.0</item>
-	</style>
-
-	<style name="Timeline.Event.Date.Year">
-		<item name="android:textSize">16dp</item>
-	</style>
-
-	<style name="Timeline.Event.Date.Month">
-		<item name="android:textSize">12dp</item>
-	</style>
-
-	<style name="Timeline.Event.Title">
+	<style name="Timeline.Card.Title">
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">32dp</item>
@@ -114,7 +97,7 @@
 		<item name="android:shadowDy">1.0</item>
 	</style>
 
-	<style name="Timeline.Event.Description">
+	<style name="Timeline.Card.Description">
 		<item name="android:textSize">14sp</item>
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:shadowColor">#DDFFFFFF</item>
@@ -123,10 +106,39 @@
 		<item name="android:shadowDy">1.0</item>
 	</style>
 
-	<style name="Timeline.Event.Client">
+	<style name="Timeline.Card.Description.Lesser">
+		<item name="android:textColor">@color/grey</item>
+		<item name="android:shadowColor">#88FFFFFF</item>
+	</style>
+
+	<style name="Timeline.Card.Client">
 		<item name="android:textSize">14sp</item>
 		<item name="android:textColor">@color/grey</item>
 		<item name="android:shadowColor">#88FFFFFF</item>
+		<item name="android:shadowRadius">1.0</item>
+		<item name="android:shadowDx">0.0</item>
+		<item name="android:shadowDy">1.0</item>
+	</style>
+
+	<style name="Timeline.Plain">
+		<!-- empty parent -->
+	</style>
+
+	<style name="Timeline.Plain.Title">
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">marquee</item>
+		<item name="android:textSize">26dp</item>
+		<item name="android:textColor">@android:color/white</item>
+		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowRadius">2.0</item>
+		<item name="android:shadowDx">0.0</item>
+		<item name="android:shadowDy">1.0</item>
+	</style>
+
+	<style name="Timeline.Plain.Description">
+		<item name="android:textSize">12sp</item>
+		<item name="android:textColor">@color/grey</item>
+		<item name="android:shadowColor">#00222222</item>
 		<item name="android:shadowRadius">1.0</item>
 		<item name="android:shadowDx">0.0</item>
 		<item name="android:shadowDy">1.0</item>
