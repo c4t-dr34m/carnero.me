@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<plurals name="cv_experience">
+	<plurals name="cv_experience_months">
 		<item quantity="zero">less than a month</item>
 		<item quantity="one">one month</item>
 		<item quantity="two">two months</item>
 		<item quantity="other">%1$d months</item>
+	</plurals>
+
+	<plurals name="cv_experience_years">
+		<item quantity="zero">less than a year</item>
+		<item quantity="one">one year</item>
+		<item quantity="two">two years</item>
+		<item quantity="other">%1$d years</item>
 	</plurals>
 </resources>

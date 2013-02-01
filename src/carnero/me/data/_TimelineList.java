@@ -11,6 +11,12 @@ public class _TimelineList {
 
 	static {
 		// projects
+		ENTRIES.add(new ProjectCfNWR());
+		ENTRIES.add(new ProjectCfAWT());
+		ENTRIES.add(new ProjectCfOKD());
+		ENTRIES.add(new ProjectCfTC());
+		ENTRIES.add(new ProjectChFotoalba());
+		ENTRIES.add(new ProjectChXchat());
 		ENTRIES.add(new ProjectCcCgeo());
 		ENTRIES.add(new ProjectCcTimeline());
 		ENTRIES.add(new ProjectImtTicket());

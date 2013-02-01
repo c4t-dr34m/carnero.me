@@ -78,13 +78,23 @@ public class TimelineFragment extends Fragment {
 		final SpannableString dSp = new SpannableString(mResources.getString(R.string.cv_downloads, dSt));
 		dSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, dSt.length() + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-		final String eSt = mResources.getQuantityString(R.plurals.cv_experience, entry.months, entry.months);
+		final String eSt;
+		if (entry.months >= 12) {
+			int years = Math.round(entry.months / 12);
+			eSt = mResources.getQuantityString(R.plurals.cv_experience_years, years, years);
+		} else {
+			eSt = mResources.getQuantityString(R.plurals.cv_experience_months, entry.months, entry.months);
+		}
 		final SpannableString eSp = new SpannableString(eSt + " " + mResources.getString(R.string.cv_experience));
 		eSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, eSt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 		// texts
 		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
-		((TextView) layout.findViewById(R.id.downloads)).setText(dSp);
+		if (entry.downloads > 0) {
+			((TextView) layout.findViewById(R.id.downloads)).setText(dSp);
+		} else {
+			layout.findViewById(R.id.downloads).setVisibility(View.GONE);
+		}
 		((TextView) layout.findViewById(R.id.experience)).setText(eSp);
 		((TextView) layout.findViewById(R.id.description)).setText(entry.description);
 		((TextView) layout.findViewById(R.id.client)).setText(entry.client);
