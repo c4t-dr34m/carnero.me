@@ -52,25 +52,29 @@ public class NetworksFragment extends Fragment {
 		TextView description;
 
 		for (Network network : _NetworksList.ENTRIES) {
-			view = (ViewGroup) mInflater.inflate(R.layout.item_network, null);
-			icon = (ImageView) view.findViewById(R.id.network_icon);
-			title = (TextView) view.findViewById(R.id.network_title);
-			description = (TextView) view.findViewById(R.id.network_description);
-
-			view.setOnClickListener(new EntryAction(network.tapAction));
-			title.setText(network.title);
-			description.setText(network.description);
-
 			if (isPackageInstalled(network.packageName)) {
+				view = (ViewGroup) mInflater.inflate(R.layout.item_network_on, null);
+				icon = (ImageView) view.findViewById(R.id.network_icon);
+				title = (TextView) view.findViewById(R.id.network_title);
+				description = (TextView) view.findViewById(R.id.network_description);
+
+				view.setOnClickListener(new EntryAction(network.tapAction));
 				icon.setImageResource(network.iconOn);
+				title.setText(network.title);
+				description.setText(network.description);
 
 				mLayoutOn.addView(view);
 				networksOn++;
 			} else {
-				title.setTextAppearance(mContext, R.style.Text_Network_Title_Off);
-				description.setTextAppearance(mContext, R.style.Text_Network_Description_Off);
+				view = (ViewGroup) mInflater.inflate(R.layout.item_network_off, null);
+				icon = (ImageView) view.findViewById(R.id.network_icon);
+				title = (TextView) view.findViewById(R.id.network_title);
+				description = (TextView) view.findViewById(R.id.network_description);
 
+				view.setOnClickListener(new EntryAction(network.tapAction));
 				icon.setImageResource(network.iconOff);
+				title.setText(network.title);
+				description.setText(network.description);
 
 				mLayoutOff.addView(view);
 				networksOff++;
