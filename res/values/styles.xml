@@ -139,7 +139,7 @@
 	</style>
 
 	<style name="Timeline.Plain.Title">
-		<item name="android:singleLine">true</item>
+		<item name="android:maxLines">2</item>
 		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">26dp</item>
 		<item name="android:textColor">@android:color/white</item>
@@ -150,6 +150,8 @@
 	</style>
 
 	<style name="Timeline.Plain.Description">
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">12sp</item>
 		<item name="android:textColor">@color/grey</item>
 		<item name="android:shadowColor">#00222222</item>

@@ -15,9 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import carnero.me.R;
 import carnero.me.data._TimelineList;
+import carnero.me.model.Education;
 import carnero.me.model.Entry;
 import carnero.me.model.Position;
-import carnero.me.model.School;
 import carnero.me.model.Work;
 
 import java.text.DecimalFormat;
@@ -29,18 +29,18 @@ public class TimelineFragment extends Fragment {
 	private Context mContext;
 	private Resources mResources;
 	private LayoutInflater mInflater;
-	private View mContent;
 	private LinearLayout mLayout;
 	private NumberFormat mDecimalFormat = DecimalFormat.getInstance(Locale.getDefault());
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
 		mInflater = inflater;
-		mContent = inflater.inflate(R.layout.timeline, container, false);
 
-		mLayout = (LinearLayout) mContent.findViewById(R.id.entries);
+		View view = inflater.inflate(R.layout.timeline, container, false);
 
-		return mContent;
+		mLayout = (LinearLayout) view.findViewById(R.id.entries);
+
+		return view;
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class TimelineFragment extends Fragment {
 				view = fillLayout((Work) entry);
 			} else if (entry instanceof Position) {
 				view = fillLayout((Position) entry);
-			} else if (entry instanceof School) {
-				// view = fillLayout((School) entry);
+			} else if (entry instanceof Education) {
+				view = fillLayout((Education) entry);
 			}
 
 			if (view != null) {
@@ -98,9 +98,37 @@ public class TimelineFragment extends Fragment {
 	private View fillLayout(Position entry) {
 		final View layout = mInflater.inflate(R.layout.item_timeline_position, null);
 
+		final StringBuilder sb = new StringBuilder();
+		sb.append(entry.name);
+		sb.append(" ");
+		sb.append(entry.position);
+
+		final SpannableString tSp = new SpannableString(sb.toString());
+		tSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Plain_Description), entry.name.length() + 1, sb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
 		// texts
-		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
-		((TextView) layout.findViewById(R.id.position)).setText(entry.position);
+		((TextView) layout.findViewById(R.id.text)).setText(tSp);
+		// tapAction
+		if (entry.tapAction != null) {
+			layout.setOnClickListener(new EntryAction(entry.tapAction));
+		}
+
+		return layout;
+	}
+
+	private View fillLayout(Education entry) {
+		final View layout = mInflater.inflate(R.layout.item_timeline_education, null);
+
+		final StringBuilder sb = new StringBuilder();
+		sb.append(entry.name);
+		sb.append(" ");
+		sb.append(entry.description);
+
+		final SpannableString tSp = new SpannableString(sb.toString());
+		tSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Plain_Description), entry.name.length() + 1, sb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+		// texts
+		((TextView) layout.findViewById(R.id.text)).setText(tSp);
 		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction));

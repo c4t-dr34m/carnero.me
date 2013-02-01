@@ -27,6 +27,8 @@ public class _TimelineList {
 		ENTRIES.add(new WorkInmite());
 		ENTRIES.add(new WorkCyberfox());
 		ENTRIES.add(new WorkCentrum());
+		// education
+		ENTRIES.add(new EducationTUL());
 
 		Collections.sort(ENTRIES);
 	}
