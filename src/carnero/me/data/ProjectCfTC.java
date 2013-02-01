@@ -16,6 +16,6 @@ public class ProjectCfTC extends Work {
 		months = 3;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
 		background = 0; // background = R.drawable.bcg_project_tc_aligned;
-		tapAction = EntryIntent.getStoreIntent("http://www.tc.cz/en");
+		tapAction = EntryIntent.getWebIntent("http://www.tc.cz/en");
 	}
 }

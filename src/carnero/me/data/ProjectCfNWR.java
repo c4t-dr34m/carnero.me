@@ -16,6 +16,6 @@ public class ProjectCfNWR extends Work {
 		months = 3;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
 		background = 0; // background = R.drawable.bcg_project_nwr_aligned;
-		tapAction = EntryIntent.getStoreIntent("http://www.newworldresources.eu/en");
+		tapAction = EntryIntent.getWebIntent("http://www.newworldresources.eu/en");
 	}
 }

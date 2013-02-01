@@ -16,6 +16,6 @@ public class ProjectChXchat extends Work {
 		months = 12;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
 		background = 0; // background = R.drawable.bcg_project_xchat_aligned;
-		tapAction = EntryIntent.getStoreIntent("http://xchat.centrum.cz//");
+		tapAction = EntryIntent.getWebIntent("http://xchat.centrum.cz//");
 	}
 }

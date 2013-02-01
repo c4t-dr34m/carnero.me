@@ -16,6 +16,6 @@ public class ProjectCfOKD extends Work {
 		months = 3;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
 		background = 0; // background = R.drawable.bcg_project_okd_aligned;
-		tapAction = EntryIntent.getStoreIntent("http://www.okd.cz/en");
+		tapAction = EntryIntent.getWebIntent("http://www.okd.cz/en");
 	}
 }
