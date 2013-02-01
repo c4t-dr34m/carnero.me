@@ -11,7 +11,7 @@ public class EducationTUL extends Education {
 		year = 2006;
 		month = 8;
 		name = "Technical University of Liberec";
-		description = "EIŘS,\u00A0Bachelor's\u00A0degree";
+		description = "EIŘS,\u00A0bachelor's\u00A0degree";
 		tapAction = EntryIntent.getWebIntent("http://www.fm.tul.cz/en");
 	}
 }
