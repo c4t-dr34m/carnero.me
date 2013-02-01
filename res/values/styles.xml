@@ -44,7 +44,9 @@
 		<!-- empty parent -->
 	</style>
 
-	<style name="Text.Network.Label">
+	<style name="Text.Network.Title">
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">32dp</item>
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:shadowColor">#AAFFFFFF</item>
@@ -53,14 +55,27 @@
 		<item name="android:shadowDy">1.0</item>
 	</style>
 
+	<style name="Text.Network.Title.Off">
+		<item name="android:textSize">26dp</item>
+		<item name="android:textColor">@android:color/white</item>
+		<item name="android:shadowColor">#FF000000</item>
+	</style>
+
 	<style name="Text.Network.Description">
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">14sp</item>
-		<item name="android:textStyle">normal</item>
-		<item name="android:textColor">#FF444444</item>
-		<item name="android:shadowColor">#AA888888</item>
+		<item name="android:textColor">@android:color/black</item>
+		<item name="android:shadowColor">#DDFFFFFF</item>
 		<item name="android:shadowRadius">1.0</item>
 		<item name="android:shadowDx">0.0</item>
 		<item name="android:shadowDy">1.0</item>
+	</style>
+
+	<style name="Text.Network.Description.Off">
+		<item name="android:textSize">12sp</item>
+		<item name="android:textColor">@color/grey</item>
+		<item name="android:shadowColor">#00222222</item>
 	</style>
 
 	<style name="Icon">
@@ -73,9 +88,8 @@
 		<item name="android:layout_alignParentLeft">true</item>
 		<item name="android:layout_centerVertical">true</item>
 		<item name="android:layout_marginTop">8dp</item>
-		<item name="android:layout_marginRight">16dp</item>
 		<item name="android:layout_marginBottom">8dp</item>
-		<item name="android:layout_marginLeft">8dp</item>
+		<item name="android:layout_marginRight">16dp</item>
 	</style>
 
 	<style name="Timeline">
@@ -129,7 +143,7 @@
 		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">26dp</item>
 		<item name="android:textColor">@android:color/white</item>
-		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowColor">#FF000000</item>
 		<item name="android:shadowRadius">2.0</item>
 		<item name="android:shadowDx">0.0</item>
 		<item name="android:shadowDy">1.0</item>

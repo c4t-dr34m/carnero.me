@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- networks -->
+	<item name="network_icon" type="id" />
+	<item name="network_title" type="id" />
+	<item name="network_description" type="id" />
+	<!-- timeline -->
 	<item name="event" type="id" />
 	<item name="event_line" type="id" />
 	<item name="year" type="id" />

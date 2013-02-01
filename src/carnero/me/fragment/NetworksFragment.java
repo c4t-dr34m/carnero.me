@@ -1,76 +1,88 @@
 package carnero.me.fragment;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import carnero.me.R;
+import carnero.me.data._NetworksList;
+import carnero.me.model.Network;
 
 public class NetworksFragment extends Fragment {
 
-	private View mContent;
-	private LinearLayout mLayout;
-	private int mNetworkActive = 0;
-	private int mNetworkInactive = 0;
+	private Context mContext;
+	private LayoutInflater mInflater;
 	private PackageManager mPM;
+	private LinearLayout mLayoutOn;
+	private LinearLayout mLayoutOff;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
-		mContent = inflater.inflate(R.layout.networks, container, false);
+		mInflater = inflater;
 
-		mLayout = (LinearLayout) mContent.findViewById(R.id.networks_layout);
+		final View view = inflater.inflate(R.layout.networks, container, false);
 
-		return mContent;
+		mLayoutOn = (LinearLayout) view.findViewById(R.id.networks_layout);
+		mLayoutOff = (LinearLayout) view.findViewById(R.id.networks_missing_layout);
+
+		return view;
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
 
-		mNetworkActive = 0;
-		resort(mContent.findViewById(R.id.github_layout), "com.github.mobile").setOnClickListener(new Launcher(getActivity(), "https://github.com/carnero/"));
-		resort(mContent.findViewById(R.id.linkedin_layout), "com.linkedin.android").setOnClickListener(new Launcher(getActivity(), "http://www.linkedin.com/in/carnerocc/"));
-		resort(mContent.findViewById(R.id.google_plus_layout), "com.google.android.apps.plus").setOnClickListener(new Launcher(getActivity(), "http://plus.google.com/116645889171150251778/posts"));
-		resort(mContent.findViewById(R.id.twitter_layout), "com.twitter.android").setOnClickListener(new Launcher(getActivity(), "https://twitter.com/carnero_cc"));
-		resort(mContent.findViewById(R.id.instagram_layout), "com.instagram.android").setOnClickListener(new Launcher(getActivity(), "http://instagram.com/_carnero"));
-		resort(mContent.findViewById(R.id.flickr_layout), "com.yahoo.mobile.client.android.flickr").setOnClickListener(new Launcher(getActivity(), "http://www.flickr.com/photos/carnero/"));
-		resort(mContent.findViewById(R.id.fivehundred_layout), "com.fivehundredpx.viewer").setOnClickListener(new Launcher(getActivity(), "http://500px.com/carnero"));
-		resort(mContent.findViewById(R.id.pinterest_layout), "com.pinterest").setOnClickListener(new Launcher(getActivity(), "http://pinterest.com/carnero/"));
-		resort(mContent.findViewById(R.id.foursquare_layout), "com.joelapenna.foursquared").setOnClickListener(new Launcher(getActivity(), "https://foursquare.com/carnero_cc"));
+		mContext = getActivity().getBaseContext();
 
-		if (mNetworkActive > 0 && mNetworkInactive > 0) {
-			final View separator = mContent.findViewById(R.id.separator);
+		int networksOn = 0; // user have installed official client...
+		int networksOff = 0; // ...user has not
 
-			mLayout.removeView(separator);
-			mLayout.addView(separator, mNetworkActive);
+		ViewGroup view;
+		ImageView icon;
+		TextView title;
+		TextView description;
 
-			separator.setVisibility(View.VISIBLE);
+		for (Network network : _NetworksList.ENTRIES) {
+			view = (ViewGroup) mInflater.inflate(R.layout.item_network, null);
+			icon = (ImageView) view.findViewById(R.id.network_icon);
+			title = (TextView) view.findViewById(R.id.network_title);
+			description = (TextView) view.findViewById(R.id.network_description);
+
+			view.setOnClickListener(new EntryAction(network.tapAction));
+			title.setText(network.title);
+			description.setText(network.description);
+
+			if (isPackageInstalled(network.packageName)) {
+				icon.setImageResource(network.iconOn);
+
+				mLayoutOn.addView(view);
+				networksOn++;
+			} else {
+				title.setTextAppearance(mContext, R.style.Text_Network_Title_Off);
+				description.setTextAppearance(mContext, R.style.Text_Network_Description_Off);
+
+				icon.setImageResource(network.iconOff);
+
+				mLayoutOff.addView(view);
+				networksOff++;
+			}
 		}
-	}
 
-	private View resort(View view, String packageName) {
-		if (isPackageInstalled(packageName)) {
-			mLayout.removeView(view);
-			mLayout.addView(view, mNetworkActive);
-
-			mNetworkActive++;
-
-			view.setAlpha(1.0f);
-		} else {
-			mNetworkInactive++;
-
-			view.setAlpha(0.6f);
+		if (networksOn == 0) {
+			mLayoutOn.setVisibility(View.GONE);
 		}
-
-		return view;
+		if (networksOff == 0) {
+			mLayoutOff.setVisibility(View.GONE);
+		}
 	}
 
 	private boolean isPackageInstalled(String clazz) {
@@ -91,24 +103,18 @@ public class NetworksFragment extends Fragment {
 		}
 	}
 
-	private class Launcher implements View.OnClickListener {
+	// classes
+	private class EntryAction implements View.OnClickListener {
 
-		private Activity mActivity;
-		private String mUrl;
+		private Intent mIntent;
 
-		public Launcher(Activity activity, String url) {
-			mActivity = activity;
-			mUrl = url;
+		public EntryAction(Intent intent) {
+			mIntent = intent;
 		}
 
 		@Override
-		public void onClick(View view) {
-			if (mActivity == null || TextUtils.isEmpty(mUrl)) {
-				return;
-			}
-
-			final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mUrl));
-			mActivity.startActivity(intent);
+		public void onClick(View v) {
+			getActivity().startActivity(mIntent);
 		}
 	}
 }

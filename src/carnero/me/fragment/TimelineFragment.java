@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import carnero.me.R;
-import carnero.me._data.List;
+import carnero.me.data._TimelineList;
 import carnero.me.model.Entry;
 import carnero.me.model.Position;
 import carnero.me.model.School;
@@ -51,7 +51,7 @@ public class TimelineFragment extends Fragment {
 		mResources = mContext.getResources();
 
 		View view = null;
-		for (Entry entry : List.ENTRIES) {
+		for (Entry entry : _TimelineList.ENTRIES) {
 			if (entry instanceof Work) {
 				view = fillLayout((Work) entry);
 			} else if (entry instanceof Position) {
@@ -87,7 +87,7 @@ public class TimelineFragment extends Fragment {
 		if (entry.background != 0) {
 			layout.findViewById(R.id.background).setBackgroundResource(entry.background);
 		}
-		// action
+		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction));
 		}
@@ -101,7 +101,7 @@ public class TimelineFragment extends Fragment {
 		// texts
 		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
 		((TextView) layout.findViewById(R.id.position)).setText(entry.position);
-		// action
+		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction));
 		}

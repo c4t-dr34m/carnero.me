@@ -21,7 +21,7 @@
 		 files in the SDK, at tools/ant/build.xml
 
 		 Properties related to the SDK location or the project target should
-		 be updated using the 'android' tool with the 'update' action.
+		 be updated using the 'android' tool with the 'update' tapAction.
 
 		 This file is an integral part of the build system for your
 		 application and should be checked into Version Control Systems.
