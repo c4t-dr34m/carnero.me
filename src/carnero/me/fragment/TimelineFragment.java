@@ -67,7 +67,12 @@ public class TimelineFragment extends Fragment {
 	}
 
 	private View fillLayout(Work entry) {
-		final View layout = mInflater.inflate(R.layout.item_timeline_work, null);
+		final View layout;
+		if (entry.tapAction != null) {
+			layout = mInflater.inflate(R.layout.item_timeline_work, null);
+		} else {
+			layout = mInflater.inflate(R.layout.item_timeline_work_no_link, null);
+		}
 
 		final String dSt = mDecimalFormat.format(entry.downloads);
 		final SpannableString dSp = new SpannableString(mResources.getString(R.string.cv_downloads, dSt));

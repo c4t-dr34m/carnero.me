@@ -1,6 +1,5 @@
 package carnero.me.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -19,7 +18,6 @@ import carnero.me.model.Network;
 
 public class NetworksFragment extends Fragment {
 
-	private Context mContext;
 	private LayoutInflater mInflater;
 	private PackageManager mPM;
 	private LinearLayout mLayoutOn;
@@ -40,8 +38,6 @@ public class NetworksFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
-
-		mContext = getActivity().getBaseContext();
 
 		int networksOn = 0; // user have installed official client...
 		int networksOff = 0; // ...user has not
