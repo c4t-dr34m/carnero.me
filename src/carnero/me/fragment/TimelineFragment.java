@@ -69,9 +69,9 @@ public class TimelineFragment extends Fragment {
 	private View fillLayout(Work entry) {
 		final View layout;
 		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_work, null);
+			layout = mInflater.inflate(R.layout.item_timeline_work, mLayout, false);
 		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_work_no_link, null);
+			layout = mInflater.inflate(R.layout.item_timeline_work_no_link, mLayout, false);
 		}
 
 		final String dSt = mDecimalFormat.format(entry.downloads);

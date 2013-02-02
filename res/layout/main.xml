@@ -4,5 +4,4 @@
 	android:id="@+id/fragment_container"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:clickable="true"
-	android:background="@drawable/bcg_main" />
+	android:clickable="true" />
