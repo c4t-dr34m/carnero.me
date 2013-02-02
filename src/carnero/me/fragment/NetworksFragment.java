@@ -49,7 +49,7 @@ public class NetworksFragment extends Fragment {
 
 		for (Network network : _NetworksList.ENTRIES) {
 			if (isPackageInstalled(network.packageName)) {
-				view = (ViewGroup) mInflater.inflate(R.layout.item_network_on, null);
+				view = (ViewGroup) mInflater.inflate(R.layout.item_network_on, mLayoutOn, false);
 				icon = (ImageView) view.findViewById(R.id.network_icon);
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);
@@ -62,7 +62,7 @@ public class NetworksFragment extends Fragment {
 				mLayoutOn.addView(view);
 				networksOn++;
 			} else {
-				view = (ViewGroup) mInflater.inflate(R.layout.item_network_off, null);
+				view = (ViewGroup) mInflater.inflate(R.layout.item_network_off, mLayoutOff, false);
 				icon = (ImageView) view.findViewById(R.id.network_icon);
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);

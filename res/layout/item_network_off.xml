@@ -2,6 +2,7 @@
 <carnero.me.view.AnimateRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
+	android:layout_marginBottom="8dp"
 	android:background="@drawable/btn_button">
 
 	<ImageView android:id="@id/network_icon"
