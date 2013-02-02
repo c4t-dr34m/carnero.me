@@ -1,5 +1,6 @@
 package carnero.me.data;
 
+import carnero.me.R;
 import carnero.me.model.EntryIntent;
 import carnero.me.model.Work;
 
@@ -15,7 +16,7 @@ public class ProjectCfOKD extends Work {
 		downloads = 0;
 		months = 3;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
-		background = 0; // background = R.drawable.bcg_project_okd_aligned;
+		background = R.drawable.bcg_project_okd_aligned;
 		tapAction = EntryIntent.getWebIntent("http://www.okd.cz/en");
 	}
 }
