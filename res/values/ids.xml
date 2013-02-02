@@ -11,6 +11,7 @@
 	<item name="month" type="id" />
 	<item name="detail" type="id" />
 	<item name="background" type="id" />
+	<item name="separator" type="id" />
 	<item name="title" type="id" />
 	<item name="text" type="id" />
 	<item name="description" type="id" />
