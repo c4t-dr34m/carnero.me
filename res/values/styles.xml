@@ -44,7 +44,7 @@
 		<!-- empty parent -->
 	</style>
 
-	<style name="Text.Network.Title">
+	<style name="Text.Network.TitleOn">
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">32dp</item>
@@ -55,7 +55,7 @@
 		<item name="android:shadowDy">1.0</item>
 	</style>
 
-	<style name="Text.Network.Description">
+	<style name="Text.Network.DescriptionOn">
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">14sp</item>
@@ -78,20 +78,6 @@
 		<item name="android:ellipsize">marquee</item>
 		<item name="android:textSize">12sp</item>
 		<item name="android:textColor">@color/grey</item>
-	</style>
-
-	<style name="Icon">
-		<!-- empty parent -->
-	</style>
-
-	<style name="Icon.Network">
-		<item name="android:layout_width">48dp</item>
-		<item name="android:layout_height">48dp</item>
-		<item name="android:layout_alignParentLeft">true</item>
-		<item name="android:layout_centerVertical">true</item>
-		<item name="android:layout_marginTop">8dp</item>
-		<item name="android:layout_marginBottom">8dp</item>
-		<item name="android:layout_marginRight">16dp</item>
 	</style>
 
 	<style name="Timeline">

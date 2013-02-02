@@ -5,25 +5,25 @@
 	android:background="@drawable/btn_button">
 
 	<ImageView android:id="@id/network_icon"
-		style="@style/Icon.Network"
-		android:contentDescription="@string/network_foursquare"
-		android:src="@drawable/ic_foursquare" />
+		android:layout_width="48dp"
+		android:layout_height="48dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginRight="16dp"
+		android:layout_marginBottom="8dp"
+		android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+		android:contentDescription="@string/desc_network_icon" />
 
-	<LinearLayout
+	<carnero.me.view.TextViewCondensed android:id="@id/network_title"
+		style="@style/Text.Network.TitleOff"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/network_icon" />
+
+	<TextView android:id="@id/network_description"
+		style="@style/Text.Network.DescriptionOff"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/network_icon"
-		android:layout_centerVertical="true"
-		android:orientation="vertical">
-
-		<carnero.me.view.TextViewCondensed android:id="@id/network_title"
-			style="@style/Text.Network.TitleOff"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<TextView android:id="@id/network_description"
-			style="@style/Text.Network.DescriptionOff"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-	</LinearLayout>
+		android:layout_below="@id/network_title" />
 </carnero.me.view.AnimateRelativeLayout>
