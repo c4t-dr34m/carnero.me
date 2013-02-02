@@ -4,6 +4,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_margin="8dp"
+	android:paddingTop="16dp"
 	android:background="@drawable/bcg_card_right">
 
 	<View android:id="@id/background"
