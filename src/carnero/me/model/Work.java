@@ -1,7 +1,5 @@
 package carnero.me.model;
 
-import android.content.Intent;
-
 @SuppressWarnings("UnusedDeclaration")
 public abstract class Work extends Entry {
 
@@ -11,5 +9,5 @@ public abstract class Work extends Entry {
 	public int iconResource;
 	public int downloads;
 	public int months;
-	public Intent tapAction;
+	public EntryIntent tapAction;
 }

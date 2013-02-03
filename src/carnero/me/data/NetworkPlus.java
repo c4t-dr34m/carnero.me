@@ -12,7 +12,7 @@ public class NetworkPlus extends Network {
 		iconOff = R.drawable.ic_google_plus_off;
 		title = R.string.network_plus;
 		description = R.string.network_plus_desc;
-		tapAction = EntryIntent.getWebIntent("https://github.com/carnero/");
+		tapAction = new EntryIntent().setWeb("https://github.com/carnero/");
 		packageName = "com.google.android.apps.plus";
 	}
 }

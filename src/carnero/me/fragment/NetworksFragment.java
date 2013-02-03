@@ -2,10 +2,8 @@ package carnero.me.fragment;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import carnero.me.R;
+import carnero.me.Utils;
 import carnero.me.data._NetworksList;
 import carnero.me.model.Network;
 
@@ -48,13 +47,13 @@ public class NetworksFragment extends Fragment {
 		TextView description;
 
 		for (Network network : _NetworksList.ENTRIES) {
-			if (isPackageInstalled(network.packageName)) {
+			if (Utils.isPackageInstalled(getActivity(), network.packageName)) {
 				view = (ViewGroup) mInflater.inflate(R.layout.item_network_on, mLayoutOn, false);
 				icon = (ImageView) view.findViewById(R.id.network_icon);
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);
 
-				view.setOnClickListener(new EntryAction(network.tapAction));
+				view.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
 				icon.setImageResource(network.iconOn);
 				title.setText(network.title);
 				description.setText(network.description);
@@ -67,7 +66,7 @@ public class NetworksFragment extends Fragment {
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);
 
-				view.setOnClickListener(new EntryAction(network.tapAction));
+				view.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
 				icon.setImageResource(network.iconOff);
 				title.setText(network.title);
 				description.setText(network.description);
@@ -82,24 +81,6 @@ public class NetworksFragment extends Fragment {
 		}
 		if (networksOff == 0) {
 			mLayoutOff.setVisibility(View.GONE);
-		}
-	}
-
-	private boolean isPackageInstalled(String clazz) {
-		if (TextUtils.isEmpty(clazz)) {
-			return false;
-		}
-
-		if (mPM == null) {
-			mPM = getActivity().getPackageManager();
-		}
-
-		try {
-			mPM.getPackageInfo(clazz, 0);
-
-			return true;
-		} catch (NameNotFoundException e) {
-			return false;
 		}
 	}
 

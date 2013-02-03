@@ -12,7 +12,7 @@ public class Network500px extends Network {
 		iconOff = R.drawable.ic_fivehundred_off;
 		title = R.string.network_500px;
 		description = R.string.network_500px_desc;
-		tapAction = EntryIntent.getWebIntent("http://500px.com/carnero");
+		tapAction = new EntryIntent().setWeb("http://500px.com/carnero");
 		packageName = "com.fivehundredpx.viewer";
 	}
 }

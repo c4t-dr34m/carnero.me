@@ -104,7 +104,7 @@ public class TimelineFragment extends Fragment {
 		}
 		// tapAction
 		if (entry.tapAction != null) {
-			layout.setOnClickListener(new EntryAction(entry.tapAction));
+			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
 		}
 
 		return layout;
@@ -125,7 +125,7 @@ public class TimelineFragment extends Fragment {
 		((TextView) layout.findViewById(R.id.text)).setText(tSp);
 		// tapAction
 		if (entry.tapAction != null) {
-			layout.setOnClickListener(new EntryAction(entry.tapAction));
+			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
 		}
 
 		return layout;
@@ -146,7 +146,7 @@ public class TimelineFragment extends Fragment {
 		((TextView) layout.findViewById(R.id.text)).setText(tSp);
 		// tapAction
 		if (entry.tapAction != null) {
-			layout.setOnClickListener(new EntryAction(entry.tapAction));
+			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
 		}
 
 		return layout;

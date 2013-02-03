@@ -12,7 +12,7 @@ public class NetworkFoursquare extends Network {
 		iconOff = R.drawable.ic_foursquare_off;
 		title = R.string.network_foursquare;
 		description = R.string.network_foursquare_desc;
-		tapAction = EntryIntent.getWebIntent("https://foursquare.com/carnero_cc");
+		tapAction = new EntryIntent().setWeb("https://foursquare.com/carnero_cc");
 		packageName = "com.joelapenna.foursquared";
 	}
 }

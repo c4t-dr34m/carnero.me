@@ -12,7 +12,7 @@ public class NetworkPinterest extends Network {
 		iconOff = R.drawable.ic_pinterest_off;
 		title = R.string.network_pinterest;
 		description = R.string.network_pinterest_desc;
-		tapAction = EntryIntent.getWebIntent("http://pinterest.com/carnero/");
+		tapAction = new EntryIntent().setWeb("http://pinterest.com/carnero/");
 		packageName = "com.pinterest";
 	}
 }

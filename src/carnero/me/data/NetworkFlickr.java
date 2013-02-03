@@ -12,7 +12,7 @@ public class NetworkFlickr extends Network {
 		iconOff = R.drawable.ic_flickr_off;
 		title = R.string.network_flickr;
 		description = R.string.network_flickr_desc;
-		tapAction = EntryIntent.getWebIntent("http://www.flickr.com/photos/carnero/");
+		tapAction = new EntryIntent().setWeb("http://www.flickr.com/photos/carnero/");
 		packageName = "com.yahoo.mobile.client.android.flickr";
 	}
 }

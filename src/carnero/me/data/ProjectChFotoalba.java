@@ -16,6 +16,6 @@ public class ProjectChFotoalba extends Work {
 		months = 36;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
 		background = 0; // background = R.drawable.bcg_project_fotoalba_aligned;
-		tapAction = EntryIntent.getWebIntent("http://fotoalba.centrum.cz/");
+		tapAction = new EntryIntent().setWeb("http://fotoalba.centrum.cz/");
 	}
 }

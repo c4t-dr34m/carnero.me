@@ -12,7 +12,7 @@ public class NetworkGithub extends Network {
 		iconOff = R.drawable.ic_github_off;
 		title = R.string.network_github;
 		description = R.string.network_github_desc;
-		tapAction = EntryIntent.getWebIntent("https://github.com/carnero/");
+		tapAction = new EntryIntent().setWeb("https://github.com/carnero/");
 		packageName = "com.github.mobile";
 	}
 }

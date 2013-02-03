@@ -11,6 +11,6 @@ public class WorkCentrum extends Position {
 		month = 8;
 		name = "centrum holdings";
 		position = "php\u00A0developer";
-		tapAction = EntryIntent.getWebIntent("http://www.centrumholdings.com/en/about-us/");
+		tapAction = new EntryIntent().setWeb("http://www.centrumholdings.com/en/about-us/");
 	}
 }

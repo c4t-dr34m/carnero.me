@@ -11,6 +11,6 @@ public class WorkInmiteSenior extends Position {
 		month = 11;
 		name = "Inmite";
 		position = "senior\u00A0android\u00A0developer";
-		tapAction = EntryIntent.getWebIntent("http://www.inmite.eu");
+		tapAction = new EntryIntent().setWeb("http://www.inmite.eu");
 	}
 }

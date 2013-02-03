@@ -17,6 +17,6 @@ public class ProjectLagEvropa2 extends Work {
 		months = 1;
 		iconResource = R.drawable.ic_android;
 		background = R.drawable.bcg_project_evropa2_aligned;
-		tapAction = EntryIntent.getStoreIntent("eu.inmite.lag.radio.evropa2");
+		tapAction = new EntryIntent().setPackage("eu.inmite.lag.radio.evropa2");
 	}
 }

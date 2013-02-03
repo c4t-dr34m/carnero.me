@@ -17,6 +17,6 @@ public class ProjectCfAWT extends Work {
 		months = 3;
 		iconResource = 0; // iconResource = R.drawable.ic_web;
 		background = R.drawable.bcg_project_awt_aligned;
-		tapAction = EntryIntent.getWebIntent("http://www.awt.eu/en");
+		tapAction = new EntryIntent().setWeb("http://www.awt.eu/en");
 	}
 }

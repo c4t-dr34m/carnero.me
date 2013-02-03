@@ -12,7 +12,7 @@ public class NetworkLinkedin extends Network {
 		iconOff = R.drawable.ic_linkedin_off;
 		title = R.string.network_linkedin;
 		description = R.string.network_linkedin_desc;
-		tapAction = EntryIntent.getWebIntent("http://plus.google.com/116645889171150251778/posts");
+		tapAction = new EntryIntent().setWeb("http://plus.google.com/116645889171150251778/posts");
 		packageName = "com.linkedin.android";
 	}
 }

@@ -11,6 +11,6 @@ public class WorkCyberfox extends Position {
 		month = 5;
 		name = "Cyber Fox";
 		position = "php\u00A0developer";
-		tapAction = EntryIntent.getWebIntent("http://www.cyberfox.cz/en/");
+		tapAction = new EntryIntent().setWeb("http://www.cyberfox.cz/en/");
 	}
 }

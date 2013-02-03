@@ -17,6 +17,6 @@ public class ProjectLagYouRadio extends Work {
 		months = 1;
 		iconResource = R.drawable.ic_android;
 		background = R.drawable.bcg_project_youradio_aligned;
-		tapAction = EntryIntent.getStoreIntent("eu.inmite.prj.lag.youradio");
+		tapAction = new EntryIntent().setPackage("eu.inmite.prj.lag.youradio");
 	}
 }

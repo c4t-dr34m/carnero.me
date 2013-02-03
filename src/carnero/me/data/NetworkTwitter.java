@@ -12,7 +12,7 @@ public class NetworkTwitter extends Network {
 		iconOff = R.drawable.ic_twitter_off;
 		title = R.string.network_twitter;
 		description = R.string.network_twitter_desc;
-		tapAction = EntryIntent.getWebIntent("https://twitter.com/carnero_cc");
+		tapAction = new EntryIntent().setWeb("https://twitter.com/carnero_cc");
 		packageName = "com.twitter.android";
 	}
 }

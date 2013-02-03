@@ -17,6 +17,6 @@ public class ProjectLagPigy extends Work {
 		months = 1;
 		iconResource = R.drawable.ic_android;
 		background = R.drawable.bcg_project_pigy_aligned;
-		tapAction = EntryIntent.getStoreIntent("eu.inmite.lag.pigy.player");
+		tapAction = new EntryIntent().setPackage("eu.inmite.lag.pigy.player");
 	}
 }

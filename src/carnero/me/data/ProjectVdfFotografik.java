@@ -17,6 +17,6 @@ public class ProjectVdfFotografik extends Work {
 		months = 1;
 		iconResource = R.drawable.ic_android;
 		background = R.drawable.bcg_project_fotografik_aligned;
-		tapAction = EntryIntent.getStoreIntent("eu.inmite.android.vodafone.mms");
+		tapAction = new EntryIntent().setPackage("eu.inmite.android.vodafone.mms");
 	}
 }
