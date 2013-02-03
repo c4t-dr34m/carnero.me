@@ -18,9 +18,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 import carnero.me.R;
+import carnero.me.model.GeoPoint;
 import carnero.me.network.Latitude;
 import carnero.me.view.SquareMapView;
-import com.google.android.maps.GeoPoint;
 
 public class VcardFragment extends Fragment {
 

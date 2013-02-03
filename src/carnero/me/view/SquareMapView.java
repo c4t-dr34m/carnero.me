@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import carnero.me.Map;
 import carnero.me.R;
-import com.google.android.maps.GeoPoint;
+import carnero.me.model.GeoPoint;
 
 @SuppressWarnings("unused")
 public class SquareMapView extends View {
