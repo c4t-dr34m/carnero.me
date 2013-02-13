@@ -30,6 +30,7 @@ public class _TimelineList {
 		ENTRIES.add(new ProjectVdfFotografik());
 		// jobs
 		ENTRIES.add(new WorkInmiteSenior());
+		ENTRIES.add(new WorkOracle());
 		ENTRIES.add(new WorkInmite());
 		ENTRIES.add(new WorkCyberfox());
 		ENTRIES.add(new WorkCentrum());
