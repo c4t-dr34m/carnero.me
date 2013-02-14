@@ -19,6 +19,9 @@ import carnero.me.model.Education;
 import carnero.me.model.Entry;
 import carnero.me.model.Position;
 import carnero.me.model.Work;
+import com.google.analytics.tracking.android.GAServiceManager;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -31,6 +34,7 @@ public class TimelineFragment extends Fragment {
 	private LayoutInflater mInflater;
 	private LinearLayout mLayout;
 	private NumberFormat mDecimalFormat = DecimalFormat.getInstance(Locale.getDefault());
+	private Tracker mTracker;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
@@ -46,6 +50,9 @@ public class TimelineFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedState) {
 		super.onActivityCreated(savedState);
+
+		final GoogleAnalytics analytics = GoogleAnalytics.getInstance(getActivity());
+		mTracker = analytics.getTracker(getString(R.string.ga_trackingId));
 
 		mContext = getActivity().getBaseContext();
 		mResources = mContext.getResources();
@@ -111,7 +118,13 @@ public class TimelineFragment extends Fragment {
 	}
 
 	private View fillLayout(Position entry) {
-		final View layout = mInflater.inflate(R.layout.item_timeline_position, null);
+		final View layout;
+		if (entry.tapAction != null) {
+			layout = mInflater.inflate(R.layout.item_timeline_position, mLayout, false);
+		} else {
+			layout = mInflater.inflate(R.layout.item_timeline_position_no_link, mLayout, false);
+		}
+
 
 		final StringBuilder sb = new StringBuilder();
 		sb.append(entry.name);
@@ -132,7 +145,12 @@ public class TimelineFragment extends Fragment {
 	}
 
 	private View fillLayout(Education entry) {
-		final View layout = mInflater.inflate(R.layout.item_timeline_education, null);
+		final View layout;
+		if (entry.tapAction != null) {
+			layout = mInflater.inflate(R.layout.item_timeline_education, mLayout, false);
+		} else {
+			layout = mInflater.inflate(R.layout.item_timeline_education_no_link, mLayout, false);
+		}
 
 		final StringBuilder sb = new StringBuilder();
 		sb.append(entry.name);
@@ -164,6 +182,12 @@ public class TimelineFragment extends Fragment {
 		@Override
 		public void onClick(View v) {
 			getActivity().startActivity(mIntent);
+
+			if (mTracker != null) {
+				mTracker.sendEvent("timeline", "tap", mIntent.getData().toString(), 0l);
+
+				GAServiceManager.getInstance().dispatch();
+			}
 		}
 	}
 }

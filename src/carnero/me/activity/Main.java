@@ -5,10 +5,15 @@ import carnero.me.R;
 import carnero.me.fragment.NetworksFragment;
 import carnero.me.fragment.TimelineFragment;
 import carnero.me.fragment.VcardFragment;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 
 public class Main extends SlidingFragmentActivity {
+
+	private Tracker mTracker;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,5 +50,31 @@ public class Main extends SlidingFragmentActivity {
 				.beginTransaction()
 				.replace(R.id.fragment_container_secondary, new TimelineFragment())
 				.commit();
+
+		menu.setOnOpenedListener(new SlidingMenu.OnOpenedListener() {
+			@Override
+			public void onOpened() {
+				if (mTracker != null) {
+					mTracker.sendEvent("main", "open", "slide_menu", 0l);
+				}
+			}
+		});
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+
+		EasyTracker.getInstance().activityStart(this);
+
+		final GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+		mTracker = analytics.getTracker(getString(R.string.ga_trackingId));
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+
+		EasyTracker.getInstance().activityStop(this);
 	}
 }
