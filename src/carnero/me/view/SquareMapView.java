@@ -7,6 +7,7 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import carnero.me.Constants;
 import carnero.me.Map;
 import carnero.me.R;
 import carnero.me.model.GeoPoint;
@@ -24,8 +25,8 @@ public class SquareMapView extends View {
 	private int mPaddingLeft = 0;
 	private int mPaddingTop = 0;
 	// location
-	private Integer mLatitude = null;
-	private Integer mLongitude = null;
+	private Integer mLatitude = Constants.DEF_LATITUDE;
+	private Integer mLongitude = Constants.DEF_LONGITUDE;
 	private long mSquareLat;
 	private long mSquareLon;
 	private long mMarginLat;
