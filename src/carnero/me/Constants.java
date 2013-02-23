@@ -8,4 +8,7 @@ public class Constants {
 	// default position
 	public static final Integer DEF_LATITUDE = 14403600;
 	public static final Integer DEF_LONGITUDE = 50071020;
+
+	// preferences
+	public static final String PREF_SIDE_USED = "side_used"; // boolean
 }

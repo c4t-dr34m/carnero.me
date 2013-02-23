@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/fragment_container"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:clickable="true" />
+	android:clickable="true">
+
+	<FrameLayout android:id="@+id/fragment_container"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:clickable="true"/>
+
+	<View android:id="@+id/side_hint_left"
+		android:visibility="gone"
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:layout_alignParentLeft="true"
+		android:background="@drawable/shadow_right"/>
+	<View android:id="@+id/side_hint_right"
+		android:visibility="gone"
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:layout_alignParentRight="true"
+		android:background="@drawable/shadow_left"/>
+</RelativeLayout>
