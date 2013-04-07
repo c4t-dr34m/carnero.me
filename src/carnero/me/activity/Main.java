@@ -3,8 +3,6 @@ package carnero.me.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import carnero.me.Constants;
 import carnero.me.R;
 import carnero.me.fragment.NetworksFragment;
@@ -13,6 +11,8 @@ import carnero.me.fragment.VcardFragment;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorInflater;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 
@@ -96,17 +96,32 @@ public class Main extends SlidingFragmentActivity {
 		super.onResume();
 
 		if (!mPrefs.getBoolean(Constants.PREF_SIDE_USED, false)) {
+			// TODO use object animator
+			final Animator animatorHintLeft = AnimatorInflater.loadAnimator(this, R.animator.side_hint);
+			final Animator animatorHintRight = AnimatorInflater.loadAnimator(this, R.animator.side_hint);
+
+			animatorHintLeft.addListener(new HintAnimatorListener(SIDE_LEFT));
+			animatorHintRight.addListener(new HintAnimatorListener(SIDE_RIGHT));
+
+			animatorHintLeft.setTarget(mHintLeft);
+			animatorHintRight.setTarget(mHintRight);
+
+			animatorHintLeft.start();
+			animatorHintRight.start();
+
+			/*
 			final Animation hintAnimLeft = AnimationUtils.loadAnimation(this, R.anim.side_hint);
 			final Animation hintAnimRight = AnimationUtils.loadAnimation(this, R.anim.side_hint);
 
-			hintAnimLeft.setAnimationListener(new HintAnimationListener(SIDE_LEFT));
-			hintAnimRight.setAnimationListener(new HintAnimationListener(SIDE_RIGHT));
+			hintAnimLeft.setAnimationListener(new HintAnimatorListener(SIDE_LEFT));
+			hintAnimRight.setAnimationListener(new HintAnimatorListener(SIDE_RIGHT));
 
 			mHintLeft.clearAnimation();
 			mHintRight.clearAnimation();
 
 			mHintLeft.startAnimation(hintAnimLeft);
 			mHintRight.startAnimation(hintAnimRight);
+			*/
 		}
 	}
 
@@ -117,16 +132,16 @@ public class Main extends SlidingFragmentActivity {
 		EasyTracker.getInstance().activityStop(this);
 	}
 
-	private class HintAnimationListener implements Animation.AnimationListener {
+	private class HintAnimatorListener implements Animator.AnimatorListener {
 
 		private int mSide;
 
-		public HintAnimationListener(int side) {
+		public HintAnimatorListener(int side) {
 			mSide = side;
 		}
 
 		@Override
-		public void onAnimationStart(Animation animation) {
+		public void onAnimationStart(Animator animator) {
 			switch (mSide) {
 				case SIDE_LEFT:
 					mHintLeft.setVisibility(View.VISIBLE);
@@ -138,7 +153,7 @@ public class Main extends SlidingFragmentActivity {
 		}
 
 		@Override
-		public void onAnimationEnd(Animation animation) {
+		public void onAnimationEnd(Animator animator) {
 			switch (mSide) {
 				case SIDE_LEFT:
 					mHintLeft.setVisibility(View.GONE);
@@ -150,7 +165,12 @@ public class Main extends SlidingFragmentActivity {
 		}
 
 		@Override
-		public void onAnimationRepeat(Animation animation) {
+		public void onAnimationRepeat(Animator animator) {
+			// nothing
+		}
+
+		@Override
+		public void onAnimationCancel(Animator animator) {
 			// nothing
 		}
 	}
