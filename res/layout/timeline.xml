@@ -15,10 +15,12 @@
 			android:layout_width="fill_parent"
 			android:layout_height="8dp" />
 
-		<LinearLayout android:id="@+id/entries"
+		<ListView android:id="@+id/entries"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical" />
+			android:divider="@null"
+			android:cacheColorHint="@android:color/transparent"
+			android:scrollbars="none" />
 
 		<View
 			android:layout_width="fill_parent"

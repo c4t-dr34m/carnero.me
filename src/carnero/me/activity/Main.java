@@ -96,7 +96,6 @@ public class Main extends SlidingFragmentActivity {
 		super.onResume();
 
 		if (!mPrefs.getBoolean(Constants.PREF_SIDE_USED, false)) {
-			// TODO use object animator
 			final Animator animatorHintLeft = AnimatorInflater.loadAnimator(this, R.animator.side_hint);
 			final Animator animatorHintRight = AnimatorInflater.loadAnimator(this, R.animator.side_hint);
 
@@ -108,20 +107,6 @@ public class Main extends SlidingFragmentActivity {
 
 			animatorHintLeft.start();
 			animatorHintRight.start();
-
-			/*
-			final Animation hintAnimLeft = AnimationUtils.loadAnimation(this, R.anim.side_hint);
-			final Animation hintAnimRight = AnimationUtils.loadAnimation(this, R.anim.side_hint);
-
-			hintAnimLeft.setAnimationListener(new HintAnimatorListener(SIDE_LEFT));
-			hintAnimRight.setAnimationListener(new HintAnimatorListener(SIDE_RIGHT));
-
-			mHintLeft.clearAnimation();
-			mHintRight.clearAnimation();
-
-			mHintLeft.startAnimation(hintAnimLeft);
-			mHintRight.startAnimation(hintAnimRight);
-			*/
 		}
 	}
 

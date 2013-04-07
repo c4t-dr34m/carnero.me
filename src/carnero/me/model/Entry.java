@@ -5,6 +5,12 @@ public abstract class Entry implements Comparable<Entry> {
 	public int year;
 	public int month;
 	public String name;
+	// constants
+	public static enum TYPE {
+		TYPE_WORK,
+		TYPE_POSITION,
+		TYPE_EDUCATION
+	};
 
 	public int compareTo(Entry entry) {
 		int status = 0;

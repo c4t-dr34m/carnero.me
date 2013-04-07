@@ -11,7 +11,9 @@ import android.text.style.TextAppearanceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import carnero.me.R;
 import carnero.me.data._TimelineList;
@@ -25,6 +27,8 @@ import com.google.analytics.tracking.android.Tracker;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class TimelineFragment extends Fragment {
@@ -32,7 +36,8 @@ public class TimelineFragment extends Fragment {
 	private Context mContext;
 	private Resources mResources;
 	private LayoutInflater mInflater;
-	private LinearLayout mLayout;
+	private ListView mList;
+	private TimelineAdapter mAdapter;
 	private NumberFormat mDecimalFormat = DecimalFormat.getInstance(Locale.getDefault());
 	private Tracker mTracker;
 
@@ -42,7 +47,7 @@ public class TimelineFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.timeline, container, false);
 
-		mLayout = (LinearLayout) view.findViewById(R.id.entries);
+		mList = (ListView) view.findViewById(R.id.entries);
 
 		return view;
 	}
@@ -56,29 +61,17 @@ public class TimelineFragment extends Fragment {
 
 		mContext = getActivity().getBaseContext();
 		mResources = mContext.getResources();
+		mAdapter = new TimelineAdapter(mContext, 0, _TimelineList.ENTRIES);
 
-		View view = null;
-		for (Entry entry : _TimelineList.ENTRIES) {
-			if (entry instanceof Work) {
-				view = fillLayout((Work) entry);
-			} else if (entry instanceof Position) {
-				view = fillLayout((Position) entry);
-			} else if (entry instanceof Education) {
-				view = fillLayout((Education) entry);
-			}
-
-			if (view != null) {
-				mLayout.addView(view);
-			}
-		}
+		mList.setAdapter(mAdapter);
 	}
 
-	private View fillLayout(Work entry) {
-		final View layout;
+	private View fillLayout(Work entry, View convertView) {
+		View layout;
 		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_work, mLayout, false);
+			layout = mInflater.inflate(R.layout.item_timeline_work, mList, false);
 		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_work_no_link, mLayout, false);
+			layout = mInflater.inflate(R.layout.item_timeline_work_no_link, mList, false);
 		}
 
 		final String dSt = mDecimalFormat.format(entry.downloads);
@@ -117,12 +110,12 @@ public class TimelineFragment extends Fragment {
 		return layout;
 	}
 
-	private View fillLayout(Position entry) {
+	private View fillLayout(Position entry, View convertView) {
 		final View layout;
 		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_position, mLayout, false);
+			layout = mInflater.inflate(R.layout.item_timeline_position, mList, false);
 		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_position_no_link, mLayout, false);
+			layout = mInflater.inflate(R.layout.item_timeline_position_no_link, mList, false);
 		}
 
 
@@ -144,12 +137,12 @@ public class TimelineFragment extends Fragment {
 		return layout;
 	}
 
-	private View fillLayout(Education entry) {
+	private View fillLayout(Education entry, View convertView) {
 		final View layout;
 		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_education, mLayout, false);
+			layout = mInflater.inflate(R.layout.item_timeline_education, mList, false);
 		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_education_no_link, mLayout, false);
+			layout = mInflater.inflate(R.layout.item_timeline_education_no_link, mList, false);
 		}
 
 		final StringBuilder sb = new StringBuilder();
@@ -171,6 +164,38 @@ public class TimelineFragment extends Fragment {
 	}
 
 	// classes
+	private class TimelineAdapter extends ArrayAdapter<Entry> {
+
+		private ArrayList<Entry> mItems = new ArrayList<Entry>();
+
+		public TimelineAdapter(Context context, int textViewResId, List<Entry> items) {
+			super(context, textViewResId, items);
+
+			mItems.addAll(items);
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			View view = null;
+			Entry entry = mItems.get(position);
+
+			if (entry instanceof Work) {
+				view = fillLayout((Work) entry, convertView);
+			} else if (entry instanceof Position) {
+				view = fillLayout((Position) entry, convertView);
+			} else if (entry instanceof Education) {
+				view = fillLayout((Education) entry, convertView);
+			}
+
+			return view;
+		}
+	}
+
+	private class Tag {
+
+		public Entry.TYPE type;
+	}
+
 	private class EntryAction implements View.OnClickListener {
 
 		private Intent mIntent;
