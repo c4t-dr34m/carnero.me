@@ -2,6 +2,7 @@ package carnero.me.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.View;
 import carnero.me.Constants;
 import carnero.me.R;

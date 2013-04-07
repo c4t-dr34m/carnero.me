@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 public class AnimateLinearLayout extends LinearLayout implements IAnimateView {
 
 	private AnimateTouchProcessor mProcessor;
+	private boolean mAnimationEnabled = true;
 
 	public AnimateLinearLayout(Context context) {
 		super(context);
@@ -34,6 +35,10 @@ public class AnimateLinearLayout extends LinearLayout implements IAnimateView {
 
 	private void init(Context context) {
 		mProcessor = new AnimateTouchProcessor(context);
+	}
+
+	public void setAnimationEnabled(boolean enabled) {
+		mAnimationEnabled = enabled;
 	}
 
 	public void resetAnimation() {

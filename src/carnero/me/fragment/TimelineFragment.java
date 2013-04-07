@@ -8,12 +8,11 @@ import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.TextAppearanceSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import carnero.me.R;
 import carnero.me.data._TimelineList;
@@ -21,6 +20,8 @@ import carnero.me.model.Education;
 import carnero.me.model.Entry;
 import carnero.me.model.Position;
 import carnero.me.model.Work;
+import carnero.me.view.AnimateFrameLayout;
+import carnero.me.view.TransparentListView;
 import com.google.analytics.tracking.android.GAServiceManager;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
@@ -36,7 +37,7 @@ public class TimelineFragment extends Fragment {
 	private Context mContext;
 	private Resources mResources;
 	private LayoutInflater mInflater;
-	private ListView mList;
+	private TransparentListView mList;
 	private TimelineAdapter mAdapter;
 	private NumberFormat mDecimalFormat = DecimalFormat.getInstance(Locale.getDefault());
 	private Tracker mTracker;
@@ -47,7 +48,7 @@ public class TimelineFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.timeline, container, false);
 
-		mList = (ListView) view.findViewById(R.id.entries);
+		mList = (TransparentListView) view.findViewById(R.id.entries);
 
 		return view;
 	}
@@ -66,13 +67,48 @@ public class TimelineFragment extends Fragment {
 		mList.setAdapter(mAdapter);
 	}
 
-	private View fillLayout(Work entry, View convertView) {
-		View layout;
-		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_work, mList, false);
-		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_work_no_link, mList, false);
+	private InitResult initLayout(Entry.TYPE type, boolean isActive, View convertView) {
+		Tag tag = null;
+		AnimateFrameLayout layout;
+
+		if (convertView != null) {
+			tag = (Tag) convertView.getTag();
 		}
+
+		if (tag != null) {
+			layout = (AnimateFrameLayout) convertView;
+
+			if (tag.type != type) {
+				setVisibility(tag, type);
+			}
+		} else {
+			layout = (AnimateFrameLayout) mInflater.inflate(R.layout.item_timeline, mList, false);
+			layout.setAnimationEnabled(isActive);
+
+			tag = new Tag();
+			tag.type = type;
+			tag.detailWork = layout.findViewById(R.id.detail_work);
+			tag.detailOther = layout.findViewById(R.id.detail_other);
+			tag.title = (TextView) layout.findViewById(R.id.title);
+			tag.text = (TextView) layout.findViewById(R.id.text);
+			tag.downloads = (TextView) layout.findViewById(R.id.downloads);
+			tag.experience = (TextView) layout.findViewById(R.id.experience);
+			tag.description = (TextView) layout.findViewById(R.id.description);
+			tag.client = (TextView) layout.findViewById(R.id.client);
+			tag.background = layout.findViewById(R.id.background);
+
+			layout.setTag(tag);
+
+			setVisibility(tag, type);
+		}
+
+		return new InitResult(tag, layout);
+	}
+
+	private View fillLayout(Work entry, View convertView) {
+		final InitResult init = initLayout(Entry.TYPE.TYPE_WORK, (entry.tapAction != null), convertView);
+		Tag tag = init.tag;
+		View layout = init.layout;
 
 		final String dSt = mDecimalFormat.format(entry.downloads);
 		final SpannableString dSp = new SpannableString(mResources.getString(R.string.cv_downloads, dSt));
@@ -89,18 +125,18 @@ public class TimelineFragment extends Fragment {
 		eSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, eSt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 		// texts
-		((TextView) layout.findViewById(R.id.title)).setText(entry.name);
+		tag.title.setText(entry.name);
 		if (entry.downloads > 0) {
-			((TextView) layout.findViewById(R.id.downloads)).setText(dSp);
+			tag.downloads.setText(dSp);
 		} else {
-			layout.findViewById(R.id.downloads).setVisibility(View.GONE);
+			tag.downloads.setVisibility(View.GONE);
 		}
-		((TextView) layout.findViewById(R.id.experience)).setText(eSp);
-		((TextView) layout.findViewById(R.id.description)).setText(entry.description);
-		((TextView) layout.findViewById(R.id.client)).setText(entry.client);
+		tag.experience.setText(eSp);
+		tag.description.setText(entry.description);
+		tag.client.setText(entry.client);
 		// background
 		if (entry.background != 0) {
-			layout.findViewById(R.id.background).setBackgroundResource(entry.background);
+			tag.background.setBackgroundResource(entry.background);
 		}
 		// tapAction
 		if (entry.tapAction != null) {
@@ -111,12 +147,9 @@ public class TimelineFragment extends Fragment {
 	}
 
 	private View fillLayout(Position entry, View convertView) {
-		final View layout;
-		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_position, mList, false);
-		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_position_no_link, mList, false);
-		}
+		final InitResult init = initLayout(Entry.TYPE.TYPE_POSITION, (entry.tapAction != null), convertView);
+		Tag tag = init.tag;
+		View layout = init.layout;
 
 
 		final StringBuilder sb = new StringBuilder();
@@ -128,22 +161,22 @@ public class TimelineFragment extends Fragment {
 		tSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Plain_Description), entry.name.length() + 1, sb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 		// texts
-		((TextView) layout.findViewById(R.id.text)).setText(tSp);
+		tag.text.setText(tSp);
 		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
 		}
+		// tag
+		layout.setTag(tag);
 
 		return layout;
 	}
 
 	private View fillLayout(Education entry, View convertView) {
-		final View layout;
-		if (entry.tapAction != null) {
-			layout = mInflater.inflate(R.layout.item_timeline_education, mList, false);
-		} else {
-			layout = mInflater.inflate(R.layout.item_timeline_education_no_link, mList, false);
-		}
+		final InitResult init = initLayout(Entry.TYPE.TYPE_EDUCATION, (entry.tapAction != null), convertView);
+		Tag tag = init.tag;
+		View layout = init.layout;
+
 
 		final StringBuilder sb = new StringBuilder();
 		sb.append(entry.name);
@@ -154,13 +187,31 @@ public class TimelineFragment extends Fragment {
 		tSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Plain_Description), entry.name.length() + 1, sb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 		// texts
-		((TextView) layout.findViewById(R.id.text)).setText(tSp);
+		tag.text.setText(tSp);
 		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
 		}
+		// tag
+		layout.setTag(tag);
 
 		return layout;
+	}
+
+	private void setVisibility(Tag tag, Entry.TYPE type) {
+		switch (type) {
+			case TYPE_WORK:
+				tag.detailOther.setVisibility(View.GONE);
+				tag.detailWork.setVisibility(View.VISIBLE);
+				break;
+			case TYPE_POSITION:
+			case TYPE_EDUCATION:
+				tag.detailWork.setVisibility(View.GONE);
+				tag.detailOther.setVisibility(View.VISIBLE);
+				break;
+		}
+
+		tag.type = type; // set type for which it's configured
 	}
 
 	// classes
@@ -187,13 +238,36 @@ public class TimelineFragment extends Fragment {
 				view = fillLayout((Education) entry, convertView);
 			}
 
+			mList.registerView(view);
+
 			return view;
+		}
+	}
+
+	private class InitResult {
+
+		public Tag tag;
+		public View layout;
+
+		public InitResult(Tag tag, View layout) {
+			this.tag = tag;
+			this.layout = layout;
 		}
 	}
 
 	private class Tag {
 
 		public Entry.TYPE type;
+		//
+		public View detailWork;
+		public View detailOther;
+		public TextView text; // position; education
+		public TextView title; // work
+		public TextView downloads; // work
+		public TextView experience; // work
+		public TextView description; // work
+		public TextView client; // work
+		public View background; // work
 	}
 
 	private class EntryAction implements View.OnClickListener {

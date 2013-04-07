@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ScrollView;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 public class TransparentScrollView extends ScrollView {
 
-	public final ArrayList<IAnimateView> mNetworks = new ArrayList<IAnimateView>();
+	private final ArrayList<IAnimateView> mNetworks = new ArrayList<IAnimateView>();
 
 	public TransparentScrollView(Context context) {
 		super(context);
@@ -40,11 +41,11 @@ public class TransparentScrollView extends ScrollView {
 		}
 	}
 
-	public void init() {
+	private void init() {
 		findAnimateViews(this);
 	}
 
-	public void findAnimateViews(ViewGroup group) {
+	private void findAnimateViews(ViewGroup group) {
 		final int networksCnt = group.getChildCount();
 		View view;
 

@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 public class AnimateRelativeLayout extends RelativeLayout implements IAnimateView {
 
 	private AnimateTouchProcessor mProcessor;
+	private boolean mAnimationEnabled = true;
 
 	public AnimateRelativeLayout(Context context) {
 		super(context);
@@ -34,6 +35,10 @@ public class AnimateRelativeLayout extends RelativeLayout implements IAnimateVie
 
 	private void init(Context context) {
 		mProcessor = new AnimateTouchProcessor(context);
+	}
+
+	public void setAnimationEnabled(boolean enabled) {
+		mAnimationEnabled = enabled;
 	}
 
 	public void resetAnimation() {

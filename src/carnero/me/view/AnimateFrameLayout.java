@@ -10,6 +10,7 @@ import carnero.me.R;
 public class AnimateFrameLayout extends FrameLayout implements IAnimateView {
 
 	private AnimateTouchProcessor mProcessor;
+	private boolean mAnimationEnabled = true;
 
 	public AnimateFrameLayout(Context context) {
 		super(context);
@@ -35,6 +36,10 @@ public class AnimateFrameLayout extends FrameLayout implements IAnimateView {
 
 	private void init(Context context) {
 		mProcessor = new AnimateTouchProcessor(context, R.anim.card_down, R.anim.card_up);
+	}
+
+	public void setAnimationEnabled(boolean enabled) {
+		mAnimationEnabled = enabled;
 	}
 
 	public void resetAnimation() {

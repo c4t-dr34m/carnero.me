@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<carnero.me.view.TransparentScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:scrollbars="none"
-	android:fillViewport="true"
+	android:paddingLeft="8dp"
+	android:paddingRight="8dp"
 	android:background="@drawable/bcg_main">
 
-	<LinearLayout
+	<carnero.me.view.TransparentListView android:id="@+id/entries"
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:orientation="vertical">
-
-		<View
-			android:layout_width="fill_parent"
-			android:layout_height="8dp" />
-
-		<ListView android:id="@+id/entries"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:divider="@null"
-			android:cacheColorHint="@android:color/transparent"
-			android:scrollbars="none" />
-
-		<View
-			android:layout_width="fill_parent"
-			android:layout_height="8dp" />
-	</LinearLayout>
-</carnero.me.view.TransparentScrollView>
+		android:layout_height="wrap_content"
+		android:divider="@null"
+		android:cacheColorHint="@android:color/transparent"
+		android:scrollbars="none" />
+</FrameLayout>
