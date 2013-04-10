@@ -4,9 +4,9 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content" >
 
-	<RelativeLayout android:id="@+id/detail_work"
+	<FrameLayout android:id="@+id/detail_work"
 		android:visibility="gone"
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_margin="8dp"
 		android:paddingTop="16dp"
@@ -15,57 +15,61 @@
 		<View android:id="@id/background"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_alignParentBottom="true" />
+			android:layout_gravity="right|bottom" />
 
-		<carnero.me.view.TextViewCondensed android:id="@id/title"
-			style="@style/Timeline.Card.Title"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content" />
-
-		<View android:id="@id/separator"
-			android:layout_width="fill_parent"
-			android:layout_height="2dp"
-			android:layout_marginTop="8dp"
-			android:layout_marginBottom="8dp"
-			android:layout_below="@id/title"
-			android:background="@drawable/separator_detail" />
-
-		<carnero.me.view.TextViewCondensed android:id="@id/downloads"
-			style="@style/Timeline.Card.Description.Lesser"
-			android:layout_width="wrap_content"
+		<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginLeft="8dp"
-			android:layout_alignParentRight="true"
-			android:layout_below="@id/separator"
-			android:gravity="right"
-			android:singleLine="true"
-			android:ellipsize="marquee" />
+			android:orientation="vertical" >
 
-		<carnero.me.view.TextViewCondensed android:id="@id/experience"
-			style="@style/Timeline.Card.Description.Lesser"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentLeft="true"
-			android:layout_below="@id/separator"
-			android:layout_toLeftOf="@id/downloads"
-			android:gravity="left"
-			android:singleLine="true"
-			android:ellipsize="marquee" />
+			<carnero.me.view.TextViewCondensed android:id="@id/title"
+				style="@style/Timeline.Card.Title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 
-		<TextView android:id="@id/description"
-			style="@style/Timeline.Card.Description"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="8dp"
-			android:layout_below="@id/experience" />
+			<View android:id="@id/separator"
+				android:layout_width="fill_parent"
+				android:layout_height="2dp"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="8dp"
+				android:background="@drawable/separator_detail" />
 
-		<TextView android:id="@id/client"
-			style="@style/Timeline.Card.Client"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/description" />
-	</RelativeLayout>
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" >
+
+				<carnero.me.view.TextViewCondensed android:id="@id/downloads"
+					style="@style/Timeline.Card.Description.Lesser"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="8dp"
+					android:layout_alignParentRight="true"
+					android:gravity="right"
+					android:singleLine="true"
+					android:ellipsize="marquee" />
+				<carnero.me.view.TextViewCondensed android:id="@id/experience"
+					style="@style/Timeline.Card.Description.Lesser"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_toLeftOf="@id/downloads"
+					android:gravity="left"
+					android:singleLine="true"
+					android:ellipsize="marquee" />
+			</RelativeLayout>
+
+			<TextView android:id="@id/description"
+				style="@style/Timeline.Card.Description"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp" />
+
+			<TextView android:id="@id/client"
+				style="@style/Timeline.Card.Client"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+		</LinearLayout>
+	</FrameLayout>
 
 	<FrameLayout android:id="@+id/detail_other"
 		android:visibility="gone"
