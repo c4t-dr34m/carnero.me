@@ -11,6 +11,7 @@ public class ProjectCfNWR extends Work {
 		year = 2010;
 		month = 8;
 		name = "NewWorldResources.eu";
+		nameShort = "NWR.eu";
 		description = "Website for New World Resources, one of Central Europe's leading hard coal and coke producers.";
 		client = "New World Resources";
 		downloads = 0;

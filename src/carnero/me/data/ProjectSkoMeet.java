@@ -11,6 +11,7 @@ public class ProjectSkoMeet extends Work {
 		year = 2012;
 		month = 7;
 		name = "ŠKODA Meet App";
+		nameShort = "Meet App";
 		description = "Social application making in-person meetings easier";
 		client = "ŠKODA AUTO";
 		downloads = 1000;

@@ -3,6 +3,8 @@ package carnero.me.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import carnero.me.Constants;
 import carnero.me.R;
 import carnero.me.data._TimelineList;
 import carnero.me.model.Education;
@@ -38,17 +41,26 @@ public class TimelineFragment extends Fragment {
 	private Resources mResources;
 	private LayoutInflater mInflater;
 	private TransparentListView mList;
+	private int mListTop = 0; // index of first visible item
+	private int mListWidth = 0;
 	private TimelineAdapter mAdapter;
 	private NumberFormat mDecimalFormat = DecimalFormat.getInstance(Locale.getDefault());
 	private Tracker mTracker;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
+		// TODO: onCreateView is called twice; for the latter call it doesn't get savedState
+		if (savedState != null) {
+			mListTop = savedState.getInt(Constants.STATE_LIST_TOP, 0);
+		}
+
 		mInflater = inflater;
 
 		View view = inflater.inflate(R.layout.timeline, container, false);
 
 		mList = (TransparentListView) view.findViewById(R.id.entries);
+		mList.addFooterView(inflater.inflate(R.layout.item_footer, null, false));
+		mList.addHeaderView(inflater.inflate(R.layout.item_footer, null, false));
 
 		return view;
 	}
@@ -65,6 +77,23 @@ public class TimelineFragment extends Fragment {
 		mAdapter = new TimelineAdapter(mContext, 0, _TimelineList.ENTRIES);
 
 		mList.setAdapter(mAdapter);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
+		mListWidth = 0;
+		if (mListTop > 0) {
+			mList.setSelection(mListTop);
+		}
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle state) {
+		state.putInt(Constants.STATE_LIST_TOP, mList.getFirstVisiblePosition());
+
+		super.onSaveInstanceState(state);
 	}
 
 	private InitResult initLayout(Entry.TYPE type, boolean isActive, View convertView) {
@@ -124,8 +153,21 @@ public class TimelineFragment extends Fragment {
 		final SpannableString eSp = new SpannableString(eSt + " " + mResources.getString(R.string.cv_experience));
 		eSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, eSt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+		// title
+		if (mListWidth <= 0) {
+			mListWidth = mList.getWidth();
+		}
+
+		Paint titlePaint = tag.title.getPaint();
+		Rect titleBounds = new Rect();
+		titlePaint.getTextBounds(entry.name, 0, entry.name.length(), titleBounds);
+
+		if (titleBounds.width() > (mListWidth * 0.77) && entry.nameShort != null) {
+			tag.title.setText(entry.nameShort);
+		} else {
+			tag.title.setText(entry.name);
+		}
 		// texts
-		tag.title.setText(entry.name);
 		if (entry.downloads > 0) {
 			tag.downloads.setText(dSp);
 		} else {

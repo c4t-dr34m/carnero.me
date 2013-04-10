@@ -11,6 +11,7 @@ public class ProjectVdfFotografik extends Work {
 		year = 2012;
 		month = 7;
 		name = "Vodafone Fotografik";
+		nameShort = "Fotografik";
 		description = "Simple photo editor";
 		client = "Vodafone Czech Republic";
 		downloads = 10000;
