@@ -60,7 +60,10 @@ public class Main extends SlidingFragmentActivity {
 					.replace(R.id.fragment_container, new VcardFragment())
 					.commit();
 
-			// give some time to run application and then initialize fragments
+			/*
+			 *  displaying of layout waits until onCreate completes
+			 *  load another fragments little bit later to allow fast displaying of main one
+			 */
 			sHandler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
