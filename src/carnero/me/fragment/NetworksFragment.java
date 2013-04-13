@@ -13,6 +13,8 @@ import carnero.me.R;
 import carnero.me.Utils;
 import carnero.me.data._NetworksList;
 import carnero.me.model.Network;
+import carnero.me.view.TransparentListView;
+import carnero.me.view.TransparentScrollView;
 import com.google.analytics.tracking.android.GAServiceManager;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
@@ -20,6 +22,7 @@ import com.google.analytics.tracking.android.Tracker;
 public class NetworksFragment extends Fragment {
 
 	private LayoutInflater mInflater;
+	private TransparentScrollView mView;
 	private LinearLayout mLayoutOn;
 	private LinearLayout mLayoutOff;
 	private Tracker mTracker;
@@ -28,12 +31,12 @@ public class NetworksFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
 		mInflater = inflater;
 
-		final View view = inflater.inflate(R.layout.networks, container, false);
+		mView = (TransparentScrollView) inflater.inflate(R.layout.networks, container, false);
 
-		mLayoutOn = (LinearLayout) view.findViewById(R.id.networks_layout);
-		mLayoutOff = (LinearLayout) view.findViewById(R.id.networks_missing_layout);
+		mLayoutOn = (LinearLayout) mView.findViewById(R.id.networks_layout);
+		mLayoutOff = (LinearLayout) mView.findViewById(R.id.networks_missing_layout);
 
-		return view;
+		return mView;
 	}
 
 	@Override
@@ -79,6 +82,8 @@ public class NetworksFragment extends Fragment {
 				mLayoutOff.addView(view);
 				networksOff++;
 			}
+
+			mView.registerView(view);
 		}
 
 		if (networksOn == 0) {

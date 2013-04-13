@@ -4,7 +4,7 @@
 	android:layout_height="fill_parent"
 	android:paddingLeft="8dp"
 	android:paddingRight="8dp"
-	android:background="@drawable/bcg_main">
+	android:background="@drawable/bcg_main" >
 
 	<carnero.me.view.TransparentListView android:id="@+id/entries"
 		android:layout_width="fill_parent"

@@ -31,11 +31,6 @@ public class TransparentListView extends ListView {
 	}
 
 	@Override
-	public void onAttachedToWindow() {
-		super.onAttachedToWindow();
-	}
-
-	@Override
 	public void onScrollChanged(int h, int v, int hOld, int vOld) {
 		super.onScrollChanged(h, v, hOld, vOld);
 

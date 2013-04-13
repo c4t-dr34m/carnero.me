@@ -3,6 +3,7 @@ package carnero.me.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.Handler;
 import android.view.View;
 import carnero.me.Constants;
 import carnero.me.R;
@@ -23,6 +24,7 @@ public class Main extends SlidingFragmentActivity {
 	private View mHintLeft;
 	private View mHintRight;
 	private Tracker mTracker;
+	private static final Handler sHandler = new Handler();
 	// consts
 	public static final int SIDE_LEFT = 1;
 	public static final int SIDE_RIGHT = 2;
@@ -44,27 +46,39 @@ public class Main extends SlidingFragmentActivity {
 
 		// activity content
 		setContentView(R.layout.main);
+
+		mHintLeft = findViewById(R.id.side_hint_left);
+		mHintRight = findViewById(R.id.side_hint_right);
+
 		setBehindContentView(R.layout.menu_primary);
 		menu.setSecondaryMenu(R.layout.menu_secondary);
 
-		// vcard
 		if (savedInstanceState == null) {
+			// vcard
 			getSupportFragmentManager()
 					.beginTransaction()
 					.replace(R.id.fragment_container, new VcardFragment())
 					.commit();
 
-			// networks
-			getSupportFragmentManager()
-					.beginTransaction()
-					.replace(R.id.fragment_container_primary, new NetworksFragment())
-					.commit();
+			// give some time to run application and then initialize fragments
+			sHandler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
 
-			// timeline
-			getSupportFragmentManager()
-					.beginTransaction()
-					.replace(R.id.fragment_container_secondary, new TimelineFragment())
-					.commit();
+					// networks
+					getSupportFragmentManager()
+							.beginTransaction()
+							.replace(R.id.fragment_container_primary, new NetworksFragment())
+							.commit();
+
+					// timeline
+					getSupportFragmentManager()
+							.beginTransaction()
+							.replace(R.id.fragment_container_secondary, new TimelineFragment())
+							.commit();
+
+				}
+			}, 250);
 		}
 
 		menu.setOnOpenedListener(new SlidingMenu.OnOpenedListener() {
@@ -79,9 +93,6 @@ public class Main extends SlidingFragmentActivity {
 				}
 			}
 		});
-
-		mHintLeft = findViewById(R.id.side_hint_left);
-		mHintRight = findViewById(R.id.side_hint_right);
 	}
 
 	@Override
