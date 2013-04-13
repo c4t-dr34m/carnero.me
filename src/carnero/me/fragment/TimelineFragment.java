@@ -49,7 +49,6 @@ public class TimelineFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
-		// TODO: onCreateView is called twice; for the latter call it doesn't get savedState
 		if (savedState != null) {
 			mListTop = savedState.getInt(Constants.STATE_LIST_TOP, 0);
 		}

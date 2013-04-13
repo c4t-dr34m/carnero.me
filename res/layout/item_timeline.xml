@@ -4,6 +4,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content" >
 
+	<!-- project -->
 	<FrameLayout android:id="@+id/detail_work"
 		android:visibility="gone"
 		android:layout_width="match_parent"
@@ -63,7 +64,6 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="8dp" />
-
 			<TextView android:id="@id/client"
 				style="@style/Timeline.Card.Client"
 				android:layout_width="wrap_content"
@@ -71,6 +71,7 @@
 		</LinearLayout>
 	</FrameLayout>
 
+	<!-- education, position -->
 	<FrameLayout android:id="@+id/detail_other"
 		android:visibility="gone"
 		android:layout_width="fill_parent"

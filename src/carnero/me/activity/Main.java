@@ -48,22 +48,24 @@ public class Main extends SlidingFragmentActivity {
 		menu.setSecondaryMenu(R.layout.menu_secondary);
 
 		// vcard
-		getSupportFragmentManager()
-				.beginTransaction()
-				.replace(R.id.fragment_container, new VcardFragment())
-				.commit();
+		if (savedInstanceState == null) {
+			getSupportFragmentManager()
+					.beginTransaction()
+					.replace(R.id.fragment_container, new VcardFragment())
+					.commit();
 
-		// networks
-		getSupportFragmentManager()
-				.beginTransaction()
-				.replace(R.id.fragment_container_primary, new NetworksFragment())
-				.commit();
+			// networks
+			getSupportFragmentManager()
+					.beginTransaction()
+					.replace(R.id.fragment_container_primary, new NetworksFragment())
+					.commit();
 
-		// timeline
-		getSupportFragmentManager()
-				.beginTransaction()
-				.replace(R.id.fragment_container_secondary, new TimelineFragment())
-				.commit();
+			// timeline
+			getSupportFragmentManager()
+					.beginTransaction()
+					.replace(R.id.fragment_container_secondary, new TimelineFragment())
+					.commit();
+		}
 
 		menu.setOnOpenedListener(new SlidingMenu.OnOpenedListener() {
 			@Override
