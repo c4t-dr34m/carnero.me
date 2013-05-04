@@ -13,6 +13,11 @@ public class NetworkFoursquare extends Network {
 		title = R.string.network_foursquare;
 		description = R.string.network_foursquare_desc;
 		tapAction = new EntryIntent().setWeb("https://foursquare.com/carnero_cc");
-		packageName = "com.joelapenna.foursquared";
+		packageName = new String[]{
+				"com.joelapenna.foursquared",
+				"com.foursquare.merchant",
+				"com.matthewrathbone.simplecheckin",
+				"com.matthewrathbone.wificheckin"
+		};
 	}
 }

@@ -13,6 +13,6 @@ public class NetworkPlus extends Network {
 		title = R.string.network_plus;
 		description = R.string.network_plus_desc;
 		tapAction = new EntryIntent().setWeb("https://github.com/carnero/");
-		packageName = "com.google.android.apps.plus";
+		packageName = new String[]{"com.google.android.apps.plus"};
 	}
 }

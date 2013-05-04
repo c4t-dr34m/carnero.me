@@ -25,4 +25,26 @@ public class Utils {
 			return false;
 		}
 	}
+
+	public static boolean isPackageInstalled(Context context, String[] classes) {
+		if (classes == null || classes.length == 0) {
+			return false;
+		}
+
+		if (sPM == null) {
+			sPM = context.getPackageManager();
+		}
+
+		for (String clazz : classes) {
+			try {
+				sPM.getPackageInfo(clazz, 0);
+
+				return true;
+			} catch (PackageManager.NameNotFoundException e) {
+				// pokemon
+			}
+		}
+
+		return false;
+	}
 }

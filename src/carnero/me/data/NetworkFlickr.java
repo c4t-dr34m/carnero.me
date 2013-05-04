@@ -13,6 +13,11 @@ public class NetworkFlickr extends Network {
 		title = R.string.network_flickr;
 		description = R.string.network_flickr_desc;
 		tapAction = new EntryIntent().setWeb("http://www.flickr.com/photos/carnero/");
-		packageName = "com.yahoo.mobile.client.android.flickr";
+		packageName = new String[]{
+				"com.yahoo.mobile.client.android.flickr",
+				"com.bourke.glimmr",
+				"com.bourke.glimmrpro",
+				"com.snapwood.flickfolio"
+		};
 	}
 }

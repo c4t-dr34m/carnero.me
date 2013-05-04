@@ -13,6 +13,6 @@ public class NetworkPinterest extends Network {
 		title = R.string.network_pinterest;
 		description = R.string.network_pinterest_desc;
 		tapAction = new EntryIntent().setWeb("http://pinterest.com/carnero/");
-		packageName = "com.pinterest";
+		packageName = new String[]{"com.pinterest"};
 	}
 }

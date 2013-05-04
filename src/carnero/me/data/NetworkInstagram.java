@@ -13,6 +13,6 @@ public class NetworkInstagram extends Network {
 		title = R.string.network_instagram;
 		description = R.string.network_instagram_desc;
 		tapAction = new EntryIntent().setWeb("http://instagram.com/_carnero");
-		packageName = "com.instagram.android";
+		packageName = new String[]{"com.instagram.android"};
 	}
 }

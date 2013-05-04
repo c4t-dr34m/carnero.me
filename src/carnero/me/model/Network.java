@@ -7,5 +7,5 @@ public class Network {
 	public int title;
 	public int description;
 	public EntryIntent tapAction;
-	public String packageName;
+	public String[] packageName;
 }

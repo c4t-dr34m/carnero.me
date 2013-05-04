@@ -13,6 +13,6 @@ public class NetworkGithub extends Network {
 		title = R.string.network_github;
 		description = R.string.network_github_desc;
 		tapAction = new EntryIntent().setWeb("https://github.com/carnero/");
-		packageName = "com.github.mobile";
+		packageName = new String[]{"com.github.mobile"};
 	}
 }

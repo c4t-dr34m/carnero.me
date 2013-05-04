@@ -13,6 +13,6 @@ public class Network500px extends Network {
 		title = R.string.network_500px;
 		description = R.string.network_500px_desc;
 		tapAction = new EntryIntent().setWeb("http://500px.com/carnero");
-		packageName = "com.fivehundredpx.viewer";
+		packageName = new String[]{"com.fivehundredpx.viewer"};
 	}
 }

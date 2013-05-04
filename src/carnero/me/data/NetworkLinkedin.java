@@ -13,6 +13,6 @@ public class NetworkLinkedin extends Network {
 		title = R.string.network_linkedin;
 		description = R.string.network_linkedin_desc;
 		tapAction = new EntryIntent().setWeb("http://plus.google.com/116645889171150251778/posts");
-		packageName = "com.linkedin.android";
+		packageName = new String[]{"com.linkedin.android"};
 	}
 }

@@ -13,6 +13,13 @@ public class NetworkTwitter extends Network {
 		title = R.string.network_twitter;
 		description = R.string.network_twitter_desc;
 		tapAction = new EntryIntent().setWeb("https://twitter.com/carnero_cc");
-		packageName = "com.twitter.android";
+		packageName = new String[]{
+				"com.twitter.android",
+				"com.jv.falcon.pro",
+				"com.thedeck.android.app",
+				"com.levelup.touiteur",
+				"com.hootsuite.droid.full",
+				"com.dotsandlines.carbon"
+		};
 	}
 }
