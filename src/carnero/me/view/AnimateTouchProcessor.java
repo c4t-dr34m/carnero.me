@@ -12,6 +12,7 @@ public class AnimateTouchProcessor {
 	private boolean mIsDown = false;
 	private float mDownX;
 	private float mDownY;
+	private int mAction;
 	// animation
 	private Animation mAnimationDown;
 	private Animation mAnimationUp;
@@ -35,9 +36,9 @@ public class AnimateTouchProcessor {
 	}
 
 	public void processTouch(View view, MotionEvent event) {
-		final int action = event.getAction();
+		mAction = event.getAction();
 
-		switch (action) {
+		switch (mAction) {
 			case MotionEvent.ACTION_DOWN:
 				mIsDown = true;
 				mDownX = event.getX();

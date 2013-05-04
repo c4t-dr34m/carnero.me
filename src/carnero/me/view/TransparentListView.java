@@ -3,11 +3,9 @@ package carnero.me.view;
 import android.content.Context;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -33,6 +31,19 @@ public class TransparentListView extends ListView {
 	@Override
 	public void onScrollChanged(int h, int v, int hOld, int vOld) {
 		super.onScrollChanged(h, v, hOld, vOld);
+
+		IAnimateView view;
+		for (SoftReference<IAnimateView> network : mNetworks) {
+			view = network.get();
+			if (view != null) {
+				view.resetAnimation();
+			}
+		}
+	}
+
+	@Override
+	public void onOverScrolled(int h, int v, boolean clampX, boolean clampY) {
+		super.onOverScrolled(h, v, clampX, clampY);
 
 		IAnimateView view;
 		for (SoftReference<IAnimateView> network : mNetworks) {
