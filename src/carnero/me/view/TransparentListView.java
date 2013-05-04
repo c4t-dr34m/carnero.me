@@ -1,6 +1,8 @@
 package carnero.me.view;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,6 +16,8 @@ import java.util.ArrayList;
 public class TransparentListView extends ListView {
 
 	private final ArrayList<SoftReference<IAnimateView>> mNetworks = new ArrayList<SoftReference<IAnimateView>>();
+	private ResetWatcher mWatcher;
+	private boolean mMoved = false;
 	private long mCleanup = 0;
 
 	public TransparentListView(Context context) {
@@ -29,15 +33,32 @@ public class TransparentListView extends ListView {
 	}
 
 	@Override
+	public void onAttachedToWindow() {
+		super.onAttachedToWindow();
+
+		if (mWatcher != null) {
+			mWatcher.kill();
+		}
+		mWatcher = new ResetWatcher(new ResetHandler());
+		mWatcher.start();
+	}
+
+	@Override
+	public void onDetachedFromWindow() {
+		if (mWatcher != null) {
+			mWatcher.kill();
+			mWatcher = null;
+		}
+
+		super.onDetachedFromWindow();
+	}
+
+	@Override
 	public void onScrollChanged(int h, int v, int hOld, int vOld) {
 		super.onScrollChanged(h, v, hOld, vOld);
 
-		IAnimateView view;
-		for (SoftReference<IAnimateView> network : mNetworks) {
-			view = network.get();
-			if (view != null) {
-				view.resetAnimation();
-			}
+		synchronized (this) {
+			mMoved = true;
 		}
 	}
 
@@ -45,12 +66,8 @@ public class TransparentListView extends ListView {
 	public void onOverScrolled(int h, int v, boolean clampX, boolean clampY) {
 		super.onOverScrolled(h, v, clampX, clampY);
 
-		IAnimateView view;
-		for (SoftReference<IAnimateView> network : mNetworks) {
-			view = network.get();
-			if (view != null) {
-				view.resetAnimation();
-			}
+		synchronized (this) {
+			mMoved = true;
 		}
 	}
 
@@ -95,6 +112,58 @@ public class TransparentListView extends ListView {
 				mNetworks.add(reference);
 			} else if (view instanceof ViewGroup) {
 				findAnimateViews((ViewGroup) view);
+			}
+		}
+	}
+
+	// classes
+
+	private class ResetWatcher extends Thread {
+
+		private boolean mKilled = false;
+		private ResetHandler mHandler;
+
+		public ResetWatcher(ResetHandler handler) {
+			mHandler = handler;
+		}
+
+		@Override
+		public void run() {
+			while (!mKilled) {
+				try {
+					sleep(150);
+				} catch (InterruptedException ie) {
+					// pokemon
+				}
+
+				if (mMoved) {
+					Message message = mHandler.obtainMessage();
+					if (message == null) {
+						message = new Message();
+					}
+					mHandler.sendMessage(message);
+				}
+			}
+		}
+
+		public void kill() {
+			mKilled = true;
+		}
+	}
+
+	private class ResetHandler extends Handler {
+
+		public void handleMessage(Message message) {
+			IAnimateView view;
+			for (SoftReference<IAnimateView> network : mNetworks) {
+				view = network.get();
+				if (view != null) {
+					view.resetAnimation();
+				}
+			}
+
+			synchronized (TransparentListView.this) {
+				mMoved = false;
 			}
 		}
 	}
