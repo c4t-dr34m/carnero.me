@@ -2,7 +2,6 @@ package carnero.me.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.Handler;
 import android.view.View;
 import carnero.me.Constants;
@@ -18,7 +17,7 @@ import com.nineoldandroids.animation.AnimatorInflater;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 
-public class Main extends SlidingFragmentActivity {
+public class PhoneActivity extends SlidingFragmentActivity {
 
 	private SharedPreferences mPrefs;
 	private View mHintLeft;
@@ -45,7 +44,7 @@ public class Main extends SlidingFragmentActivity {
 		menu.setSecondaryShadowDrawable(R.drawable.shadow_right);
 
 		// activity content
-		setContentView(R.layout.main);
+		setContentView(R.layout.activity_phone);
 
 		mHintLeft = findViewById(R.id.side_hint_left);
 		mHintRight = findViewById(R.id.side_hint_right);
@@ -57,12 +56,12 @@ public class Main extends SlidingFragmentActivity {
 			// vcard
 			getSupportFragmentManager()
 					.beginTransaction()
-					.replace(R.id.fragment_container, new VcardFragment())
+					.replace(R.id.container_vcard, new VcardFragment())
 					.commit();
 
 			/*
 			 *  displaying of layout waits until onCreate completes
-			 *  load another fragments little bit later to allow fast displaying of main one
+			 *  load another fragments little bit later to allow fast displaying of activity_phone one
 			 */
 			sHandler.postDelayed(new Runnable() {
 				@Override
@@ -71,13 +70,13 @@ public class Main extends SlidingFragmentActivity {
 					// networks
 					getSupportFragmentManager()
 							.beginTransaction()
-							.replace(R.id.fragment_container_primary, new NetworksFragment())
+							.replace(R.id.container_networks, new NetworksFragment())
 							.commit();
 
 					// timeline
 					getSupportFragmentManager()
 							.beginTransaction()
-							.replace(R.id.fragment_container_secondary, new TimelineFragment())
+							.replace(R.id.container_timeline, new TimelineFragment())
 							.commit();
 
 				}
@@ -92,7 +91,7 @@ public class Main extends SlidingFragmentActivity {
 				edit.commit();
 
 				if (mTracker != null) {
-					mTracker.sendEvent("main", "open", "slide_menu", 0l);
+					mTracker.sendEvent("activity_phone", "open", "slide_menu", 0l);
 				}
 			}
 		});

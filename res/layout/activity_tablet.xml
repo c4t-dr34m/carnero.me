@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:clickable="true">
+
+	<FrameLayout android:id="@+id/container_vcard"
+		android:layout_width="330dp"
+		android:layout_height="fill_parent"
+		android:layout_centerHorizontal="true"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:clickable="true"
+		android:background="@drawable/bcg_main"/>
+
+	<FrameLayout android:id="@+id/container_networks"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_toLeftOf="@id/container_vcard"
+		android:clickable="true"
+		android:background="@drawable/bcg_main"/>
+	<FrameLayout android:id="@+id/container_timeline"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_toRightOf="@id/container_vcard"
+		android:clickable="true"
+		android:background="@drawable/bcg_main"/>
+
+	<View android:id="@+id/shadow_left"
+		android:layout_width="15dp"
+		android:layout_height="fill_parent"
+		android:layout_toLeftOf="@id/container_vcard"
+		android:background="@drawable/shadow_left"/>
+	<View android:id="@+id/shadow_right"
+		android:layout_width="15dp"
+		android:layout_height="fill_parent"
+		android:layout_toRightOf="@id/container_vcard"
+		android:background="@drawable/shadow_right"/>
+</RelativeLayout>

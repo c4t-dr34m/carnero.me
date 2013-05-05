@@ -3,13 +3,12 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:paddingLeft="8dp"
-	android:paddingRight="8dp"
-	android:background="@drawable/bcg_main" >
+	android:paddingRight="8dp">
 
 	<carnero.me.view.TransparentListView android:id="@+id/entries"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:divider="@null"
 		android:cacheColorHint="@android:color/transparent"
-		android:scrollbars="none" />
+		android:scrollbars="none"/>
 </FrameLayout>

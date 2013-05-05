@@ -3,22 +3,22 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:clickable="true"
-	android:background="@drawable/bcg_main" >
+	android:background="@drawable/bcg_main">
 
-	<FrameLayout android:id="@+id/fragment_container"
+	<FrameLayout android:id="@+id/container_vcard"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:clickable="true"/>
 
 	<View android:id="@+id/side_hint_left"
 		android:visibility="gone"
-		android:layout_width="wrap_content"
+		android:layout_width="15dp"
 		android:layout_height="fill_parent"
 		android:layout_alignParentLeft="true"
 		android:background="@drawable/shadow_right"/>
 	<View android:id="@+id/side_hint_right"
 		android:visibility="gone"
-		android:layout_width="wrap_content"
+		android:layout_width="15dp"
 		android:layout_height="fill_parent"
 		android:layout_alignParentRight="true"
 		android:background="@drawable/shadow_left"/>

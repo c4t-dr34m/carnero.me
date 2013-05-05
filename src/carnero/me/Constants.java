@@ -5,6 +5,9 @@ public class Constants {
 	public static final String TAG = "carnero.me";
 	public static final String ID_LATITUDE = "-4501092395013557129"; // to manage public location visit https://www.google.com/latitude/apps/badge
 
+	// router
+	public static final int TABLET_MIN_WIDTH_DP = 900;
+
 	// default position
 	public static final Integer DEF_LATITUDE = 14403600;
 	public static final Integer DEF_LONGITUDE = 50071020;
