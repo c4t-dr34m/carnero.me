@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.TextAppearanceSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -169,6 +168,7 @@ public class TimelineFragment extends Fragment {
 		// texts
 		if (entry.downloads > 0) {
 			tag.downloads.setText(dSp);
+			tag.downloads.setVisibility(View.VISIBLE);
 		} else {
 			tag.downloads.setVisibility(View.GONE);
 		}

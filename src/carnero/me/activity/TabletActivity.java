@@ -1,9 +1,11 @@
 package carnero.me.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import carnero.me.R;
+import carnero.me.Utils;
 import carnero.me.fragment.NetworksFragment;
 import carnero.me.fragment.TimelineFragment;
 import carnero.me.fragment.VcardFragment;
@@ -19,6 +21,15 @@ public class TabletActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		if (!Utils.isWide(this)) { // not wide enough, switch to phone layout
+			final Intent intent = new Intent();
+			intent.setClass(this, PhoneActivity.class);
+			startActivity(intent);
+			finish();
+
+			return;
+		}
 
 		// activity content
 		setContentView(R.layout.activity_tablet);
@@ -43,14 +54,14 @@ public class TabletActivity extends FragmentActivity {
 					// networks
 					getSupportFragmentManager()
 							.beginTransaction()
-							.setTransition(R.animator.appear)
+							.setCustomAnimations(R.anim.appear_left, 0)
 							.replace(R.id.container_networks, new NetworksFragment())
 							.commit();
 
 					// timeline
 					getSupportFragmentManager()
 							.beginTransaction()
-							.setTransition(R.animator.appear)
+							.setCustomAnimations(R.anim.appear_right, 0)
 							.replace(R.id.container_timeline, new TimelineFragment())
 							.commit();
 

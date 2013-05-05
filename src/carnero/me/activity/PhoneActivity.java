@@ -1,11 +1,13 @@
 package carnero.me.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import carnero.me.Constants;
 import carnero.me.R;
+import carnero.me.Utils;
 import carnero.me.fragment.NetworksFragment;
 import carnero.me.fragment.TimelineFragment;
 import carnero.me.fragment.VcardFragment;
@@ -31,6 +33,15 @@ public class PhoneActivity extends SlidingFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		if (Utils.isWide(this)) { // wide enough, switch to tablet layout
+			final Intent intent = new Intent();
+			intent.setClass(this, TabletActivity.class);
+			startActivity(intent);
+			finish();
+
+			return;
+		}
 
 		mPrefs = getPreferences(MODE_PRIVATE);
 

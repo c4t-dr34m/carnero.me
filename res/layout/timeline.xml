@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:paddingLeft="8dp"
-	android:paddingRight="8dp">
+	android:layout_height="fill_parent">
 
 	<carnero.me.view.TransparentListView android:id="@+id/entries"
 		android:layout_width="fill_parent"
