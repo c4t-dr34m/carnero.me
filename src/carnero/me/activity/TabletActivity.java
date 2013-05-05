@@ -49,8 +49,6 @@ public class TabletActivity extends FragmentActivity {
 				@Override
 				public void run() {
 
-					// TODO carnero: fix animations on load
-
 					// networks
 					getSupportFragmentManager()
 							.beginTransaction()
@@ -78,6 +76,7 @@ public class TabletActivity extends FragmentActivity {
 
 		final GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
 		mTracker = analytics.getTracker(getString(R.string.ga_trackingId));
+		mTracker.sendEvent("activity_tablet", "start", "tablet", 0l);
 	}
 
 	@Override

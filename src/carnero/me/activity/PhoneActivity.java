@@ -106,6 +106,7 @@ public class PhoneActivity extends SlidingFragmentActivity {
 				}
 			}
 		});
+
 	}
 
 	@Override
@@ -116,6 +117,7 @@ public class PhoneActivity extends SlidingFragmentActivity {
 
 		final GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
 		mTracker = analytics.getTracker(getString(R.string.ga_trackingId));
+		mTracker.sendEvent("activity_phone", "start", "phone", 0l);
 	}
 
 	@Override
