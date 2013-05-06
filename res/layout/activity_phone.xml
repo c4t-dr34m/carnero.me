@@ -10,6 +10,25 @@
 		android:layout_height="fill_parent"
 		android:clickable="true"/>
 
+	<carnero.me.view.LeftVerticalThin android:id="@+id/vertical_left"
+		style="@style/Text.Vcard.Nick"
+		android:visibility="gone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="-14dp"
+		android:layout_centerVertical="true"
+		android:layout_alignParentLeft="true"
+		android:text="@string/vcard_name_nick"/>
+	<carnero.me.view.RightVerticalThin android:id="@+id/vertical_right"
+		style="@style/Text.Vcard.Nick"
+		android:visibility="gone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="-14dp"
+		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"
+		android:text="@string/vcard_name_nick"/>
+
 	<View android:id="@+id/side_hint_left"
 		android:visibility="gone"
 		android:layout_width="15dp"

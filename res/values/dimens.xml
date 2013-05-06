@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<dimen name="sliding_menu_offset">32dp</dimen>
+	<dimen name="sliding_menu_offset">42dp</dimen>
 	<dimen name="sliding_menu_shadow">22.5dp</dimen>
 	<dimen name="icon_padding">8dp</dimen>
 </resources>

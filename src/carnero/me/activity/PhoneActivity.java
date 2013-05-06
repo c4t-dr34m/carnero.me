@@ -22,6 +22,9 @@ import com.slidingmenu.lib.app.SlidingFragmentActivity;
 public class PhoneActivity extends SlidingFragmentActivity {
 
 	private SharedPreferences mPrefs;
+	private View mContainerVcard;
+	private View mVerticalLeft;
+	private View mVerticalRight;
 	private View mHintLeft;
 	private View mHintRight;
 	private Tracker mTracker;
@@ -57,6 +60,9 @@ public class PhoneActivity extends SlidingFragmentActivity {
 		// activity content
 		setContentView(R.layout.activity_phone);
 
+		mContainerVcard = findViewById(R.id.container_vcard);
+		mVerticalLeft = findViewById(R.id.vertical_left);
+		mVerticalRight = findViewById(R.id.vertical_right);
 		mHintLeft = findViewById(R.id.side_hint_left);
 		mHintRight = findViewById(R.id.side_hint_right);
 
@@ -97,6 +103,14 @@ public class PhoneActivity extends SlidingFragmentActivity {
 		menu.setOnOpenedListener(new SlidingMenu.OnOpenedListener() {
 			@Override
 			public void onOpened() {
+				// TODO carnero: animation
+				mContainerVcard.setVisibility(View.INVISIBLE);
+				if (menu.isSecondaryMenuShowing()) {
+					mVerticalRight.setVisibility(View.VISIBLE);
+				} else {
+					mVerticalLeft.setVisibility(View.VISIBLE);
+				}
+
 				final SharedPreferences.Editor edit = mPrefs.edit();
 				edit.putBoolean(Constants.PREF_SIDE_USED, true);
 				edit.commit();
@@ -107,6 +121,14 @@ public class PhoneActivity extends SlidingFragmentActivity {
 			}
 		});
 
+		menu.setOnCloseListener(new SlidingMenu.OnCloseListener() {
+			@Override
+			public void onClose() {
+				mVerticalLeft.setVisibility(View.GONE);
+				mVerticalRight.setVisibility(View.GONE);
+				mContainerVcard.setVisibility(View.VISIBLE);
+			}
+		});
 	}
 
 	@Override
