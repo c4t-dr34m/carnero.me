@@ -179,6 +179,8 @@ public class TimelineFragment extends Fragment {
 		// background
 		if (entry.background != 0) {
 			tag.background.setBackgroundResource(entry.background);
+		} else {
+			tag.background.setBackground(null);
 		}
 		// tapAction
 		if (entry.tapAction != null) {
