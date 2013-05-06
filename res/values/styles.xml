@@ -40,6 +40,7 @@
 
 	<style name="Text.Vertical">
 		<item name="android:textSize">36dp</item>
+		<item name="android:textColor">@color/grey</item>
 	</style>
 
 	<style name="Text.Network">

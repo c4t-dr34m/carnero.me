@@ -28,7 +28,9 @@ public class AnimateRelativeLayout extends RelativeLayout implements IAnimateVie
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		mProcessor.processTouch(this, event);
+		if (mAnimationEnabled) {
+			mProcessor.processTouch(this, event);
+		}
 
 		return super.onTouchEvent(event);
 	}

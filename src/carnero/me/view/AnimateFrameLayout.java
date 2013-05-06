@@ -29,7 +29,9 @@ public class AnimateFrameLayout extends FrameLayout implements IAnimateView {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		mProcessor.processTouch(this, event);
+		if (mAnimationEnabled) {
+			mProcessor.processTouch(this, event);
+		}
 
 		return super.onTouchEvent(event);
 	}

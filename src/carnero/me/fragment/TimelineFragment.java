@@ -110,7 +110,6 @@ public class TimelineFragment extends Fragment {
 			}
 		} else {
 			layout = (AnimateFrameLayout) mInflater.inflate(R.layout.item_timeline, mList, false);
-			layout.setAnimationEnabled(isActive);
 
 			tag = new Tag();
 			tag.type = type;
@@ -128,6 +127,8 @@ public class TimelineFragment extends Fragment {
 
 			setVisibility(tag, type);
 		}
+
+		layout.setAnimationEnabled(isActive);
 
 		return new InitResult(tag, layout);
 	}
@@ -182,6 +183,8 @@ public class TimelineFragment extends Fragment {
 		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
+		} else {
+			layout.setOnClickListener(null);
 		}
 
 		return layout;
