@@ -10,6 +10,7 @@ import carnero.me.fragment.NetworksFragment;
 import carnero.me.fragment.TimelineFragment;
 import carnero.me.fragment.VcardFragment;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.GAServiceManager;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
 
@@ -77,6 +78,8 @@ public class TabletActivity extends FragmentActivity {
 		final GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
 		mTracker = analytics.getTracker(getString(R.string.ga_trackingId));
 		mTracker.sendEvent("activity_tablet", "start", "tablet", 0l);
+
+		GAServiceManager.getInstance().dispatch();
 	}
 
 	@Override

@@ -15,6 +15,7 @@ import carnero.me.listener.BothEndsAnimatorListener;
 import carnero.me.listener.DisplayBeforeAnimatorListener;
 import carnero.me.listener.HideAfterAnimatorListener;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.GAServiceManager;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
 import com.nineoldandroids.animation.Animator;
@@ -133,19 +134,30 @@ public class PhoneActivity extends SlidingFragmentActivity {
 
 				if (mTracker != null) {
 					mTracker.sendEvent("activity_phone", "open", "slide_menu", 0l);
+
+					GAServiceManager.getInstance().dispatch();
 				}
 			}
 		});
 
-		mMenu.setOnCloseListener(new SlidingMenu.OnCloseListener() {
+		mMenu.setOnClosingListener(new SlidingMenu.OnClosingListener() {
 			@Override
-			public void onClose() {
+			public void onClosing() {
 				if (mVerticalLeft.getVisibility() == View.VISIBLE) {
+					if (mAnimVerticalLeftIn.isRunning()) {
+						mAnimVerticalLeftIn.end();
+					}
 					mVerticalLeft.setVisibility(View.INVISIBLE);
 				} else if (mVerticalRight.getVisibility() == View.VISIBLE) {
+					if (mAnimVerticalRightIn.isRunning()) {
+						mAnimVerticalRightIn.end();
+					}
 					mVerticalRight.setVisibility(View.INVISIBLE);
 				}
 
+				if (mAnimVcardOut.isRunning()) {
+					mAnimVcardOut.end();
+				}
 				mContainerVcard.setAlpha(1.0f);
 				mContainerVcard.setVisibility(View.VISIBLE);
 			}
@@ -184,12 +196,15 @@ public class PhoneActivity extends SlidingFragmentActivity {
 		final GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
 		mTracker = analytics.getTracker(getString(R.string.ga_trackingId));
 		mTracker.sendEvent("activity_phone", "start", "phone", 0l);
+
+		GAServiceManager.getInstance().dispatch();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
 
+		// load animations
 		mAnimVcardOut = AnimatorInflater.loadAnimator(this, R.animator.fade_out);
 		mAnimVerticalLeftIn = AnimatorInflater.loadAnimator(this, R.animator.fade_in);
 		mAnimVerticalRightIn = AnimatorInflater.loadAnimator(this, R.animator.fade_in);
