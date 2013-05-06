@@ -11,6 +11,9 @@ import carnero.me.Utils;
 import carnero.me.fragment.NetworksFragment;
 import carnero.me.fragment.TimelineFragment;
 import carnero.me.fragment.VcardFragment;
+import carnero.me.listener.BothEndsAnimatorListener;
+import carnero.me.listener.DisplayBeforeAnimatorListener;
+import carnero.me.listener.HideAfterAnimatorListener;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Tracker;
@@ -22,16 +25,17 @@ import com.slidingmenu.lib.app.SlidingFragmentActivity;
 public class PhoneActivity extends SlidingFragmentActivity {
 
 	private SharedPreferences mPrefs;
+	private SlidingMenu mMenu;
 	private View mContainerVcard;
 	private View mVerticalLeft;
 	private View mVerticalRight;
 	private View mHintLeft;
 	private View mHintRight;
 	private Tracker mTracker;
+	private Animator mAnimVcardOut;
+	private Animator mAnimVerticalLeftIn;
+	private Animator mAnimVerticalRightIn;
 	private static final Handler sHandler = new Handler();
-	// consts
-	public static final int SIDE_LEFT = 1;
-	public static final int SIDE_RIGHT = 2;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,14 +52,14 @@ public class PhoneActivity extends SlidingFragmentActivity {
 
 		mPrefs = getPreferences(MODE_PRIVATE);
 
-		final SlidingMenu menu = getSlidingMenu();
-		menu.setMode(SlidingMenu.LEFT_RIGHT);
-		menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-		menu.setBehindOffset((int) getResources().getDimension(R.dimen.sliding_menu_offset));
-		menu.setFadeDegree(0.5f);
-		menu.setShadowWidthRes(R.dimen.sliding_menu_shadow);
-		menu.setShadowDrawable(R.drawable.shadow_left);
-		menu.setSecondaryShadowDrawable(R.drawable.shadow_right);
+		mMenu = getSlidingMenu();
+		mMenu.setMode(SlidingMenu.LEFT_RIGHT);
+		mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		mMenu.setBehindOffset((int) getResources().getDimension(R.dimen.sliding_menu_offset));
+		mMenu.setFadeDegree(0.5f);
+		mMenu.setShadowWidthRes(R.dimen.sliding_menu_shadow);
+		mMenu.setShadowDrawable(R.drawable.shadow_left);
+		mMenu.setSecondaryShadowDrawable(R.drawable.shadow_right);
 
 		// activity content
 		setContentView(R.layout.activity_phone);
@@ -67,7 +71,7 @@ public class PhoneActivity extends SlidingFragmentActivity {
 		mHintRight = findViewById(R.id.side_hint_right);
 
 		setBehindContentView(R.layout.menu_primary);
-		menu.setSecondaryMenu(R.layout.menu_secondary);
+		mMenu.setSecondaryMenu(R.layout.menu_secondary);
 
 		if (savedInstanceState == null) {
 			// vcard
@@ -100,15 +104,27 @@ public class PhoneActivity extends SlidingFragmentActivity {
 			}, 250);
 		}
 
-		menu.setOnOpenedListener(new SlidingMenu.OnOpenedListener() {
+		mMenu.setOnOpenedListener(new SlidingMenu.OnOpenedListener() {
 			@Override
 			public void onOpened() {
-				// TODO carnero: animation
-				mContainerVcard.setVisibility(View.INVISIBLE);
-				if (menu.isSecondaryMenuShowing()) {
-					mVerticalRight.setVisibility(View.VISIBLE);
+				if (mAnimVcardOut.isRunning()) {
+					mAnimVcardOut.end();
+				}
+				mAnimVcardOut.setTarget(mContainerVcard);
+				mAnimVcardOut.start();
+
+				if (mMenu.isSecondaryMenuShowing()) {
+					if (mAnimVerticalRightIn.isRunning()) {
+						mAnimVerticalRightIn.end();
+					}
+					mAnimVerticalRightIn.setTarget(mVerticalRight);
+					mAnimVerticalRightIn.start();
 				} else {
-					mVerticalLeft.setVisibility(View.VISIBLE);
+					if (mAnimVerticalLeftIn.isRunning()) {
+						mAnimVerticalLeftIn.end();
+					}
+					mAnimVerticalLeftIn.setTarget(mVerticalLeft);
+					mAnimVerticalLeftIn.start();
 				}
 
 				final SharedPreferences.Editor edit = mPrefs.edit();
@@ -121,14 +137,42 @@ public class PhoneActivity extends SlidingFragmentActivity {
 			}
 		});
 
-		menu.setOnCloseListener(new SlidingMenu.OnCloseListener() {
+		mMenu.setOnCloseListener(new SlidingMenu.OnCloseListener() {
 			@Override
 			public void onClose() {
-				mVerticalLeft.setVisibility(View.GONE);
-				mVerticalRight.setVisibility(View.GONE);
+				if (mVerticalLeft.getVisibility() == View.VISIBLE) {
+					mVerticalLeft.setVisibility(View.INVISIBLE);
+				} else if (mVerticalRight.getVisibility() == View.VISIBLE) {
+					mVerticalRight.setVisibility(View.INVISIBLE);
+				}
+
+				mContainerVcard.setAlpha(1.0f);
 				mContainerVcard.setVisibility(View.VISIBLE);
 			}
 		});
+	}
+
+	@Override
+	public void onPostCreate(Bundle state) {
+		super.onPostCreate(state);
+
+		final boolean primary;
+		final boolean secondary;
+		if (state != null) {
+			primary = state.getBoolean("SlidingActivityHelper.open");
+			secondary = state.getBoolean("SlidingActivityHelper.secondary");
+		} else {
+			primary = false;
+			secondary = false;
+		}
+
+		if (primary) {
+			mContainerVcard.setVisibility(View.INVISIBLE);
+			mVerticalLeft.setVisibility(View.VISIBLE);
+		} else if (secondary) {
+			mContainerVcard.setVisibility(View.INVISIBLE);
+			mVerticalRight.setVisibility(View.VISIBLE);
+		}
 	}
 
 	@Override
@@ -146,12 +190,20 @@ public class PhoneActivity extends SlidingFragmentActivity {
 	public void onResume() {
 		super.onResume();
 
+		mAnimVcardOut = AnimatorInflater.loadAnimator(this, R.animator.fade_out);
+		mAnimVerticalLeftIn = AnimatorInflater.loadAnimator(this, R.animator.fade_in);
+		mAnimVerticalRightIn = AnimatorInflater.loadAnimator(this, R.animator.fade_in);
+
+		mAnimVcardOut.addListener(new HideAfterAnimatorListener(mContainerVcard));
+		mAnimVerticalLeftIn.addListener(new DisplayBeforeAnimatorListener(mVerticalLeft));
+		mAnimVerticalRightIn.addListener(new DisplayBeforeAnimatorListener(mVerticalRight));
+
 		if (!mPrefs.getBoolean(Constants.PREF_SIDE_USED, false)) {
 			final Animator animatorHintLeft = AnimatorInflater.loadAnimator(this, R.animator.side_hint);
 			final Animator animatorHintRight = AnimatorInflater.loadAnimator(this, R.animator.side_hint);
 
-			animatorHintLeft.addListener(new HintAnimatorListener(SIDE_LEFT));
-			animatorHintRight.addListener(new HintAnimatorListener(SIDE_RIGHT));
+			animatorHintLeft.addListener(new BothEndsAnimatorListener(mHintLeft));
+			animatorHintRight.addListener(new BothEndsAnimatorListener(mHintRight));
 
 			animatorHintLeft.setTarget(mHintLeft);
 			animatorHintRight.setTarget(mHintRight);
@@ -166,48 +218,5 @@ public class PhoneActivity extends SlidingFragmentActivity {
 		super.onStop();
 
 		EasyTracker.getInstance().activityStop(this);
-	}
-
-	private class HintAnimatorListener implements Animator.AnimatorListener {
-
-		private int mSide;
-
-		public HintAnimatorListener(int side) {
-			mSide = side;
-		}
-
-		@Override
-		public void onAnimationStart(Animator animator) {
-			switch (mSide) {
-				case SIDE_LEFT:
-					mHintLeft.setVisibility(View.VISIBLE);
-					break;
-				case SIDE_RIGHT:
-					mHintRight.setVisibility(View.VISIBLE);
-					break;
-			}
-		}
-
-		@Override
-		public void onAnimationEnd(Animator animator) {
-			switch (mSide) {
-				case SIDE_LEFT:
-					mHintLeft.setVisibility(View.GONE);
-					break;
-				case SIDE_RIGHT:
-					mHintRight.setVisibility(View.GONE);
-					break;
-			}
-		}
-
-		@Override
-		public void onAnimationRepeat(Animator animator) {
-			// nothing
-		}
-
-		@Override
-		public void onAnimationCancel(Animator animator) {
-			// nothing
-		}
 	}
 }
