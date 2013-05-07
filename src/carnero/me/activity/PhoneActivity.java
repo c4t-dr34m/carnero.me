@@ -168,22 +168,24 @@ public class PhoneActivity extends SlidingFragmentActivity {
 	public void onPostCreate(Bundle state) {
 		super.onPostCreate(state);
 
-		final boolean primary;
+		final boolean open;
 		final boolean secondary;
 		if (state != null) {
-			primary = state.getBoolean("SlidingActivityHelper.open");
+			open = state.getBoolean("SlidingActivityHelper.open");
 			secondary = state.getBoolean("SlidingActivityHelper.secondary");
 		} else {
-			primary = false;
+			open = false;
 			secondary = false;
 		}
 
-		if (primary) {
-			mContainerVcard.setVisibility(View.INVISIBLE);
-			mVerticalLeft.setVisibility(View.VISIBLE);
-		} else if (secondary) {
-			mContainerVcard.setVisibility(View.INVISIBLE);
-			mVerticalRight.setVisibility(View.VISIBLE);
+		if (open) {
+			if (secondary) {
+				mContainerVcard.setVisibility(View.INVISIBLE);
+				mVerticalRight.setVisibility(View.VISIBLE);
+			} else {
+				mContainerVcard.setVisibility(View.INVISIBLE);
+				mVerticalLeft.setVisibility(View.VISIBLE);
+			}
 		}
 	}
 
