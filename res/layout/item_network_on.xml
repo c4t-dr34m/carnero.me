@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<carnero.me.view.AnimateRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
+	android:orientation="vertical"
 	android:background="@drawable/btn_button">
 
-	<ImageView android:id="@id/network_icon"
-		android:layout_width="48dp"
-		android:layout_height="48dp"
+	<carnero.me.view.AnimateRelativeLayout android:id="@+id/network_container"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+		<ImageView android:id="@id/network_icon"
+			android:layout_width="48dp"
+			android:layout_height="48dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginRight="16dp"
+			android:layout_marginBottom="8dp"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:contentDescription="@string/desc_network_icon"/>
+
+		<carnero.me.view.TextViewCondensed android:id="@id/network_title"
+			style="@style/Text.Network.TitleOn"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/network_icon"/>
+
+		<TextView android:id="@id/network_description"
+			style="@style/Text.Network.DescriptionOn"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/network_icon"
+			android:layout_below="@id/network_title"/>
+	</carnero.me.view.AnimateRelativeLayout>
+
+	<View android:id="@id/separator"
+		android:layout_width="fill_parent"
+		android:layout_height="2dp"
 		android:layout_marginTop="8dp"
-		android:layout_marginRight="16dp"
 		android:layout_marginBottom="8dp"
-		android:layout_alignParentLeft="true"
-		android:layout_centerVertical="true"
-		android:contentDescription="@string/desc_network_icon" />
-
-	<carnero.me.view.TextViewCondensed android:id="@id/network_title"
-		style="@style/Text.Network.TitleOn"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_toRightOf="@id/network_icon" />
-
-	<TextView android:id="@id/network_description"
-		style="@style/Text.Network.DescriptionOn"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_toRightOf="@id/network_icon"
-		android:layout_below="@id/network_title" />
-</carnero.me.view.AnimateRelativeLayout>
+		android:background="@drawable/separator_detail"/>
+</LinearLayout>

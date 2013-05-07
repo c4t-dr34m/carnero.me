@@ -13,7 +13,6 @@ import carnero.me.R;
 import carnero.me.Utils;
 import carnero.me.data._NetworksList;
 import carnero.me.model.Network;
-import carnero.me.view.TransparentListView;
 import carnero.me.view.TransparentScrollView;
 import com.google.analytics.tracking.android.GAServiceManager;
 import com.google.analytics.tracking.android.GoogleAnalytics;
@@ -50,18 +49,22 @@ public class NetworksFragment extends Fragment {
 		int networksOff = 0; // ...user has not
 
 		ViewGroup view;
+		ViewGroup container;
 		ImageView icon;
 		TextView title;
 		TextView description;
+		View separator = null;
 
 		for (Network network : _NetworksList.ENTRIES) {
 			if (Utils.isPackageInstalled(getActivity(), network.packageName)) {
 				view = (ViewGroup) mInflater.inflate(R.layout.item_network_on, mLayoutOn, false);
+				container = (ViewGroup) view.findViewById(R.id.network_container);
 				icon = (ImageView) view.findViewById(R.id.network_icon);
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);
+				separator = view.findViewById(R.id.separator);
 
-				view.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
+				container.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
 				icon.setImageResource(network.iconOn);
 				title.setText(network.title);
 				description.setText(network.description);
@@ -70,11 +73,12 @@ public class NetworksFragment extends Fragment {
 				networksOn++;
 			} else {
 				view = (ViewGroup) mInflater.inflate(R.layout.item_network_off, mLayoutOff, false);
+				container = (ViewGroup) view.findViewById(R.id.network_container);
 				icon = (ImageView) view.findViewById(R.id.network_icon);
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);
 
-				view.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
+				container.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
 				icon.setImageResource(network.iconOff);
 				title.setText(network.title);
 				description.setText(network.description);
@@ -84,6 +88,10 @@ public class NetworksFragment extends Fragment {
 			}
 
 			mView.registerView(view);
+		}
+
+		if (separator != null) {
+			separator.setVisibility(View.GONE); // hide separator in last ON network
 		}
 
 		if (networksOn == 0) {
