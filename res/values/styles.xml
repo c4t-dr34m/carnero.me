@@ -41,6 +41,12 @@
 	<style name="Text.Vertical">
 		<item name="android:textSize">36dp</item>
 		<item name="android:textColor">@color/grey</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:ellipsize">marquee</item>
+	</style>
+
+	<style name="Text.Vertical.Sub">
+		<item name="android:textSize">16dp</item>
 	</style>
 
 	<style name="Text.Network">

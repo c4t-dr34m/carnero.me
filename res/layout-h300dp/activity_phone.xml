@@ -20,6 +20,14 @@
 		android:orientation="vertical">
 
 		<carnero.me.view.LeftVerticalThin
+			style="@style/Text.Vertical.Sub"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:layout_marginRight="6dp"
+			android:layout_gravity="right"
+			android:text="@string/vcard_position"/>
+		<carnero.me.view.LeftVerticalThin
 			style="@style/Text.Vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -40,6 +48,14 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/vcard_name_nick"/>
+		<carnero.me.view.RightVerticalThin
+			style="@style/Text.Vertical.Sub"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginLeft="6dp"
+			android:layout_gravity="left"
+			android:text="@string/vcard_position"/>
 	</LinearLayout>
 
 	<View android:id="@+id/side_hint_left"
