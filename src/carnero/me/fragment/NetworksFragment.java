@@ -64,7 +64,12 @@ public class NetworksFragment extends Fragment {
 				description = (TextView) view.findViewById(R.id.network_description);
 				separator = view.findViewById(R.id.separator);
 
-				container.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
+				if (network.tapAction != null) {
+					container.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
+				} else {
+					container.setOnClickListener(null);
+				}
+
 				icon.setImageResource(network.iconOn);
 				title.setText(network.title);
 				description.setText(network.description);
@@ -73,12 +78,16 @@ public class NetworksFragment extends Fragment {
 				networksOn++;
 			} else {
 				view = (ViewGroup) mInflater.inflate(R.layout.item_network_off, mLayoutOff, false);
-				container = (ViewGroup) view.findViewById(R.id.network_container);
 				icon = (ImageView) view.findViewById(R.id.network_icon);
 				title = (TextView) view.findViewById(R.id.network_title);
 				description = (TextView) view.findViewById(R.id.network_description);
 
-				container.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
+				if (network.tapAction != null) {
+					view.setOnClickListener(new EntryAction(network.tapAction.getIntent(getActivity())));
+				} else {
+					view.setOnClickListener(null);
+				}
+
 				icon.setImageResource(network.iconOff);
 				title.setText(network.title);
 				description.setText(network.description);
