@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent" >
+	android:layout_height="fill_parent">
 
 	<!-- vcard -->
 	<RelativeLayout android:id="@+id/layout_vcard"
@@ -19,7 +19,7 @@
 			android:layout_alignParentLeft="true"
 			android:layout_centerVertical="true"
 			android:src="@drawable/logo"
-			android:contentDescription="@string/desc_logo" />
+			android:contentDescription="@string/desc_logo"/>
 
 		<FrameLayout android:id="@+id/name_frame"
 			android:layout_width="wrap_content"
@@ -37,27 +37,27 @@
 				android:layout_gravity="left|center_vertical"
 				android:orientation="vertical">
 
-				<carnero.me.view.TextViewThin
+				<carnero.me.view.TextViewCondensed
 					style="@style/Text.Vcard.Nick"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:text="@string/vcard_name_nick" />
+					android:text="@string/vcard_name_nick"/>
 
-				<TextView android:id="@+id/job"
+				<carnero.me.view.TextViewCondensed android:id="@+id/job"
 					style="@style/Text.Vcard.Position"
 					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
 					android:gravity="left"
-					android:text="@string/vcard_position" />
+					android:text="@string/vcard_position"/>
 			</LinearLayout>
 
-			<carnero.me.view.TextViewThin android:id="@+id/name_real"
+			<carnero.me.view.TextViewCondensed android:id="@+id/name_real"
 				style="@style/Text.Vcard.Name"
 				android:visibility="invisible"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="left|center_vertical"
-				android:text="@string/vcard_name_real" />
+				android:text="@string/vcard_name_real"/>
 		</FrameLayout>
 	</RelativeLayout>
 
@@ -77,23 +77,23 @@
 			android:paddingBottom="8dp"
 			android:orientation="vertical">
 
-			<TextView android:id="@+id/contact_gtalk_value"
+			<carnero.me.view.TextViewCondensed android:id="@+id/contact_gtalk_value"
 				style="@style/Text.Contact.Value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_gtalk_value" />
+				android:text="@string/contact_gtalk_value"/>
 
-			<carnero.me.view.TextViewThin android:id="@+id/contact_gtalk_label"
+			<carnero.me.view.TextViewCondensed android:id="@+id/contact_gtalk_label"
 				style="@style/Text.Contact.Label"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_gtalk_label" />
+				android:text="@string/contact_gtalk_label"/>
 		</carnero.me.view.AnimateLinearLayout>
 
 		<View
 			android:layout_width="1dp"
 			android:layout_height="fill_parent"
-			android:background="@android:color/black" />
+			android:background="@android:color/black"/>
 
 		<carnero.me.view.AnimateLinearLayout android:id="@+id/contact_email"
 			android:layout_width="0dp"
@@ -102,23 +102,23 @@
 			android:paddingBottom="8dp"
 			android:orientation="vertical">
 
-			<TextView android:id="@+id/contact_email_value"
+			<carnero.me.view.TextViewCondensed android:id="@+id/contact_email_value"
 				style="@style/Text.Contact.Value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_email_value" />
+				android:text="@string/contact_email_value"/>
 
-			<carnero.me.view.TextViewThin android:id="@+id/contact_email_label"
+			<carnero.me.view.TextViewCondensed android:id="@+id/contact_email_label"
 				style="@style/Text.Contact.Label"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_email_label" />
+				android:text="@string/contact_email_label"/>
 		</carnero.me.view.AnimateLinearLayout>
 
 		<View
 			android:layout_width="1dp"
 			android:layout_height="fill_parent"
-			android:background="@android:color/black" />
+			android:background="@android:color/black"/>
 
 		<carnero.me.view.AnimateLinearLayout android:id="@+id/contact_phone"
 			android:layout_width="0dp"
@@ -127,17 +127,17 @@
 			android:paddingBottom="8dp"
 			android:orientation="vertical">
 
-			<TextView android:id="@+id/contact_phone_value"
+			<carnero.me.view.TextViewCondensed android:id="@+id/contact_phone_value"
 				style="@style/Text.Contact.Value"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_phone_value" />
+				android:text="@string/contact_phone_value"/>
 
-			<carnero.me.view.TextViewThin android:id="@+id/contact_phone_label"
+			<carnero.me.view.TextViewCondensed android:id="@+id/contact_phone_label"
 				style="@style/Text.Contact.Label"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/contact_phone_label" />
+				android:text="@string/contact_phone_label"/>
 		</carnero.me.view.AnimateLinearLayout>
 	</LinearLayout>
 
@@ -148,5 +148,5 @@
 		android:layout_height="fill_parent"
 		android:layout_below="@id/layout_vcard"
 		android:layout_above="@id/layout_contact"
-		android:contentDescription="@string/desc_map" />
+		android:contentDescription="@string/desc_map"/>
 </RelativeLayout>

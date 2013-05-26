@@ -19,7 +19,7 @@
 		android:layout_alignParentLeft="true"
 		android:orientation="vertical">
 
-		<carnero.me.view.LeftVerticalThin
+		<carnero.me.view.LeftVerticalCondensed
 			style="@style/Text.Vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
 		android:layout_alignParentRight="true"
 		android:orientation="vertical">
 
-		<carnero.me.view.RightVerticalThin
+		<carnero.me.view.LeftVerticalCondensed
 			style="@style/Text.Vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

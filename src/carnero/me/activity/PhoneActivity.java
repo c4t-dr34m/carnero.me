@@ -158,7 +158,7 @@ public class PhoneActivity extends SlidingFragmentActivity {
 				if (mAnimVcardOut.isRunning()) {
 					mAnimVcardOut.end();
 				}
-				mContainerVcard.setAlpha(1.0f);
+				mContainerVcard.setAlpha(1.0f); // TODO: level 11+
 				mContainerVcard.setVisibility(View.VISIBLE);
 			}
 		});

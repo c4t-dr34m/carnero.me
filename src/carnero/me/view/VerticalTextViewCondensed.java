@@ -8,21 +8,21 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 @SuppressWarnings("unused")
-public class VerticalTextViewThin extends TextView {
+public class VerticalTextViewCondensed extends TextView {
 
 	protected int mAngle = -90;
 
-	public VerticalTextViewThin(Context context) {
+	public VerticalTextViewCondensed(Context context) {
 		super(context);
 		init(context);
 	}
 
-	public VerticalTextViewThin(Context context, AttributeSet attrs) {
+	public VerticalTextViewCondensed(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public VerticalTextViewThin(Context context, AttributeSet attrs, int style) {
+	public VerticalTextViewCondensed(Context context, AttributeSet attrs, int style) {
 		super(context, attrs, style);
 		init(context);
 	}
@@ -60,7 +60,7 @@ public class VerticalTextViewThin extends TextView {
 			return;
 		}
 
-		final Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Thin.ttf");
+		final Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/RobotoCondensed-Regular.ttf");
 		setTypeface(face);
 	}
 }

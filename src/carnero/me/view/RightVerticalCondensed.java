@@ -4,25 +4,25 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 @SuppressWarnings("unused")
-public class LeftVerticalThin extends VerticalTextViewThin {
+public class RightVerticalCondensed extends VerticalTextViewCondensed {
 
-	public LeftVerticalThin(Context context) {
+	public RightVerticalCondensed(Context context) {
 		super(context);
 		init(context);
 	}
 
-	public LeftVerticalThin(Context context, AttributeSet attrs) {
+	public RightVerticalCondensed(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public LeftVerticalThin(Context context, AttributeSet attrs, int style) {
+	public RightVerticalCondensed(Context context, AttributeSet attrs, int style) {
 		super(context, attrs, style);
 		init(context);
 	}
 
 	public void init(Context context) {
-		mAngle = -90;
+		mAngle = +90;
 
 		super.init(context);
 	}
