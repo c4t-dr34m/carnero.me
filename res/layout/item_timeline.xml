@@ -9,7 +9,10 @@
 		android:visibility="gone"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="8dp"
+		android:layout_marginTop="4dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginBottom="4dp"
+		android:layout_marginLeft="8dp"
 		android:paddingTop="16dp"
 		android:background="@drawable/bcg_card_right">
 
@@ -59,7 +62,7 @@
 					android:ellipsize="marquee"/>
 			</RelativeLayout>
 
-			<TextView android:id="@id/description"
+			<carnero.me.view.TextViewCondensed android:id="@id/description"
 				style="@style/Timeline.Card.Description"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
@@ -79,7 +82,7 @@
 		android:layout_height="wrap_content"
 		android:layout_margin="8dp">
 
-		<TextView android:id="@id/text"
+		<carnero.me.view.TextViewCondensed android:id="@id/text"
 			style="@style/Timeline.Plain.Title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

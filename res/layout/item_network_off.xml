@@ -13,18 +13,18 @@
 		android:layout_marginBottom="8dp"
 		android:layout_alignParentLeft="true"
 		android:layout_centerVertical="true"
-		android:contentDescription="@string/desc_network_icon" />
+		android:contentDescription="@string/desc_network_icon"/>
 
 	<carnero.me.view.TextViewCondensed android:id="@id/network_title"
 		style="@style/Text.Network.TitleOff"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_toRightOf="@id/network_icon" />
+		android:layout_toRightOf="@id/network_icon"/>
 
-	<TextView android:id="@id/network_description"
+	<carnero.me.view.TextViewCondensed android:id="@id/network_description"
 		style="@style/Text.Network.DescriptionOff"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/network_icon"
-		android:layout_below="@id/network_title" />
+		android:layout_below="@id/network_title"/>
 </carnero.me.view.AnimateRelativeLayout>

@@ -140,7 +140,7 @@ public class TimelineFragment extends Fragment {
 
 		final String dSt = mDecimalFormat.format(entry.downloads);
 		final SpannableString dSp = new SpannableString(mResources.getString(R.string.cv_downloads, dSt));
-		dSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, dSt.length() + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+		dSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description_Lesser_Emphasis), 0, dSt.length() + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 		final String eSt;
 		if (entry.months >= 12) {
@@ -150,7 +150,7 @@ public class TimelineFragment extends Fragment {
 			eSt = mResources.getQuantityString(R.plurals.cv_experience_months, entry.months, entry.months);
 		}
 		final SpannableString eSp = new SpannableString(eSt + " " + mResources.getString(R.string.cv_experience));
-		eSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description), 0, eSt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+		eSp.setSpan(new TextAppearanceSpan(mContext, R.style.Timeline_Card_Description_Lesser_Emphasis), 0, eSt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 		// title
 		if (mListWidth <= 0) {
@@ -211,6 +211,8 @@ public class TimelineFragment extends Fragment {
 		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
+		} else {
+			layout.setOnClickListener(null);
 		}
 		// tag
 		layout.setTag(tag);
@@ -237,6 +239,8 @@ public class TimelineFragment extends Fragment {
 		// tapAction
 		if (entry.tapAction != null) {
 			layout.setOnClickListener(new EntryAction(entry.tapAction.getIntent(getActivity())));
+		} else {
+			layout.setOnClickListener(null);
 		}
 		// tag
 		layout.setTag(tag);

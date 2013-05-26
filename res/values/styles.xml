@@ -18,7 +18,7 @@
 	</style>
 
 	<style name="Text.Vcard.Position">
-		<item name="android:textSize">14dp</item>
+		<item name="android:textSize">16dp</item>
 		<item name="android:textStyle">normal</item>
 		<item name="android:textColor">@color/grey</item>
 	</style>
@@ -67,7 +67,7 @@
 	<style name="Text.Network.DescriptionOn">
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">marquee</item>
-		<item name="android:textSize">14sp</item>
+		<item name="android:textSize">16sp</item>
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:shadowColor">#DDFFFFFF</item>
 		<item name="android:shadowRadius">1.0</item>
@@ -85,7 +85,7 @@
 	<style name="Text.Network.DescriptionOff">
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">marquee</item>
-		<item name="android:textSize">12dp</item>
+		<item name="android:textSize">14dp</item>
 		<item name="android:textColor">@color/grey</item>
 	</style>
 
@@ -109,7 +109,7 @@
 	</style>
 
 	<style name="Timeline.Card.Description">
-		<item name="android:textSize">14dp</item>
+		<item name="android:textSize">18dp</item>
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:shadowColor">#DDFFFFFF</item>
 		<item name="android:shadowRadius">1.0</item>
@@ -118,12 +118,18 @@
 	</style>
 
 	<style name="Timeline.Card.Description.Lesser">
+		<item name="android:textSize">16dp</item>
 		<item name="android:textColor">@color/grey</item>
 		<item name="android:shadowColor">#88FFFFFF</item>
 	</style>
 
+	<style name="Timeline.Card.Description.Lesser.Emphasis">
+		<item name="android:textColor">@android:color/black</item>
+		<item name="android:shadowColor">#DDFFFFFF</item>
+	</style>
+
 	<style name="Timeline.Card.Client">
-		<item name="android:textSize">14dp</item>
+		<item name="android:textSize">16dp</item>
 		<item name="android:textColor">@color/grey</item>
 		<item name="android:shadowColor">#88FFFFFF</item>
 		<item name="android:shadowRadius">1.0</item>
