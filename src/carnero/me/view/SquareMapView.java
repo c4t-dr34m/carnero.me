@@ -28,6 +28,8 @@ public class SquareMapView extends View {
 	// location
 	private Integer mLatitude = Constants.DEF_LATITUDE;
 	private Integer mLongitude = Constants.DEF_LONGITUDE;
+	private long mLatitudeMargin = 0l;
+	private long mLongitudeMargin = 0l;
 	private long mSquareLat;
 	private long mSquareLon;
 	// paint
@@ -170,6 +172,9 @@ public class SquareMapView extends View {
 
 		mSquareSize = (int) Math.floor(square);
 
+		mLatitudeMargin = (int) (180 * 1e6) - Math.abs(Map.MAP_LATITUDE_MIN_E6);
+		mLongitudeMargin = (int) (90 * 1e6) - Map.MAP_LONGITUDE_MAX_E6;
+
 		mPaddingLeft = Math.round((mWidth - (Map.MAP_WIDTH * (mSquareSize + mSquareMargin))) / 2);
 		mPaddingTop = Math.round((mHeight - (Map.MAP_HEIGHT * (mSquareSize + mSquareMargin))) / 2);
 
@@ -193,8 +198,8 @@ public class SquareMapView extends View {
 			longitudeE6 = Map.MAP_LONGITUDE_MIN_E6;
 		}
 
-		final long leftPos = latitudeE6 - Map.MAP_LATITUDE_MIN_E6;
-		final long topPos = Map.MAP_LONGITUDE_MAX_E6 - longitudeE6;
+		final long leftPos = (latitudeE6 - mLatitudeMargin) - Map.MAP_LATITUDE_MIN_E6;
+		final long topPos = Map.MAP_LONGITUDE_MAX_E6 - (longitudeE6 - mLongitudeMargin);
 		final int x = (int) (leftPos / mSquareLat);
 		final int y = (int) (topPos / mSquareLon);
 
