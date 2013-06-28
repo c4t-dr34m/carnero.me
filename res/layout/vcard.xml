@@ -70,35 +70,10 @@
 		android:baselineAligned="false"
 		android:orientation="horizontal">
 
-		<carnero.me.view.AnimateLinearLayout android:id="@+id/contact_gtalk"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:paddingBottom="8dp"
-			android:orientation="vertical">
-
-			<carnero.me.view.TextViewCondensed android:id="@+id/contact_gtalk_value"
-				style="@style/Text.Contact.Value"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/contact_gtalk_value"/>
-
-			<carnero.me.view.TextViewCondensed android:id="@+id/contact_gtalk_label"
-				style="@style/Text.Contact.Label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/contact_gtalk_label"/>
-		</carnero.me.view.AnimateLinearLayout>
-
-		<View
-			android:layout_width="1dp"
-			android:layout_height="fill_parent"
-			android:background="@android:color/black"/>
-
 		<carnero.me.view.AnimateLinearLayout android:id="@+id/contact_email"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
+			android:layout_weight="2"
 			android:paddingBottom="8dp"
 			android:orientation="vertical">
 
@@ -123,7 +98,7 @@
 		<carnero.me.view.AnimateLinearLayout android:id="@+id/contact_phone"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
+			android:layout_weight="2"
 			android:paddingBottom="8dp"
 			android:orientation="vertical">
 

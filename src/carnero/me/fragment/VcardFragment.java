@@ -77,31 +77,8 @@ public class VcardFragment extends Fragment {
 		});
 
 		// contact actions
-		final View gtalk = mContent.findViewById(R.id.contact_gtalk);
 		final View email = mContent.findViewById(R.id.contact_email);
 		final View phone = mContent.findViewById(R.id.contact_phone);
-
-		gtalk.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				final Uri uri = new Uri.Builder().scheme("imto").authority("gtalk").appendPath("carnero@carnero.cc").build();
-				final Intent gtalk = new Intent(Intent.ACTION_SENDTO, uri);
-
-				try {
-					startActivity(Intent.createChooser(gtalk, "Send instant message..."));
-				} catch (ActivityNotFoundException e) {
-					Toast.makeText(mContext, getString(R.string.error_no_gtalk), Toast.LENGTH_SHORT).show();
-				}
-			}
-		});
-		gtalk.setOnLongClickListener(new View.OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-				Toast.makeText(mContext, R.string.contact_gtalk_value, Toast.LENGTH_LONG).show();
-
-				return true;
-			}
-		});
 
 		email.setOnClickListener(new View.OnClickListener() {
 			@Override

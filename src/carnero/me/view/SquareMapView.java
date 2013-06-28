@@ -10,6 +10,7 @@ import android.view.View;
 import carnero.me.Constants;
 import carnero.me.Map;
 import carnero.me.R;
+import carnero.me.VisitedPlaces;
 import carnero.me.model.GeoPoint;
 
 @SuppressWarnings("unused")
@@ -119,12 +120,10 @@ public class SquareMapView extends View {
 		}
 
 		// visited places
-		/*
 		for (int[] place : VisitedPlaces.VISITED_PLACES_E6) {
 			final int[] square = getSquareFromLocation(place[0], place[1]);
 			canvas.drawRect(square[0], square[1], square[0] + mSquareSize, square[1] + mSquareSize, mSquareHighlightPaint);
 		}
-		*/
 
 		// current location
 		if (mLatitude != null && mLongitude != null) {
