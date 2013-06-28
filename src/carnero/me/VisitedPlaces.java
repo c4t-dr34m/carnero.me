@@ -57,5 +57,10 @@ public class VisitedPlaces {
 			// USA
 			{-142971000, 63332000}, // Tok, AK, USA
 			{-130020000, 55903000}, // Hyder, AK, USA
+			// test
+			{-179000000, 52100000}, // western Alaska
+			{-171000000, 66200000}, // eastern Kamchatka
+			{-69000000, -55000000}, // southern Chile
+			{147000000, -42000000}, // Tasmania
 	};
 }

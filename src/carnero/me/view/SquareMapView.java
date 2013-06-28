@@ -30,8 +30,6 @@ public class SquareMapView extends View {
 	private Integer mLongitude = Constants.DEF_LONGITUDE;
 	private long mSquareLat;
 	private long mSquareLon;
-	private long mMarginLat;
-	private long mMarginLon;
 	// paint
 	private PaintFlagsDrawFilter mSetFilter;
 	private PaintFlagsDrawFilter mRemFilter;
@@ -111,8 +109,8 @@ public class SquareMapView extends View {
 		for (x = 0; x < Map.MAP_WIDTH; x++) {
 			for (y = 0; y < Map.MAP_HEIGHT; y++) {
 				if (Map.MAP_DEFINITION[y][x]) {
-					posX = (x * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingLeft;
-					posY = (y * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingTop;
+					posX = (x * (mSquareSize + mSquareMargin)) + mPaddingLeft;
+					posY = (y * (mSquareSize + mSquareMargin)) + mPaddingTop;
 
 					canvas.drawRect(posX, posY, posX + mSquareSize, posY + mSquareSize, mSquareGreyPaint); // left top right bottom
 				}
@@ -148,18 +146,6 @@ public class SquareMapView extends View {
 		mLatitude = geoPoint.getLatitudeE6();
 		mLongitude = geoPoint.getLongitudeE6();
 
-		// map bounds
-		if (mLatitude < Map.MAP_LATITUDE_MIN_E6) {
-			mLatitude = Map.MAP_LATITUDE_MIN_E6;
-		} else if (mLatitude > Map.MAP_LATITUDE_MAX_E6) {
-			mLatitude = Map.MAP_LATITUDE_MAX_E6;
-		}
-		if (mLongitude < Map.MAP_LONGITUDE_MIN_E6) {
-			mLongitude = Map.MAP_LONGITUDE_MIN_E6;
-		} else if (mLongitude > Map.MAP_LONGITUDE_MAX_E6) {
-			mLongitude = Map.MAP_LONGITUDE_MAX_E6;
-		}
-
 		invalidate();
 	}
 
@@ -174,7 +160,7 @@ public class SquareMapView extends View {
 			maxSquare = maxSquareH;
 		}
 
-		double border = maxSquare * 0.25; // 1/4
+		double border = maxSquare * 0.25;
 		if (border < 1) {
 			border = 1.0d;
 		}
@@ -189,8 +175,6 @@ public class SquareMapView extends View {
 
 		mSquareLat = (Map.MAP_LATITUDE_MAX_E6 - Map.MAP_LATITUDE_MIN_E6) / Map.MAP_WIDTH;
 		mSquareLon = (Map.MAP_LONGITUDE_MAX_E6 - Map.MAP_LONGITUDE_MIN_E6) / Map.MAP_HEIGHT;
-		mMarginLat = (int) Math.abs((-180 * 1e6) - Map.MAP_LATITUDE_MIN_E6);
-		mMarginLon = (int) Math.abs((90 * 1e6) - Map.MAP_LONGITUDE_MAX_E6);
 
 		mRenderMap = mSquareSize >= 2;
 	}
@@ -198,13 +182,24 @@ public class SquareMapView extends View {
 	private int[] getSquareFromLocation(int latitudeE6, int longitudeE6) {
 		final int[] square = new int[]{0, 0};
 
-		final long leftPos = (latitudeE6 - mMarginLat) - Map.MAP_LATITUDE_MIN_E6;
-		final long topPos = Map.MAP_LONGITUDE_MAX_E6 - (longitudeE6 - mMarginLon);
+		if (latitudeE6 > Map.MAP_LATITUDE_MAX_E6) {
+			latitudeE6 = Map.MAP_LATITUDE_MAX_E6;
+		} else if (latitudeE6 < Map.MAP_LATITUDE_MIN_E6) {
+			latitudeE6 = Map.MAP_LATITUDE_MIN_E6;
+		}
+		if (longitudeE6 > Map.MAP_LONGITUDE_MAX_E6) {
+			longitudeE6 = Map.MAP_LONGITUDE_MAX_E6;
+		} else if (longitudeE6 < Map.MAP_LONGITUDE_MIN_E6) {
+			longitudeE6 = Map.MAP_LONGITUDE_MIN_E6;
+		}
+
+		final long leftPos = latitudeE6 - Map.MAP_LATITUDE_MIN_E6;
+		final long topPos = Map.MAP_LONGITUDE_MAX_E6 - longitudeE6;
 		final int x = (int) (leftPos / mSquareLat);
 		final int y = (int) (topPos / mSquareLon);
 
-		square[0] = (x * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingLeft;
-		square[1] = (y * (mSquareSize + mSquareMargin)) - (int) Math.floor(mSquareMargin / 2) + mPaddingTop;
+		square[0] = (x * (mSquareSize + mSquareMargin)) + mPaddingLeft;
+		square[1] = (y * (mSquareSize + mSquareMargin)) + mPaddingTop;
 
 		return square;
 	}
