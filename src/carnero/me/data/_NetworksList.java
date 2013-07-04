@@ -14,7 +14,6 @@ public class _NetworksList {
 		ENTRIES.add(new NetworkPlus());
 		ENTRIES.add(new NetworkTwitter());
 		ENTRIES.add(new NetworkInstagram());
-		ENTRIES.add(new NetworkFlickr());
 		ENTRIES.add(new Network500px());
 		ENTRIES.add(new NetworkPinterest());
 		ENTRIES.add(new NetworkFoursquare());

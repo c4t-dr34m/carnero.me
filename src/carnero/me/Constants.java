@@ -9,8 +9,8 @@ public class Constants {
 	public static final int TABLET_MIN_WIDTH_DP = 900;
 
 	// default position
-	public static final Integer DEF_LATITUDE = 14403600;
-	public static final Integer DEF_LONGITUDE = 50071020;
+	public static final Integer DEF_LATITUDE = 50071020;
+	public static final Integer DEF_LONGITUDE = 14403600;
 
 	// preferences & state
 	public static final String PREF_SIDE_USED = "side_used"; // boolean

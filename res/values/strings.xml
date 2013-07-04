@@ -21,10 +21,8 @@
 	<string name="network_twitter_desc">short &amp; related to nothing</string>
 	<string name="network_instagram">Instagram</string>
 	<string name="network_instagram_desc">pictures of this and that</string>
-	<string name="network_flickr">Flickr</string>
-	<string name="network_flickr_desc">photos from life</string>
 	<string name="network_500px">500px</string>
-	<string name="network_500px_desc">best of photos</string>
+	<string name="network_500px_desc">photos from life</string>
 	<string name="network_pinterest">Pinterest</string>
 	<string name="network_pinterest_desc">interesting pictures from web</string>
 	<string name="network_foursquare">Foursquare</string>

@@ -10,7 +10,6 @@ import android.view.View;
 import carnero.me.Constants;
 import carnero.me.Map;
 import carnero.me.R;
-import carnero.me.VisitedPlaces;
 import carnero.me.model.GeoPoint;
 
 @SuppressWarnings("unused")
@@ -28,8 +27,6 @@ public class SquareMapView extends View {
 	// location
 	private Integer mLatitude = Constants.DEF_LATITUDE;
 	private Integer mLongitude = Constants.DEF_LONGITUDE;
-	private long mLatitudeMargin = 0l;
-	private long mLongitudeMargin = 0l;
 	private long mSquareLat;
 	private long mSquareLon;
 	// paint
@@ -107,37 +104,38 @@ public class SquareMapView extends View {
 		int y;
 		int posX;
 		int posY;
+		int point;
 
-		for (x = 0; x < Map.MAP_WIDTH; x++) {
-			for (y = 0; y < Map.MAP_HEIGHT; y++) {
-				if (Map.MAP_DEFINITION[y][x]) {
+		for (x = 0; x < Map.WIDTH; x++) {
+			for (y = 0; y < Map.HEIGHT; y++) {
+				point = Map.MAP_DEFINITION[y][x];
+				if (point > 0) {
 					posX = (x * (mSquareSize + mSquareMargin)) + mPaddingLeft;
 					posY = (y * (mSquareSize + mSquareMargin)) + mPaddingTop;
 
-					canvas.drawRect(posX, posY, posX + mSquareSize, posY + mSquareSize, mSquareGreyPaint); // left top right bottom
+					switch (point) {
+						case 1:
+							canvas.drawRect(posX, posY, posX + mSquareSize, posY + mSquareSize, mSquareGreyPaint); // left top right bottom
+							break;
+						case 2:
+							canvas.drawRect(posX, posY, posX + mSquareSize, posY + mSquareSize, mSquareHighlightPaint); // left top right bottom
+							break;
+						case 3:
+							int cnt = mLocationGlow.length;
+							RectF rect;
+							for (int g : mLocationGlow) {
+								rect = new RectF(posX - cnt, posY - cnt, posX + cnt + mSquareSize, posY + cnt + mSquareSize);
+
+								mSquareBluePaint.setAlpha(g);
+								canvas.drawRoundRect(rect, cnt, cnt, mSquareBluePaint);
+
+								cnt = cnt - 1;
+							}
+							break;
+						default:
+							continue;
+					}
 				}
-			}
-		}
-
-		// visited places
-		for (int[] place : VisitedPlaces.VISITED_PLACES_E6) {
-			final int[] square = getSquareFromLocation(place[0], place[1]);
-			canvas.drawRect(square[0], square[1], square[0] + mSquareSize, square[1] + mSquareSize, mSquareHighlightPaint);
-		}
-
-		// current location
-		if (mLatitude != null && mLongitude != null) {
-			final int[] square = getSquareFromLocation(mLatitude, mLongitude);
-
-			int cnt = mLocationGlow.length;
-			RectF rect;
-			for (int g : mLocationGlow) {
-				rect = new RectF(square[0] - cnt, square[1] - cnt, square[0] + cnt + mSquareSize, square[1] + cnt + mSquareSize);
-
-				mSquareBluePaint.setAlpha(g);
-				canvas.drawRoundRect(rect, cnt, cnt, mSquareBluePaint);
-
-				cnt = cnt - 1;
 			}
 		}
 
@@ -152,8 +150,8 @@ public class SquareMapView extends View {
 	}
 
 	private void countSquareSize() {
-		final float maxSquareW = mWidth / Map.MAP_WIDTH; // maximum square width
-		final float maxSquareH = mHeight / Map.MAP_HEIGHT; // maximum square height
+		final float maxSquareW = mWidth / Map.WIDTH; // maximum square width
+		final float maxSquareH = mHeight / Map.HEIGHT; // maximum square height
 
 		final float maxSquare;
 		if (maxSquareW <= maxSquareH) {
@@ -172,40 +170,12 @@ public class SquareMapView extends View {
 
 		mSquareSize = (int) Math.floor(square);
 
-		mLatitudeMargin = (int) (180 * 1e6) - Math.abs(Map.MAP_LATITUDE_MIN_E6);
-		mLongitudeMargin = (int) (90 * 1e6) - Map.MAP_LONGITUDE_MAX_E6;
+		mPaddingLeft = Math.round((mWidth - (Map.WIDTH * (mSquareSize + mSquareMargin))) / 2);
+		mPaddingTop = Math.round((mHeight - (Map.HEIGHT * (mSquareSize + mSquareMargin))) / 2);
 
-		mPaddingLeft = Math.round((mWidth - (Map.MAP_WIDTH * (mSquareSize + mSquareMargin))) / 2);
-		mPaddingTop = Math.round((mHeight - (Map.MAP_HEIGHT * (mSquareSize + mSquareMargin))) / 2);
-
-		mSquareLat = (Map.MAP_LATITUDE_MAX_E6 - Map.MAP_LATITUDE_MIN_E6) / Map.MAP_WIDTH;
-		mSquareLon = (Map.MAP_LONGITUDE_MAX_E6 - Map.MAP_LONGITUDE_MIN_E6) / Map.MAP_HEIGHT;
+		mSquareLat = (Map.LATITUDE_MAX_E6 - Map.LATITUDE_MIN_E6) / Map.HEIGHT;
+		mSquareLon = (Map.LONGITUDE_MAX_E6 - Map.LONGITUDE_MIN_E6) / Map.WIDTH;
 
 		mRenderMap = mSquareSize >= 2;
-	}
-
-	private int[] getSquareFromLocation(int latitudeE6, int longitudeE6) {
-		final int[] square = new int[]{0, 0};
-
-		if (latitudeE6 > Map.MAP_LATITUDE_MAX_E6) {
-			latitudeE6 = Map.MAP_LATITUDE_MAX_E6;
-		} else if (latitudeE6 < Map.MAP_LATITUDE_MIN_E6) {
-			latitudeE6 = Map.MAP_LATITUDE_MIN_E6;
-		}
-		if (longitudeE6 > Map.MAP_LONGITUDE_MAX_E6) {
-			longitudeE6 = Map.MAP_LONGITUDE_MAX_E6;
-		} else if (longitudeE6 < Map.MAP_LONGITUDE_MIN_E6) {
-			longitudeE6 = Map.MAP_LONGITUDE_MIN_E6;
-		}
-
-		final long leftPos = (latitudeE6 - mLatitudeMargin) - Map.MAP_LATITUDE_MIN_E6;
-		final long topPos = Map.MAP_LONGITUDE_MAX_E6 - (longitudeE6 - mLongitudeMargin);
-		final int x = (int) (leftPos / mSquareLat);
-		final int y = (int) (topPos / mSquareLon);
-
-		square[0] = (x * (mSquareSize + mSquareMargin)) + mPaddingLeft;
-		square[1] = (y * (mSquareSize + mSquareMargin)) + mPaddingTop;
-
-		return square;
 	}
 }

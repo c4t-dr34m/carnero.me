@@ -2,65 +2,66 @@ package carnero.me;
 
 public class VisitedPlaces {
 
+	// latitude, lognitude
 	public static final int[][] VISITED_PLACES_E6 = new int[][]{
 			// CZ
-			{14429000, 50085000}, // Prague, CZ
-			{14537700, 50686200}, // Ceska Lipa, CZ
-			{17132040, 50103940}, // Kouty nad Desnou, CZ
-			{18285000, 49840000}, // Ostrava, CZ
+			{50085000, 14429000}, // Prague, CZ
+			{50686200, 14537700}, // Ceska Lipa, CZ
+			{50103940, 17132040}, // Kouty nad Desnou, CZ
+			{49840000, 18285000}, // Ostrava, CZ
 			// D
-			{13410000, 52580000}, // Berlin, D
-			{11110000, 49450000}, // Nuremberg, D
-			{13710000, 51070000}, // Dresden, D
+			{52580000, 13410000}, // Berlin, D
+			{49450000, 11110000}, // Nuremberg, D
+			{51070000, 13710000}, // Dresden, D
 			// PL
-			{16930000, 52400000}, // Poznan, PL
+			{52400000, 16930000}, // Poznan, PL
 			// A
-			{16400000, 48220000}, // Wien, A
-			{11390000, 47270000}, // Innsbruck, A
+			{48220000, 16400000}, // Wien, A
+			{47270000, 11390000}, // Innsbruck, A
 			// CH
-			{7620000, 47580000}, // Basel, CH
+			{47580000, 7620000}, // Basel, CH
 			// B
-			{3224100, 51209300}, // Brugge, B
-			{5340000, 50930000}, // Hasselt, B
+			{51209300, 3224100}, // Brugge, B
+			{50930000, 5340000}, // Hasselt, B
 			// NL
-			{4904860, 52374380}, // Amsterdam, NL
+			{52374380, 4904860}, // Amsterdam, NL
 			// L
-			{6128000, 49616000}, // Luxembourg, L
+			{49616000, 6128000}, // Luxembourg, L
 			// F
-			{2380000, 48890000}, // Paris, F
+			{48890000, 2380000}, // Paris, F
 			// I
-			{9174000, 45485000}, // Milan, I
-			{12300000, 45450000}, // Venezia, I
-			{10287000, 43650000}, // Pisa, I
+			{45485000, 9174000}, // Milan, I
+			{45450000, 12300000}, // Venezia, I
+			{43650000, 10287000}, // Pisa, I
 			// E
-			{-380000, 39530000}, // Valencia, E
+			{39530000, -380000}, // Valencia, E
 			// P
-			{-9240000, 38740000}, // Lisbon, P
+			{38740000, -9240000}, // Lisbon, P
 			// DK
-			{8500000, 55470000}, // Esbjerg, DK
+			{55470000, 8500000}, // Esbjerg, DK
 			// N
-			{10670000, 59940000}, // Oslo, N
+			{59940000, 10670000}, // Oslo, N
 			// CR
-			{13499000, 45483000}, // Basanija, CR
+			{45483000, 13499000}, // Basanija, CR
 			// CA
-			{-114074000, 51053000}, // Calgary, AB, CA
-			{-113500000, 53550000}, // Edmonton, AB, CA
-			{-113262800, 50402900}, // Vulcan, AB, CA
-			{-115590000, 51200000}, // Banff, AB, CA
-			{-118050000, 52890000}, // Jasper, AB, CA
-			{-125790000, 58978000}, // Muncho Lake, BC, CA
-			{-122810000, 53910000}, // Prince George, BC, CA
-			{-123120000, 49250000}, // Vancouver, BC, CA
-			{-125832000, 49092000}, // Pacific Rim, BC, CA
-			{-139432550, 64062970}, // Dawson City, YT, CA
-			{-134898000, 67335000}, // Fort McPherson, NT, CA
+			{51053000, -114074000}, // Calgary, AB, CA
+			{53550000, -113500000}, // Edmonton, AB, CA
+			{50402900, -113262800}, // Vulcan, AB, CA
+			{51200000, -115590000}, // Banff, AB, CA
+			{52890000, -118050000}, // Jasper, AB, CA
+			{58978000, -125790000}, // Muncho Lake, BC, CA
+			{53910000, -122810000}, // Prince George, BC, CA
+			{49250000, -123120000}, // Vancouver, BC, CA
+			{49092000, -125832000}, // Pacific Rim, BC, CA
+			{64062970, -139432550}, // Dawson City, YT, CA
+			{67335000, -134898000}, // Fort McPherson, NT, CA
 			// USA
-			{-142971000, 63332000}, // Tok, AK, USA
-			{-130020000, 55903000}, // Hyder, AK, USA
+			{63332000, -142971000}, // Tok, AK, USA
+			{55903000, -130020000}, // Hyder, AK, USA
 			// test
-			{-179000000, 52100000}, // western Alaska
-			{-171000000, 66200000}, // eastern Kamchatka
-			{-69000000, -55000000}, // southern Chile
-			{147000000, -42000000}, // Tasmania
+			{52100000, -179000000}, // western Alaska
+			{66200000, -171000000}, // eastern Kamchatka
+			{-55000000, -69000000}, // southern Chile
+			{-42000000, 147000000}, // Tasmania
 	};
 }
