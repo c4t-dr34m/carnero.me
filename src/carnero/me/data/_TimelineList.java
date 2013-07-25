@@ -28,6 +28,7 @@ public class _TimelineList {
 		ENTRIES.add(new ProjectSkoMeet());
 		ENTRIES.add(new ProjectTmoME());
 		ENTRIES.add(new ProjectVdfFotografik());
+		ENTRIES.add(new ProjectAdlTaxi());
 		// jobs
 		ENTRIES.add(new WorkInmiteSenior());
 		ENTRIES.add(new WorkOracle());
