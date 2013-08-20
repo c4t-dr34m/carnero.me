@@ -27,7 +27,6 @@ public class VcardFragment extends Fragment {
 	private Context mContext;
 	private View mContent;
 	//
-	private GeoPoint mLocation;
 	private boolean mNickDisplayed = true;
 	private boolean mAnimating = false;
 	// views
@@ -124,13 +123,6 @@ public class VcardFragment extends Fragment {
 		});
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-
-		getLocation();
-	}
-
 	private void setPhoneNumber() {
 		boolean full = true;
 
@@ -148,13 +140,6 @@ public class VcardFragment extends Fragment {
 		} else {
 			((TextView) mContent.findViewById(R.id.contact_phone_value)).setText("777 209 671");
 		}
-	}
-
-	private void getLocation() {
-		final LocationHandler handler = new LocationHandler();
-		final LocationThread thread = new LocationThread(handler);
-
-		thread.start();
 	}
 
 	public void animateToName() {
@@ -211,33 +196,5 @@ public class VcardFragment extends Fragment {
 
 		mName.startAnimation(mSlideTop);
 		mNickFrame.startAnimation(mSlideBottom);
-	}
-
-	// classes
-	private class LocationThread extends Thread {
-
-		private Handler mHandler;
-
-		public LocationThread(Handler handler) {
-			mHandler = handler;
-		}
-
-		@Override
-		public void run() {
-			mLocation = new Latitude().getCoordinates();
-
-			mHandler.sendEmptyMessage(1);
-		}
-	}
-
-	private class LocationHandler extends Handler {
-
-		public void handleMessage(Message message) {
-			if (mLocation == null) {
-				return;
-			}
-
-			mMap.setCurrentLocation(mLocation);
-		}
 	}
 }
